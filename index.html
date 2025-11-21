@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Averis - Automation & System Optimization</title>
+    <meta name="description" content="Averis provides custom business automation and system optimization solutions for small companies. Streamline workflows, reduce manual work, and boost efficiency.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Averis</h2>
+            </div>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">Automate Your Business, <span class="highlight">Optimize Your Success</span></h1>
+                <p class="hero-subtitle">Custom software solutions that eliminate manual work and streamline your operations. Built specifically for small businesses ready to scale.</p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary" onclick="openModal('auditModal')">Get Free System Audit</button>
+                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-illustration">
+                    <i class="fas fa-cogs"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-title">What We Do</h2>
+            <p class="section-subtitle">We build custom software that fits your business like a glove</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Business Automation</h3>
+                    <p>Automate repetitive tasks, workflows, and processes to save time and reduce human error.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Custom Software</h3>
+                    <p>Tailored solutions that replace multiple disconnected tools with one integrated system.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>System Optimization</h3>
+                    <p>Analyze and improve your existing processes to maximize efficiency and productivity.</p>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>AI Integration</h3>
+                    <p>Add intelligent features like chatbots, document analysis, and predictive insights.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-title">Modular Pricing</h2>
+            <p class="section-subtitle">Like building blocks - pick only what you need, expand when you're ready</p>
+            
+            <div class="pricing-grid">
+                <!-- Core System -->
+                <div class="pricing-card featured">
+                    <div class="pricing-header">
+                        <div class="pricing-badge core">Core</div>
+                        <h3>Base System</h3>
+                        <div class="price">$1,500 - $4,000</div>
+                        <p class="price-note">One-time setup</p>
+                    </div>
+                    <div class="pricing-features">
+                        <h4>Includes:</h4>
+                        <ul>
+                            <li><i class="fas fa-check"></i> Dashboard & Admin Panel</li>
+                            <li><i class="fas fa-check"></i> User Login & Roles</li>
+                            <li><i class="fas fa-check"></i> Database Setup</li>
+                            <li><i class="fas fa-check"></i> CRUD Operations</li>
+                            <li><i class="fas fa-check"></i> Basic Reporting</li>
+                            <li><i class="fas fa-check"></i> Deployment</li>
+                        </ul>
+                    </div>
+                    <p class="pricing-note">Required for all projects</p>
+                </div>
+
+                <!-- Automation Module -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-badge automation">Add-on</div>
+                        <h3>Automation</h3>
+                        <div class="price">$500 - $4,000</div>
+                        <p class="price-note">Per module</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Email/SMS Reminders</li>
+                            <li><i class="fas fa-check"></i> Auto PDF Reports</li>
+                            <li><i class="fas fa-check"></i> Follow-up Messages</li>
+                            <li><i class="fas fa-check"></i> Inventory Alerts</li>
+                            <li><i class="fas fa-check"></i> Auto Billing</li>
+                            <li><i class="fas fa-check"></i> Calendar Sync</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- CRM Module -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-badge crm">Add-on</div>
+                        <h3>CRM System</h3>
+                        <div class="price">$800 - $5,000</div>
+                        <p class="price-note">Complete CRM</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Contact Management</li>
+                            <li><i class="fas fa-check"></i> Sales Pipelines</li>
+                            <li><i class="fas fa-check"></i> Task Management</li>
+                            <li><i class="fas fa-check"></i> Automated Reminders</li>
+                            <li><i class="fas fa-check"></i> Notes & Tagging</li>
+                            <li><i class="fas fa-check"></i> Activity Timeline</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- AI Module -->
+                <div class="pricing-card premium">
+                    <div class="pricing-header">
+                        <div class="pricing-badge ai">Premium</div>
+                        <h3>AI Features</h3>
+                        <div class="price">$1,000 - $10,000</div>
+                        <p class="price-note">+ Monthly usage fees</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> AI Chat Assistant</li>
+                            <li><i class="fas fa-check"></i> Document Search</li>
+                            <li><i class="fas fa-check"></i> AI Insights & Reports</li>
+                            <li><i class="fas fa-check"></i> Content Summarization</li>
+                            <li><i class="fas fa-check"></i> Custom AI Workflows</li>
+                            <li><i class="fas fa-check"></i> Voice-to-Text</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- E-Commerce -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-badge ecommerce">Add-on</div>
+                        <h3>E-Commerce</h3>
+                        <div class="price">$1,000 - $8,000</div>
+                        <p class="price-note">Payment systems</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> Online Checkout</li>
+                            <li><i class="fas fa-check"></i> Subscriptions</li>
+                            <li><i class="fas fa-check"></i> Invoicing System</li>
+                            <li><i class="fas fa-check"></i> Stripe Integration</li>
+                            <li><i class="fas fa-check"></i> Square Integration</li>
+                            <li><i class="fas fa-check"></i> PayPal Integration</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Integrations -->
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <div class="pricing-badge integration">Add-on</div>
+                        <h3>Integrations</h3>
+                        <div class="price">$500 - $5,000</div>
+                        <p class="price-note">Per integration</p>
+                    </div>
+                    <div class="pricing-features">
+                        <ul>
+                            <li><i class="fas fa-check"></i> QuickBooks</li>
+                            <li><i class="fas fa-check"></i> Google Calendar</li>
+                            <li><i class="fas fa-check"></i> Slack</li>
+                            <li><i class="fas fa-check"></i> Shopify</li>
+                            <li><i class="fas fa-check"></i> Twilio SMS</li>
+                            <li><i class="fas fa-check"></i> Zapier</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pricing-footer">
+                <p><strong>Hosting:</strong> $150-$800/month (required)</p>
+                <p><strong>Support Plans:</strong> Basic ($100/mo), Standard ($300/mo), Premium ($800/mo)</p>
+                <button class="btn btn-primary" onclick="openModal('auditModal')">Start Your Free Audit</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Why Choose Averis?</h2>
+                    <p>We specialize in helping small businesses break free from inefficient processes and disconnected software tools.</p>
+                    
+                    <div class="benefits">
+                        <div class="benefit">
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <h4>Save Time</h4>
+                                <p>Automate repetitive tasks and eliminate manual data entry</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-dollar-sign"></i>
+                            <div>
+                                <h4>Reduce Costs</h4>
+                                <p>Replace multiple software subscriptions with one integrated solution</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-chart-bar"></i>
+                            <div>
+                                <h4>Scale Efficiently</h4>
+                                <p>Systems that grow with your business, not against it</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="process">
+                        <h3>Our Process</h3>
+                        <div class="process-steps">
+                            <div class="step">
+                                <span class="step-number">1</span>
+                                <div>
+                                    <h4>Free Audit</h4>
+                                    <p>We analyze your current workflows and identify opportunities</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">2</span>
+                                <div>
+                                    <h4>Custom Proposal</h4>
+                                    <p>Tailored solution with modular pricing for your specific needs</p>
+                                </div>
+                            </div>
+                            <div class="step">
+                                <span class="step-number">3</span>
+                                <div>
+                                    <h4>Build & Deploy</h4>
+                                    <p>We develop, test, and launch your custom system with full training</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Ready to Transform Your Business?</h2>
+            <p class="section-subtitle">Let's start with a free 30-minute system audit</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>hello@averis.com</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-calendar"></i>
+                        <div>
+                            <h4>Free Consultation</h4>
+                            <p>Book a 30-minute audit call</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Averis</h3>
+                    <p>Automation & System Optimization for Small Businesses</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">Business Automation</a></li>
+                        <li><a href="#services">Custom Software</a></li>
+                        <li><a href="#services">System Optimization</a></li>
+                        <li><a href="#services">AI Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Averis. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Audit Modal -->
+    <div id="auditModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Free System Audit</h3>
+                <span class="close" onclick="closeModal('auditModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Let's identify opportunities to automate your business and save you time.</p>
+                <form id="auditForm" class="audit-form">
+                    <div class="form-group">
+                        <label for="company">Company Name</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business-type">What does your business do?</label>
+                        <textarea id="business-type" name="business-type" rows="3" placeholder="Brief description of your business..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pain-points">What processes are slowing you down?</label>
+                        <textarea id="pain-points" name="pain-points" rows="3" placeholder="Describe manual tasks, inefficient processes, or problems you're facing..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="staff-size">How many staff members?</label>
+                        <select id="staff-size" name="staff-size">
+                            <option value="">Select size...</option>
+                            <option value="1-5">1-5 employees</option>
+                            <option value="6-15">6-15 employees</option>
+                            <option value="16-50">16-50 employees</option>
+                            <option value="50+">50+ employees</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Schedule My Free Audit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
