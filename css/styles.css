@@ -103,10 +103,24 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.5rem;
     text-decoration: none;
     transition: opacity 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .nav-logo:hover {
     opacity: 0.8;
+}
+
+.nav-logo:focus,
+.nav-logo:active,
+.nav-logo:visited {
+    outline: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
 }
 
 .nav-logo h2 {
@@ -138,18 +152,90 @@ h1, h2, h3, h4, h5, h6 {
     color: #06b6d4;
 }
 
-.hamburger {
+/* Burger button - checkbox-based with no focus outline */
+.burger {
     display: none;
-    flex-direction: column;
+    position: relative;
+    width: 40px;
+    height: 30px;
+    background: transparent;
     cursor: pointer;
+    border: none;
+    outline: none !important;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    padding: 0;
 }
 
-.bar {
-    width: 25px;
-    height: 3px;
-    background-color: #333;
-    margin: 3px 0;
-    transition: 0.3s;
+.burger,
+.burger:focus,
+.burger:active,
+.burger:hover,
+.burger input,
+.burger input:focus,
+.burger input:active {
+    outline: none !important;
+    box-shadow: none !important;
+    border: none !important;
+    background: transparent !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    user-select: none !important;
+}
+
+.burger input {
+    display: none;
+}
+
+.burger span {
+    display: block;
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background: #333;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+    top: 0px;
+    transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+    top: 50%;
+    transform: translateY(-50%);
+    transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+    top: 100%;
+    transform-origin: left center;
+    transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+    transform: rotate(45deg);
+    top: 0px;
+    left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+    width: 0%;
+    opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+    transform: rotate(-45deg);
+    top: 28px;
+    left: 5px;
 }
 
 /* Hero Section */
@@ -819,21 +905,22 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @media (max-width: 768px) {
-    .hamburger {
-        display: flex;
+    .burger {
+        display: block;
     }
     
     .nav-menu {
         position: fixed;
         left: -100%;
-        top: 80px;
+        top: 100%;
         flex-direction: column;
         background-color: white;
         width: 100%;
         text-align: center;
-        transition: 0.3s;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
         padding: 2rem 0;
+        border-top: 1px solid rgba(0, 0, 0, 0.05);
     }
     
     .nav-menu.active {
@@ -891,6 +978,12 @@ h1, h2, h3, h4, h5, h6 {
     .contact-item {
         min-width: auto;
     }
+    
+    .showcase-badge {
+        text-align: center;
+        display: block;
+        margin: 0 auto 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -915,6 +1008,14 @@ h1, h2, h3, h4, h5, h6 {
     .modal-header,
     .modal-body {
         padding: 1.5rem;
+    }
+    
+    .showcase-badge {
+        text-align: center;
+        display: block;
+        margin: 0 auto 1rem;
+        font-size: 0.75rem;
+        padding: 0.5rem 1rem;
     }
 }
 
@@ -1139,4 +1240,65 @@ textarea:focus,
 select:focus {
     outline: 2px solid #06b6d4;
     outline-offset: 2px;
+}
+
+/* From Uiverse.io by Cevorob */ 
+.burger {
+  position: relative;
+  width: 40px;
+  height: 30px;
+  background: transparent;
+  cursor: pointer;
+  display: block;
+}
+
+.burger input {
+  display: none;
+}
+
+.burger span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 100%;
+  background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: .25s ease-in-out;
+}
+
+.burger span:nth-of-type(1) {
+  top: 0px;
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(2) {
+  top: 50%;
+  transform: translateY(-50%);
+  transform-origin: left center;
+}
+
+.burger span:nth-of-type(3) {
+  top: 100%;
+  transform-origin: left center;
+  transform: translateY(-100%);
+}
+
+.burger input:checked ~ span:nth-of-type(1) {
+  transform: rotate(45deg);
+  top: 0px;
+  left: 5px;
+}
+
+.burger input:checked ~ span:nth-of-type(2) {
+  width: 0%;
+  opacity: 0;
+}
+
+.burger input:checked ~ span:nth-of-type(3) {
+  transform: rotate(-45deg);
+  top: 28px;
+  left: 5px;
 }

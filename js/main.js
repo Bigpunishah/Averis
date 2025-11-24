@@ -1,19 +1,22 @@
 // Navigation functionality
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile menu toggle
-    const hamburger = document.querySelector('.hamburger');
+    const burgerCheckbox = document.querySelector('#burger');
     const navMenu = document.querySelector('.nav-menu');
     
-    if (hamburger && navMenu) {
-        hamburger.addEventListener('click', function() {
-            hamburger.classList.toggle('active');
-            navMenu.classList.toggle('active');
+    if (burgerCheckbox && navMenu) {
+        burgerCheckbox.addEventListener('change', function() {
+            if (this.checked) {
+                navMenu.classList.add('active');
+            } else {
+                navMenu.classList.remove('active');
+            }
         });
         
         // Close menu when clicking on a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
+                burgerCheckbox.checked = false;
                 navMenu.classList.remove('active');
             });
         });
