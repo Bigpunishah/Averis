@@ -98,9 +98,47 @@ document.addEventListener('keydown', function(event) {
     }
 });
 
+// Service type toggle functionality
+function handleServiceTypeToggle() {
+    const serviceTypeInputs = document.querySelectorAll('input[name="service_type"]');
+    const painPointsGroup = document.querySelector('#pain_points').closest('.form-group');
+    const staffSizeGroup = document.querySelector('#staff_size').closest('.form-group');
+    
+    function toggleQuestions() {
+        const selectedService = document.querySelector('input[name="service_type"]:checked').value;
+        
+        if (selectedService === '24-hour-website') {
+            // Hide questions for website service with smooth animation
+            painPointsGroup.classList.add('hidden');
+            staffSizeGroup.classList.add('hidden');
+            
+            // Clear the values since they're not relevant
+            setTimeout(() => {
+                document.getElementById('pain_points').value = '';
+                document.getElementById('staff_size').value = '';
+            }, 300); // Wait for animation to complete
+        } else {
+            // Show questions for system optimization with smooth animation
+            painPointsGroup.classList.remove('hidden');
+            staffSizeGroup.classList.remove('hidden');
+        }
+    }
+    
+    // Add event listeners to both radio buttons
+    serviceTypeInputs.forEach(input => {
+        input.addEventListener('change', toggleQuestions);
+    });
+    
+    // Initialize the form with correct visibility
+    toggleQuestions();
+}
+
 // Form handling
 document.addEventListener('DOMContentLoaded', function() {
     const auditForm = document.getElementById('auditForm');
+    
+    // Initialize service type toggle
+    handleServiceTypeToggle();
     
     if (auditForm) {
         auditForm.addEventListener('submit', function(e) {
@@ -111,7 +149,15 @@ document.addEventListener('DOMContentLoaded', function() {
             const data = Object.fromEntries(formData.entries());
             
             // Validate required fields
-            const requiredFields = ['company', 'name', 'email'];
+            let requiredFields = ['company', 'name', 'email'];
+            
+            // Add conditional required fields based on service type
+            const selectedService = document.querySelector('input[name="service_type"]:checked').value;
+            if (selectedService === 'system-optimization') {
+                // Only require these fields for system optimization
+                requiredFields.push('business_type');
+            }
+            
             let isValid = true;
             
             requiredFields.forEach(field => {
@@ -143,39 +189,75 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function submitAuditForm(data) {
-    // Show loading state
+async function submitAuditForm(data) {
     const submitBtn = document.querySelector('#auditForm button[type="submit"]');
     const originalText = submitBtn.textContent;
-    submitBtn.textContent = 'Scheduling...';
+    
+    // Show loading state
+    submitBtn.textContent = 'Sending...';
     submitBtn.disabled = true;
     submitBtn.classList.add('loading');
     
-    // Simulate API call (replace with actual endpoint)
-    setTimeout(() => {
-        // Reset button
+    try {
+        // Create FormData for W3Forms
+        const formData = new FormData();
+        
+        // Add W3Forms access key (keep this secure)
+        formData.append("access_key", "84c20cad-57c5-4b25-a85e-22a443dd490a");
+        
+        // Add form fields
+        Object.keys(data).forEach(key => {
+            formData.append(key, data[key]);
+        });
+        
+        // Add additional metadata
+        formData.append("subject", "New Averis Consultation Request");
+        formData.append("from_name", data.name || "Website Visitor");
+        formData.append("redirect", window.location.href);
+        
+        // Submit to W3Forms
+        const response = await fetch("https://api.web3forms.com/submit", {
+            method: "POST",
+            body: formData
+        });
+        
+        const result = await response.json();
+        
+        if (response.ok && result.success) {
+            // Success
+            showNotification('Thank you! We\'ll contact you within 24 hours to schedule your free consultation.', 'success');
+            
+            // Close modal and reset form
+            closeModal('auditModal');
+            document.getElementById('auditForm').reset();
+            
+            // Track successful submission
+            trackEvent('form_submit_success', {
+                form_type: 'audit_consultation',
+                service_type: data.service_type
+            });
+            
+        } else {
+            // Error from W3Forms
+            throw new Error(result.message || 'Form submission failed');
+        }
+        
+    } catch (error) {
+        console.error('Form submission error:', error);
+        showNotification('Sorry, there was an error sending your message. Please try again or contact us directly.', 'error');
+        
+        // Track error
+        trackEvent('form_submit_error', {
+            error: error.message,
+            form_type: 'audit_consultation'
+        });
+        
+    } finally {
+        // Reset button state
         submitBtn.textContent = originalText;
         submitBtn.disabled = false;
         submitBtn.classList.remove('loading');
-        
-        // Show success message
-        showNotification('Thank you! We\'ll contact you within 24 hours to schedule your free audit.', 'success');
-        
-        // Close modal and reset form
-        closeModal('auditModal');
-        document.getElementById('auditForm').reset();
-        
-        // Log data for development (remove in production)
-        console.log('Audit form submitted:', data);
-        
-        // In a real application, you would send this data to your server:
-        // fetch('/api/submit-audit', {
-        //     method: 'POST',
-        //     headers: { 'Content-Type': 'application/json' },
-        //     body: JSON.stringify(data)
-        // });
-        
-    }, 2000);
+    }
 }
 
 // Notification system
