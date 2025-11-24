@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Averis - Automation & System Optimization</title>
     <meta name="description" content="Averis provides custom business automation and system optimization solutions for small companies. Streamline workflows, reduce manual work, and boost efficiency.">
+    <link rel="icon" type="image/png" href="A.png">
     <link rel="stylesheet" href="css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -13,15 +14,16 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-logo">
+            <a href="#home" class="nav-logo">
+                <img src="A.png" alt="Averis" class="logo-img">
                 <h2>Averis</h2>
-            </div>
+            </a>
             <div class="nav-menu">
                 <a href="#home" class="nav-link">Home</a>
-                <a href="#services" class="nav-link">Services</a>
+                <a href="#showcase" class="nav-link">Website Showcase</a>
                 <a href="#pricing" class="nav-link">Pricing</a>
-                <a href="#about" class="nav-link">About</a>
-                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#features" class="nav-link">Features</a>
+                <a href="#contact" class="nav-link">Get Started</a>
             </div>
             <div class="hamburger">
                 <span class="bar"></span>
@@ -35,58 +37,80 @@
     <section id="home" class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1 class="hero-title">Automate Your Business, <span class="highlight">Optimize Your Success</span></h1>
-                <p class="hero-subtitle">Custom software solutions that eliminate manual work and streamline your operations. Built specifically for small businesses ready to scale.</p>
+                <div class="showcase-badge">✨ This Could Be YOUR Website in 24 Hours!</div>
+                <h1 class="hero-title">Beautiful <span class="highlight">Professional Websites</span> That Convert</h1>
+                <p class="hero-subtitle">Love this design? We can build something just as stunning for your business in 24 hours. From $250-500, you get a complete website that works on all devices and attracts customers.</p>
                 <div class="hero-buttons">
-                    <button class="btn btn-primary" onclick="openModal('auditModal')">Get Free System Audit</button>
-                    <a href="#pricing" class="btn btn-secondary">View Pricing</a>
+                    <button class="btn btn-primary" onclick="openModal('auditModal')">Get My Website in 24 Hours</button>
+                    <a href="#showcase" class="btn btn-secondary">See What You Get</a>
                 </div>
+                <p class="hero-proof">Over 50+ projects completed • 5-star reviews • 24-hour guarantee</p>
             </div>
             <div class="hero-image">
-                <div class="hero-illustration">
-                    <i class="fas fa-cogs"></i>
-                </div>
+                <img src="analytics-group.jpg" alt="Professional website design" class="hero-laptop">
             </div>
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section id="services" class="services">
+    <!-- Website Showcase Section -->
+    <section id="showcase" class="services">
         <div class="container">
-            <h2 class="section-title">What We Do</h2>
-            <p class="section-subtitle">We build custom software that fits your business like a glove</p>
+            <h2 class="section-title">This Is What You're Getting</h2>
+            <p class="section-subtitle">Every feature you see on this page can be yours in 24 hours</p>
             
             <div class="services-grid">
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-robot"></i>
+                        <i class="fas fa-eye"></i>
                     </div>
-                    <h3>Business Automation</h3>
-                    <p>Automate repetitive tasks, workflows, and processes to save time and reduce human error.</p>
+                    <h3>This Exact Design Style</h3>
+                    <p>Love the look of this page? We'll create something just as professional and eye-catching for your business.</p>
+                    <div class="service-highlight">Custom design • Your branding</div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-database"></i>
+                        <i class="fas fa-mobile-alt"></i>
                     </div>
-                    <h3>Custom Software</h3>
-                    <p>Tailored solutions that replace multiple disconnected tools with one integrated system.</p>
+                    <h3>Perfect Mobile Experience</h3>
+                    <p>Test this page on your phone right now! Your customers will have the same smooth experience.</p>
+                    <div class="service-highlight">80% of traffic is mobile</div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
+                        <i class="fas fa-rocket"></i>
                     </div>
-                    <h3>System Optimization</h3>
-                    <p>Analyze and improve your existing processes to maximize efficiency and productivity.</p>
+                    <h3>Lightning Fast Loading</h3>
+                    <p>Notice how quickly this page loaded? Your website will be just as fast, keeping visitors engaged.</p>
+                    <div class="service-highlight">Under 2 seconds load time</div>
                 </div>
                 
                 <div class="service-card">
                     <div class="service-icon">
-                        <i class="fas fa-brain"></i>
+                        <i class="fas fa-heart"></i>
                     </div>
-                    <h3>AI Integration</h3>
-                    <p>Add intelligent features like chatbots, document analysis, and predictive insights.</p>
+                    <h3>Built to Convert Visitors</h3>
+                    <p>Every button, form, and section is designed to turn visitors into customers - just like this page does.</p>
+                    <div class="service-highlight">Higher conversion rates</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3>Google-Friendly SEO</h3>
+                    <p>Built-in SEO optimization helps customers find you online, driving more traffic to your business.</p>
+                    <div class="service-highlight">Local search optimized</div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure & Professional</h3>
+                    <p>SSL certificates, secure forms, and professional hosting - everything you need to build trust.</p>
+                    <div class="service-highlight">Bank-level security</div>
                 </div>
             </div>
         </div>
@@ -95,195 +119,266 @@
     <!-- Pricing Section -->
     <section id="pricing" class="pricing">
         <div class="container">
-            <h2 class="section-title">Modular Pricing</h2>
-            <p class="section-subtitle">Like building blocks - pick only what you need, expand when you're ready</p>
+            <h2 class="section-title">Business Solutions</h2>
+            <p class="section-subtitle">Simple websites to complex automation - we've got you covered</p>
             
-            <div class="pricing-grid">
-                <!-- Core System -->
-                <div class="pricing-card featured">
-                    <div class="pricing-header">
-                        <div class="pricing-badge core">Core</div>
-                        <h3>Base System</h3>
-                        <div class="price">$1,500 - $4,000</div>
-                        <p class="price-note">One-time setup</p>
-                    </div>
-                    <div class="pricing-features">
-                        <h4>Includes:</h4>
-                        <ul>
-                            <li><i class="fas fa-check"></i> Dashboard & Admin Panel</li>
-                            <li><i class="fas fa-check"></i> User Login & Roles</li>
-                            <li><i class="fas fa-check"></i> Database Setup</li>
-                            <li><i class="fas fa-check"></i> CRUD Operations</li>
-                            <li><i class="fas fa-check"></i> Basic Reporting</li>
-                            <li><i class="fas fa-check"></i> Deployment</li>
-                        </ul>
-                    </div>
-                    <p class="pricing-note">Required for all projects</p>
-                </div>
-
-                <!-- Automation Module -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <div class="pricing-badge automation">Add-on</div>
-                        <h3>Automation</h3>
-                        <div class="price">$500 - $4,000</div>
-                        <p class="price-note">Per module</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Email/SMS Reminders</li>
-                            <li><i class="fas fa-check"></i> Auto PDF Reports</li>
-                            <li><i class="fas fa-check"></i> Follow-up Messages</li>
-                            <li><i class="fas fa-check"></i> Inventory Alerts</li>
-                            <li><i class="fas fa-check"></i> Auto Billing</li>
-                            <li><i class="fas fa-check"></i> Calendar Sync</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- CRM Module -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <div class="pricing-badge crm">Add-on</div>
-                        <h3>CRM System</h3>
-                        <div class="price">$800 - $5,000</div>
-                        <p class="price-note">Complete CRM</p>
-                    </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Contact Management</li>
-                            <li><i class="fas fa-check"></i> Sales Pipelines</li>
-                            <li><i class="fas fa-check"></i> Task Management</li>
-                            <li><i class="fas fa-check"></i> Automated Reminders</li>
-                            <li><i class="fas fa-check"></i> Notes & Tagging</li>
-                            <li><i class="fas fa-check"></i> Activity Timeline</li>
-                        </ul>
+            <!-- Website Solutions -->
+            <div class="pricing-category">
+                <h3 class="category-title">🌐 Website Solutions</h3>
+                <p class="category-subtitle">Professional websites ready in 24 hours</p>
+                
+                <div class="pricing-grid websites">
+                    <div class="pricing-card website-card">
+                        <div class="pricing-header">
+                            <div class="pricing-badge website">⚡ FAST</div>
+                            <h3>Professional Website</h3>
+                            <div class="price">$250 - $500</div>
+                            <p class="price-note">Ready in 24 hours</p>
+                        </div>
+                        <div class="pricing-features">
+                            <h4>Perfect for:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Small businesses getting online</li>
+                                <li><i class="fas fa-check"></i> Service providers & consultants</li>
+                                <li><i class="fas fa-check"></i> Local businesses & restaurants</li>
+                                <li><i class="fas fa-check"></i> Portfolio & showcase sites</li>
+                            </ul>
+                            <h4>Includes:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Custom design & branding</li>
+                                <li><i class="fas fa-check"></i> Mobile-responsive layout</li>
+                                <li><i class="fas fa-check"></i> Contact forms & CTAs</li>
+                                <li><i class="fas fa-check"></i> SEO optimization</li>
+                                <li><i class="fas fa-check"></i> Social media integration</li>
+                                <li><i class="fas fa-check"></i> Easy content management</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-addons">
+                            <h4>Available Add-ons:</h4>
+                            <ul>
+                                <li>• Domain registration & setup</li>
+                                <li>• Professional hosting & SSL</li>
+                                <li>• Email configuration</li>
+                                <li>• Monthly maintenance & updates</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Business Automation Solutions -->
+            <div class="pricing-category">
+                <h3 class="category-title">🚀 Business Automation & Software</h3>
+                <p class="category-subtitle">Custom software and intelligent automation that scales</p>
+                
+                <div class="pricing-grid">
+                    <!-- Core System -->
+                    <div class="pricing-card no-outline">
+                        <div class="pricing-header">
+                            <div class="pricing-badge core">Foundation</div>
+                            <h3>Core Business System</h3>
+                            <div class="price">Starting at $1,500</div>
+                            <p class="price-note">One-time setup • Required foundation</p>
+                        </div>
+                        <div class="pricing-features">
+                            <h4>Your business control center:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Custom dashboard & admin panel</li>
+                                <li><i class="fas fa-check"></i> User management & permissions</li>
+                                <li><i class="fas fa-check"></i> Secure database setup</li>
+                                <li><i class="fas fa-check"></i> Data management system</li>
+                                <li><i class="fas fa-check"></i> Basic reporting & analytics</li>
+                                <li><i class="fas fa-check"></i> Cloud deployment & security</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <!-- AI Module -->
-                <div class="pricing-card premium">
-                    <div class="pricing-header">
-                        <div class="pricing-badge ai">Premium</div>
-                        <h3>AI Features</h3>
-                        <div class="price">$1,000 - $10,000</div>
-                        <p class="price-note">+ Monthly usage fees</p>
+                    <!-- Automation Module -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="pricing-badge automation">Automation</div>
+                            <h3>Smart Workflows</h3>
+                            <div class="price">Starting at $500</div>
+                            <p class="price-note">Per automation module</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Email & SMS automation</li>
+                                <li><i class="fas fa-check"></i> Automatic report generation</li>
+                                <li><i class="fas fa-check"></i> Follow-up sequences</li>
+                                <li><i class="fas fa-check"></i> Inventory & alert systems</li>
+                                <li><i class="fas fa-check"></i> Billing & invoice automation</li>
+                                <li><i class="fas fa-check"></i> Calendar & scheduling sync</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> AI Chat Assistant</li>
-                            <li><i class="fas fa-check"></i> Document Search</li>
-                            <li><i class="fas fa-check"></i> AI Insights & Reports</li>
-                            <li><i class="fas fa-check"></i> Content Summarization</li>
-                            <li><i class="fas fa-check"></i> Custom AI Workflows</li>
-                            <li><i class="fas fa-check"></i> Voice-to-Text</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- E-Commerce -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <div class="pricing-badge ecommerce">Add-on</div>
-                        <h3>E-Commerce</h3>
-                        <div class="price">$1,000 - $8,000</div>
-                        <p class="price-note">Payment systems</p>
+                    <!-- CRM Module -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="pricing-badge crm">Customer Management</div>
+                            <h3>Complete CRM</h3>
+                            <div class="price">Starting at $800</div>
+                            <p class="price-note">Full customer system</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Contact & lead management</li>
+                                <li><i class="fas fa-check"></i> Sales pipeline tracking</li>
+                                <li><i class="fas fa-check"></i> Task & project management</li>
+                                <li><i class="fas fa-check"></i> Automated follow-ups</li>
+                                <li><i class="fas fa-check"></i> Notes & customer history</li>
+                                <li><i class="fas fa-check"></i> Activity timeline & insights</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> Online Checkout</li>
-                            <li><i class="fas fa-check"></i> Subscriptions</li>
-                            <li><i class="fas fa-check"></i> Invoicing System</li>
-                            <li><i class="fas fa-check"></i> Stripe Integration</li>
-                            <li><i class="fas fa-check"></i> Square Integration</li>
-                            <li><i class="fas fa-check"></i> PayPal Integration</li>
-                        </ul>
-                    </div>
-                </div>
 
-                <!-- Integrations -->
-                <div class="pricing-card">
-                    <div class="pricing-header">
-                        <div class="pricing-badge integration">Add-on</div>
-                        <h3>Integrations</h3>
-                        <div class="price">$500 - $5,000</div>
-                        <p class="price-note">Per integration</p>
+                    <!-- AI Module -->
+                    <div class="pricing-card premium no-outline">
+                        <div class="pricing-header">
+                            <div class="pricing-badge ai">AI Powered</div>
+                            <h3>Intelligence Layer</h3>
+                            <div class="price">Starting at $1,000</div>
+                            <p class="price-note">+ Monthly AI usage fees</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> AI customer service chatbot</li>
+                                <li><i class="fas fa-check"></i> Intelligent document search</li>
+                                <li><i class="fas fa-check"></i> Predictive analytics & insights</li>
+                                <li><i class="fas fa-check"></i> Content summarization</li>
+                                <li><i class="fas fa-check"></i> Custom AI workflows</li>
+                                <li><i class="fas fa-check"></i> Voice-to-text processing</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="pricing-features">
-                        <ul>
-                            <li><i class="fas fa-check"></i> QuickBooks</li>
-                            <li><i class="fas fa-check"></i> Google Calendar</li>
-                            <li><i class="fas fa-check"></i> Slack</li>
-                            <li><i class="fas fa-check"></i> Shopify</li>
-                            <li><i class="fas fa-check"></i> Twilio SMS</li>
-                            <li><i class="fas fa-check"></i> Zapier</li>
-                        </ul>
+
+                    <!-- E-Commerce -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="pricing-badge ecommerce">E-Commerce</div>
+                            <h3>Online Sales System</h3>
+                            <div class="price">Starting at $1,000</div>
+                            <p class="price-note">Complete payment solution</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> Secure online checkout</li>
+                                <li><i class="fas fa-check"></i> Subscription management</li>
+                                <li><i class="fas fa-check"></i> Automated invoicing</li>
+                                <li><i class="fas fa-check"></i> Stripe payment integration</li>
+                                <li><i class="fas fa-check"></i> Square & PayPal support</li>
+                                <li><i class="fas fa-check"></i> Order management system</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Integrations -->
+                    <div class="pricing-card">
+                        <div class="pricing-header">
+                            <div class="pricing-badge integration">Integrations</div>
+                            <h3>System Connections</h3>
+                            <div class="price">Starting at $500</div>
+                            <p class="price-note">Per integration</p>
+                        </div>
+                        <div class="pricing-features">
+                            <ul>
+                                <li><i class="fas fa-check"></i> QuickBooks accounting sync</li>
+                                <li><i class="fas fa-check"></i> Google Workspace integration</li>
+                                <li><i class="fas fa-check"></i> Slack & communication tools</li>
+                                <li><i class="fas fa-check"></i> Shopify & e-commerce platforms</li>
+                                <li><i class="fas fa-check"></i> Twilio SMS & calling</li>
+                                <li><i class="fas fa-check"></i> Zapier workflow automation</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
+            <!-- Ongoing Services -->
             <div class="pricing-footer">
-                <p><strong>Hosting:</strong> $150-$800/month (required)</p>
-                <p><strong>Support Plans:</strong> Basic ($100/mo), Standard ($300/mo), Premium ($800/mo)</p>
-                <button class="btn btn-primary" onclick="openModal('auditModal')">Start Your Free Audit</button>
+                <div class="ongoing-services">
+                    <h3>Ongoing Services & Support</h3>
+                    <div class="services-row">
+                        <div class="service-item">
+                            <h4>Hosting & Infrastructure</h4>
+                            <p>Secure, fast hosting for websites and business systems</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Support & Maintenance</h4>
+                            <p>Basic, Standard, and Premium support plans available</p>
+                        </div>
+                        <div class="service-item">
+                            <h4>Domain & Email Services</h4>
+                            <p>Complete domain registration and professional email setup</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="cta-section">
+                    <h3>Want This Level of Quality for Your Business?</h3>
+                    <p>Professional websites starting at $250 - delivered in 24 hours with everything you need.</p>
+                    <button class="btn btn-primary btn-large" onclick="openModal('auditModal')">Get My Website in 24 Hours</button>
+                    <p class="guarantee-text">100% Satisfaction Guarantee • 24-Hour Delivery Promise</p>
+                </div>
             </div>
         </div>
-    </section>
+    </section>"
 
-    <!-- About Section -->
-    <section id="about" class="about">
+    <!-- Features Section -->
+    <section id="features" class="about">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>Why Choose Averis?</h2>
-                    <p>We specialize in helping small businesses break free from inefficient processes and disconnected software tools.</p>
+                    <h2>Why Your Business Needs a Website Like This</h2>
+                    <p>See how this professional design builds trust and converts visitors? Your website will work the same way.</p>
                     
                     <div class="benefits">
                         <div class="benefit">
+                            <i class="fas fa-users"></i>
+                            <div>
+                                <h4>Attract More Customers</h4>
+                                <p>Professional websites get 2x more leads than DIY sites</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
+                            <i class="fas fa-trophy"></i>
+                            <div>
+                                <h4>Stand Out From Competitors</h4>
+                                <p>Custom design makes you look established and trustworthy</p>
+                            </div>
+                        </div>
+                        <div class="benefit">
                             <i class="fas fa-clock"></i>
                             <div>
-                                <h4>Save Time</h4>
-                                <p>Automate repetitive tasks and eliminate manual data entry</p>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-dollar-sign"></i>
-                            <div>
-                                <h4>Reduce Costs</h4>
-                                <p>Replace multiple software subscriptions with one integrated solution</p>
-                            </div>
-                        </div>
-                        <div class="benefit">
-                            <i class="fas fa-chart-bar"></i>
-                            <div>
-                                <h4>Scale Efficiently</h4>
-                                <p>Systems that grow with your business, not against it</p>
+                                <h4>Ready in 24 Hours</h4>
+                                <p>No waiting weeks or months - your website launches tomorrow</p>
                             </div>
                         </div>
                     </div>
 
                     <div class="process">
-                        <h3>Our Process</h3>
+                        <h3>How You Get Your Website in 24 Hours</h3>
                         <div class="process-steps">
                             <div class="step">
                                 <span class="step-number">1</span>
                                 <div>
-                                    <h4>Free Audit</h4>
-                                    <p>We analyze your current workflows and identify opportunities</p>
+                                    <h4>Tell Us About Your Business</h4>
+                                    <p>15-minute call to understand your brand and goals</p>
                                 </div>
                             </div>
                             <div class="step">
                                 <span class="step-number">2</span>
                                 <div>
-                                    <h4>Custom Proposal</h4>
-                                    <p>Tailored solution with modular pricing for your specific needs</p>
+                                    <h4>We Design & Build</h4>
+                                    <p>Professional design, mobile optimization, and SEO setup</p>
                                 </div>
                             </div>
                             <div class="step">
                                 <span class="step-number">3</span>
                                 <div>
-                                    <h4>Build & Deploy</h4>
-                                    <p>We develop, test, and launch your custom system with full training</p>
+                                    <h4>Your Website Goes Live</h4>
+                                    <p>24 hours later, you're online and attracting customers</p>
                                 </div>
                             </div>
                         </div>
@@ -296,30 +391,23 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title">Ready to Transform Your Business?</h2>
-            <p class="section-subtitle">Let's start with a free 30-minute system audit</p>
+            <h2 class="section-title">Ready for Your Own Professional Website?</h2>
+            <p class="section-subtitle">If you love this design, imagine what we can create for YOUR business in 24 hours</p>
             
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <h4>Phone</h4>
-                            <p>+1 (555) 123-4567</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
                         <i class="fas fa-envelope"></i>
                         <div>
                             <h4>Email</h4>
-                            <p>hello@averis.com</p>
+                            <p><a href="mailto:hello@averis.us">hello@averis.us</a></p>
                         </div>
                     </div>
                     <div class="contact-item">
                         <i class="fas fa-calendar"></i>
                         <div>
                             <h4>Free Consultation</h4>
-                            <p>Book a 30-minute audit call</p>
+                            <p>Book a 30-minute strategy session</p>
                         </div>
                     </div>
                 </div>
@@ -332,8 +420,11 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Averis</h3>
-                    <p>Automation & System Optimization for Small Businesses</p>
+                    <div class="footer-logo">
+                        <img src="A.png" alt="Averis" class="logo-img-footer">
+                        <h3>Averis</h3>
+                    </div>
+                    <p>Lightning speed website development • Automation & System Optimization for Small Businesses</p>
                 </div>
                 <div class="footer-section">
                     <h4>Services</h4>
@@ -363,12 +454,23 @@
     <div id="auditModal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3>Free System Audit</h3>
+                <h3>Get Your Website in 24 Hours</h3>
                 <span class="close" onclick="closeModal('auditModal')">&times;</span>
             </div>
             <div class="modal-body">
-                <p>Let's identify opportunities to automate your business and save you time.</p>
+                <p>Love this website design? Tell us about your business and we'll create something just as professional for you.</p>
                 <form id="auditForm" class="audit-form">
+                    <div class="form-group">
+                        <label>I'm interested in:</label>
+                        <div class="toggle-buttons">
+                            <input type="radio" id="website" name="service-type" value="24-hour-website" checked>
+                            <label for="website" class="toggle-btn">24 Hour Website</label>
+                            
+                            <input type="radio" id="automation" name="service-type" value="system-optimization">
+                            <label for="automation" class="toggle-btn">System Optimization</label>
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <label for="company">Company Name</label>
                         <input type="text" id="company" name="company" required>
@@ -410,7 +512,7 @@
                         </select>
                     </div>
                     
-                    <button type="submit" class="btn btn-primary">Schedule My Free Audit</button>
+                    <button type="submit" class="btn btn-primary">Schedule My Free Consultation</button>
                 </form>
             </div>
         </div>
