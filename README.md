@@ -29,14 +29,27 @@ Averis helps small businesses streamline their operations through custom softwar
 averis/
 ├── .github/
 │   └── copilot-instructions.md    # Workspace-specific instructions
-├── css/
-│   └── styles.css                 # All styling and responsive design
-├── js/
-│   └── main.js                    # Interactive functionality
+├── public/
+│   ├── template/                  # Master template for local companies
+│   │   ├── index.html            # Homepage template
+│   │   ├── about.html            # About page template
+│   │   ├── services.html         # Services page template
+│   │   └── assets/
+│   │       ├── css/
+│   │       │   └── styles.css    # Master stylesheet
+│   │       ├── js/
+│   │       │   └── main.js       # JavaScript functionality
+│   │       └── images/           # Template images
+│   ├── samplecompany/            # Example company implementation
+│   └── [localcompanyname]/       # Individual company directories
+├── css/                          # Original files (legacy)
+├── js/                           # Original files (legacy)
 ├── .vscode/
-│   └── tasks.json                 # VS Code tasks for development
-├── index.html                     # Main landing page
-└── README.md                      # Project documentation
+│   └── tasks.json                # VS Code tasks for development
+├── index.html                    # Main Averis landing page
+├── LOCAL_COMPANY_SETUP.md        # Setup guide for local companies
+├── create-company-site.ps1       # PowerShell script to generate sites
+└── README.md                     # Project documentation
 ```
 
 ## 🛠️ Tech Stack
@@ -158,6 +171,38 @@ The site includes:
 - **Hosting**: $150-$800/month
 - **Support Plans**: Basic ($100), Standard ($300), Premium ($800)
 - **AI Usage**: $50-$500/month (usage-based)
+
+## 🏢 Local Company Websites
+
+The Averis system now supports creating customized websites for local companies using a template-based approach.
+
+### Features
+- **URL Structure**: `averis.us/localcompanyname/`
+- **Multi-page Sites**: Homepage, About, Services pages
+- **Template Variables**: Easy content customization
+- **Branded Design**: Company logos, colors, and content
+- **SEO Optimized**: Local business optimization
+
+### Quick Setup
+1. **Use PowerShell Script**:
+   ```powershell
+   .\create-company-site.ps1 -CompanySlug "smithplumbing" -CompanyName "Smith Plumbing" -CompanyEmail "info@smithplumbing.com"
+   ```
+
+2. **Manual Setup**:
+   - Copy `/public/template/` to `/public/companyname/`
+   - Replace template variables in all HTML files
+   - Add company logo and images
+   - Test the website
+
+### Template Variables
+- `{{COMPANY_NAME}}` - Business name
+- `{{COMPANY_TAGLINE}}` - Company slogan
+- `{{COMPANY_EMAIL}}` - Contact email
+- `{{SERVICE_1_TITLE}}` - Service names
+- And many more (see `LOCAL_COMPANY_SETUP.md`)
+
+For detailed setup instructions, see [LOCAL_COMPANY_SETUP.md](./LOCAL_COMPANY_SETUP.md)
 
 ## 🤝 Contributing
 

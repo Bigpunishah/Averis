@@ -1,3 +1,4 @@
+/* Averis CSS */
 /* Reset and Base Styles */
 * {
     margin: 0;
@@ -119,7 +120,6 @@ h1, h2, h3, h4, h5, h6 {
 .nav-logo:active,
 .nav-logo:visited {
     outline: none !important;
-    box-shadow: none !important;
     background: transparent !important;
 }
 
@@ -176,7 +176,6 @@ h1, h2, h3, h4, h5, h6 {
 .burger input:focus,
 .burger input:active {
     outline: none !important;
-    box-shadow: none !important;
     border: none !important;
     background: transparent !important;
     -webkit-tap-highlight-color: transparent !important;
@@ -276,20 +275,6 @@ h1, h2, h3, h4, h5, h6 {
     color: #666;
     margin-bottom: 2rem;
     line-height: 1.6;
-}
-
-.showcase-badge {
-    display: inline-block;
-    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
-    color: white;
-    padding: 0.75rem 1.5rem;
-    border-radius: 25px;
-    font-weight: 600;
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-    animation: pulse 2s infinite;
-    box-shadow: 0 4px 15px rgba(249, 115, 22, 0.4);
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .hero-proof {
@@ -1206,25 +1191,166 @@ h1, h2, h3, h4, h5, h6 {
     100% { transform: scale(1); }
 }
 
+/* Portfolio Section */
+.portfolio {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+}
+
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.portfolio-item {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.portfolio-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+}
+
+.portfolio-item.featured {
+    border-color: #06b6d4;
+    transform: scale(1.02);
+}
+
+.portfolio-image {
+    height: 200px;
+    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.portfolio-placeholder {
+    text-align: center;
+    color: white;
+}
+
+.portfolio-placeholder i {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.portfolio-placeholder span {
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.portfolio-content {
+    padding: 2rem;
+}
+
+.portfolio-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.portfolio-item h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1rem;
+    color: #1a1a1a;
+}
+
+.portfolio-item p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.portfolio-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.feature-tag {
+    background: rgba(6, 182, 212, 0.1);
+    color: #06b6d4;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.portfolio-results {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 1.5rem;
+}
+
+.result-item {
+    text-align: center;
+}
+
+.result-number {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #06b6d4;
+    line-height: 1;
+}
+
+.result-label {
+    font-size: 0.9rem;
+    color: #666;
+    font-weight: 500;
+}
+
+.portfolio-actions {
+    margin-top: 1.5rem;
+}
+
+.portfolio-actions .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
 }
 
-/* Animation utilities */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Scroll Animation System */
+/* Elements start invisible and fade in when scrolled into view */
+.service-card,
+.pricing-card,
+.benefit,
+.step,
+.portfolio-item {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
 }
 
-.fade-in-up {
-    animation: fadeInUp 0.6s ease-out;
+/* Animate in when visible */
+.service-card.fade-in,
+.pricing-card.fade-in,
+.benefit.fade-in,
+.step.fade-in,
+.portfolio-item.fade-in {
+    opacity: 1;
+    transform: translateY(0);
 }
 
 /* Loading states */
@@ -1241,4 +1367,5 @@ select:focus {
     outline: 2px solid #06b6d4;
     outline-offset: 2px;
 }
+
 

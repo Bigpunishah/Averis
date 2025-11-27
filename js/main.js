@@ -349,14 +349,14 @@ function showNotification(message, type = 'info') {
     }, 5000);
 }
 
-// Scroll animations
+// Scroll animations - Clean fade-in system
 function handleScrollAnimations() {
-    const elements = document.querySelectorAll('.service-card, .pricing-card, .benefit, .step');
+    const elements = document.querySelectorAll('.service-card, .pricing-card, .benefit, .step, .portfolio-item');
     
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
+                entry.target.classList.add('fade-in');
                 observer.unobserve(entry.target);
             }
         });
