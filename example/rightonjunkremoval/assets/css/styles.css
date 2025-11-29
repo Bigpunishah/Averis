@@ -5,6 +5,50 @@
     box-sizing: border-box;
 }
 
+/* TODO : Remeber this to remove button highlights & outline */
+/* Remove blue highlight/outline from all clickable elements */
+a, button, input, textarea, select, label, .clickable {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Custom focus indicator for accessibility */
+a:focus, button:focus, input:focus, textarea:focus, select:focus {
+    outline: none;
+}
+
+/* Remove blue highlight/outline from clickable elements */
+.no-highlight,
+.nav-logo,
+a,
+button,
+input[type="button"],
+input[type="submit"],
+input[type="checkbox"],
+label {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent !important;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Remove focus outline but keep accessibility */
+a:focus,
+button:focus,
+input:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+}
+
 html {
     font-size: 16px;
     scroll-behavior: smooth;
@@ -274,6 +318,14 @@ h1, h2, h3, h4, h5, h6 {
     gap: 0.75rem;
     text-decoration: none;
     color: var(--text-dark);
+    /* Remove blue highlight/outline */
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 .logo-img {
@@ -311,6 +363,9 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 500;
     transition: color 0.3s ease;
     position: relative;
+    padding: 0.75rem 0.5rem;
+    display: flex;
+    align-items: center;
 }
 
 .nav-link:hover {
@@ -436,13 +491,11 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 3.5rem;
     font-weight: 800;
     margin-bottom: 1.5rem;
-    color: var(--white);
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    color: var(--text-dark);
 }
 
 .title-accent {
     color: var(--primary-red);
-    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.9);
 }
 
 .hero-subtitle {
@@ -2341,6 +2394,165 @@ h1, h2, h3, h4, h5, h6 {
     .modal-content {
         width: 98%;
         margin: 2% auto;
+    }
+}
+
+/* Legal Pages Styles - Specific to avoid conflicts */
+.legal-content {
+    padding: 120px 0 80px;
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    min-height: 100vh;
+}
+
+.legal-content .legal-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid #dc2626;
+}
+
+.legal-content .legal-date {
+    color: #64748b;
+    font-size: 1rem;
+    margin-top: 0.5rem;
+}
+
+.legal-content .legal-body {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    padding: 3rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.legal-content .legal-section {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.legal-content .legal-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.legal-content .legal-section h2 {
+    color: #1e293b;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #dc2626;
+    display: inline-block;
+}
+
+.legal-content .legal-section p {
+    color: #475569;
+    line-height: 1.7;
+    margin-bottom: 1rem;
+}
+
+.legal-content .legal-section ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+}
+
+.legal-content .legal-section li {
+    color: #475569;
+    line-height: 1.6;
+    margin-bottom: 0.5rem;
+}
+
+.legal-content .legal-section li strong {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+.legal-content .contact-info {
+    background: #f8fafc;
+    padding: 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid #dc2626;
+    margin-top: 1rem;
+}
+
+.legal-content .contact-info p {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.legal-content .contact-info i {
+    color: #dc2626;
+    width: 16px;
+}
+
+.legal-content .contact-info a {
+    color: #dc2626;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.legal-content .contact-info a:hover {
+    text-decoration: underline;
+}
+
+.legal-content .legal-footer {
+    text-align: center;
+    margin-top: 2rem;
+}
+
+/* Footer Legal Links Styles */
+.footer-bottom-content .footer-links {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-bottom-content .footer-links a {
+    color: #64748b;
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: color 0.3s ease;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.footer-bottom-content .footer-links a:hover {
+    color: #dc2626;
+    background-color: rgba(220, 38, 38, 0.1);
+}
+
+/* Mobile Responsiveness for Legal Pages */
+@media (max-width: 768px) {
+    .legal-content {
+        padding: 100px 0 60px;
+    }
+    
+    .legal-content .legal-body {
+        padding: 2rem 1.5rem;
+        margin: 0 1rem;
+    }
+    
+    .legal-content .legal-section h2 {
+        font-size: 1.3rem;
+    }
+    
+    .footer-bottom-content {
+        flex-direction: column;
+        gap: 1rem;
+        text-align: center;
+    }
+    
+    .footer-bottom-content .footer-links {
+        flex-direction: column;
+        gap: 0.5rem;
+        order: -1;
     }
 }
 
