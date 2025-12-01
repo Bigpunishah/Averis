@@ -1,13 +1,938 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/images/A.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Averis Admin Dashboard</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Averis - Modern business automation solutions for small companies. Transform your operations with our cutting-edge system optimization and 24-hour website services.">
+    <meta name="keywords" content="business automation, system optimization, website development, small business solutions, process automation, CRM, analytics">
+    <meta name="author" content="Averis">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Averis - Transform Your Business with Automation">
+    <meta property="og:description" content="Cutting-edge automation solutions designed specifically for small businesses. Get your custom website in 24 hours or optimize your business systems.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://averis.com">
+    <meta property="og:image" content="/images/A.png">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Averis - Transform Your Business with Automation">
+    <meta name="twitter:description" content="Cutting-edge automation solutions designed specifically for small businesses.">
+    <meta name="twitter:image" content="/images/A.png">
+    
+    <link rel="icon" type="image/png" href="/images/A.png">
+    <link rel="apple-touch-icon" href="/images/A.png">
+    
+    <!-- Preload critical fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <title>Averis - Transform Your Business with Automation | Modern Solutions for Small Companies</title>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="background-animation">
+        <div class="floating-shape shape-1"></div>
+        <div class="floating-shape shape-2"></div>
+        <div class="floating-shape shape-3"></div>
+        <div class="floating-shape shape-4"></div>
+        <div class="floating-shape shape-5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo" aria-label="Averis Home">
+                <img src="/images/A.png" alt="Averis Logo" class="logo-img" width="40" height="40">
+            </a>
+            
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#contact" class="nav-link">Contact</a>
+                <a href="#" class="btn btn-primary nav-cta" onclick="openModal('auditModal')">Get Started</a>
+            </div>
+            
+            <input type="checkbox" id="checkbox">
+            <label for="checkbox" class="toggle" aria-label="Toggle navigation menu">
+                <div class="bar bar--top"></div>
+                <div class="bar bar--middle"></div>
+                <div class="bar bar--bottom"></div>
+            </label>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-container">
+            <div class="hero-content" data-aos="fade-up">
+                <div class="hero-badge">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
+                    </svg>
+                    Revolutionary Automation
+                </div>
+                <h1 class="hero-title">
+                    Transform Your Business with
+                    <span class="highlight gradient-text">Intelligent Automation</span>
+                </h1>
+                <p class="hero-subtitle">
+                    Streamline operations, boost efficiency, and scale faster with our cutting-edge automation solutions designed specifically for small businesses.
+                </p>
+                <div class="hero-buttons">
+                    <button class="btn btn-primary btn-large" onclick="openModal('auditModal')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor"/>
+                            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        Start Free Consultation
+                    </button>
+                    <a href="#services" class="btn btn-secondary">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        Explore Solutions
+                    </a>
+                </div>
+                <div class="hero-proof">
+                    <div class="proof-stats">
+                        <div class="stat">
+                            <span class="stat-number">95%</span>
+                            <span class="stat-label">Efficiency Increase</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">24hr</span>
+                            <span class="stat-label">Website Delivery</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">$50K+</span>
+                            <span class="stat-label">Average Savings</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="fade-left">
+                <div class="hero-illustration">
+                    <svg class="hero-svg" viewBox="0 0 500 400" width="100%" height="100%">
+                        <defs>
+                            <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" style="stop-color:#06b6d4"/>
+                                <stop offset="50%" style="stop-color:#3b82f6"/>
+                                <stop offset="100%" style="stop-color:#8b5cf6"/>
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                                <feMerge> 
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        
+                        <!-- Animated background circles -->
+                        <circle cx="400" cy="80" r="60" fill="url(#heroGradient)" opacity="0.1" class="float-animation">
+                            <animate attributeName="cy" values="80;60;80" dur="6s" repeatCount="indefinite"/>
+                        </circle>
+                        <circle cx="50" cy="300" r="40" fill="url(#heroGradient)" opacity="0.15" class="float-animation-reverse">
+                            <animate attributeName="cy" values="300;320;300" dur="4s" repeatCount="indefinite"/>
+                        </circle>
+                        
+                        <!-- Main dashboard mockup -->
+                        <rect x="50" y="50" width="400" height="280" rx="20" fill="white" stroke="url(#heroGradient)" stroke-width="2" filter="url(#glow)"/>
+                        
+                        <!-- Dashboard header -->
+                        <rect x="70" y="70" width="360" height="40" rx="8" fill="url(#heroGradient)" opacity="0.9"/>
+                        <circle cx="90" cy="90" r="8" fill="white" opacity="0.9"/>
+                        <circle cx="110" cy="90" r="8" fill="white" opacity="0.7"/>
+                        <circle cx="130" cy="90" r="8" fill="white" opacity="0.5"/>
+                        
+                        <!-- Charts and graphs -->
+                        <rect x="70" y="130" width="160" height="80" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+                        <polyline points="90,190 110,170 130,180 150,150 170,160 190,140 210,150" stroke="url(#heroGradient)" stroke-width="3" fill="none"/>
+                        
+                        <rect x="250" y="130" width="180" height="80" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+                        <rect x="260" y="200" width="20" height="8" fill="url(#heroGradient)" rx="2"/>
+                        <rect x="290" y="185" width="20" height="23" fill="url(#heroGradient)" rx="2"/>
+                        <rect x="320" y="175" width="20" height="33" fill="url(#heroGradient)" rx="2"/>
+                        <rect x="350" y="190" width="20" height="18" fill="url(#heroGradient)" rx="2"/>
+                        <rect x="380" y="170" width="20" height="38" fill="url(#heroGradient)" rx="2"/>
+                        
+                        <!-- Bottom section -->
+                        <rect x="70" y="230" width="360" height="80" rx="8" fill="#f8fafc" stroke="#e2e8f0"/>
+                        
+                        <!-- Floating elements -->
+                        <g class="floating-icon" transform="translate(380, 40)">
+                            <circle cx="0" cy="0" r="15" fill="url(#heroGradient)" filter="url(#glow)">
+                                <animate attributeName="cy" values="0;-10;0" dur="3s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M-8 -3 L-3 2 L8 -8" stroke="white" stroke-width="2" fill="none"/>
+                        </g>
+                        
+                        <g class="floating-icon" transform="translate(20, 120)">
+                            <circle cx="0" cy="0" r="12" fill="#10b981" filter="url(#glow)">
+                                <animate attributeName="cy" values="0;8;0" dur="4s" repeatCount="indefinite"/>
+                            </circle>
+                            <path d="M-6 0 L-2 4 L6 -4" stroke="white" stroke-width="2" fill="none"/>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Powerful Solutions for Modern Businesses</h2>
+                <p class="section-subtitle">
+                    Discover our comprehensive suite of automation tools designed to transform how you operate, engage customers, and grow your business.
+                </p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card premium" data-aos="fade-up" data-aos-delay="100">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
+                        </svg>
+                    </div>
+                    <h3>24-Hour Website</h3>
+                    <p>Get a stunning, fully functional website delivered in just 24 hours. Perfect for businesses that need to establish their online presence fast.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Responsive Design</span>
+                        <span class="feature-tag">SEO Optimized</span>
+                        <span class="feature-tag">Fast Loading</span>
+                    </div>
+                    <div class="service-highlight">Most Popular</div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                            <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                            <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>System Optimization</h3>
+                    <p>Streamline your business operations with intelligent automation that reduces manual work and eliminates bottlenecks.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Process Automation</span>
+                        <span class="feature-tag">Integration</span>
+                        <span class="feature-tag">Analytics</span>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>CRM Integration</h3>
+                    <p>Manage customer relationships effortlessly with automated lead tracking, follow-ups, and personalized communications.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Lead Management</span>
+                        <span class="feature-tag">Automation</span>
+                        <span class="feature-tag">Reports</span>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="2,17 12,22 22,17" stroke="currentColor" stroke-width="2"/>
+                            <polyline points="2,12 12,17 22,12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>AI-Powered Analytics</h3>
+                    <p>Make data-driven decisions with intelligent insights that help you understand your business performance and opportunities.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Predictive Analytics</span>
+                        <span class="feature-tag">Dashboards</span>
+                        <span class="feature-tag">Reporting</span>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                            <circle cx="8" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="19" cy="21" r="1" stroke="currentColor" stroke-width="2"/>
+                            <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>E-commerce Solutions</h3>
+                    <p>Boost online sales with automated inventory management, order processing, and customer engagement tools.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">Inventory Sync</span>
+                        <span class="feature-tag">Order Management</span>
+                        <span class="feature-tag">Marketing</span>
+                    </div>
+                </div>
+
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon">
+                        <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Custom Integrations</h3>
+                    <p>Connect all your tools and platforms seamlessly with custom integrations that eliminate data silos and manual data entry.</p>
+                    <div class="service-features">
+                        <span class="feature-tag">API Integration</span>
+                        <span class="feature-tag">Data Sync</span>
+                        <span class="feature-tag">Workflow</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Simple, Transparent Pricing</h2>
+                <p class="section-subtitle">
+                    Choose the perfect solution for your business needs. No hidden fees, no surprises.
+                </p>
+            </div>
+
+            <!-- Website Pricing -->
+            <div class="pricing-category website-showcase" data-aos="fade-up" data-aos-delay="100">
+                <div class="website-hero">
+                    <div class="website-content">
+                        <div class="pricing-badge website showcase-badge">⚡ 24-Hour Website</div>
+                        <h3 class="showcase-title">Professional Website</h3>
+                        <p class="showcase-subtitle">Get your business online in just 24 hours with a stunning, fully functional website</p>
+                        <div class="price">$250 - $1,000</div>
+                        <p class="price-note">💡 Custom pricing based on your specific needs</p>
+                    </div>
+                    <div class="website-features-grid">
+                        
+                        <div class="feature-column">
+                            <h4>✨ What's Included:</h4>
+                            <div class="feature-list">
+                                <div class="feature-item"><i class="fas fa-check"></i> Professional responsive design</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Up to 7 pages (Home, About, Services, Contact, etc.)</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Mobile-optimized for all devices</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> SEO optimization & Google setup</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Contact forms & business integration</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Social media integration</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> SSL certificate & security setup</div>
+                                <div class="feature-item"><i class="fas fa-check"></i> Content management training</div>
+                            </div>
+                        </div>
+
+                        <div class="feature-column">
+                            <h4>🚀 Optional Add-ons:</h4>
+                            <div class="addon-list">
+                                <div class="addon-item">E-commerce functionality</div>
+                                <div class="addon-item">Advanced animations & effects</div>
+                                <div class="addon-item">Additional pages</div>
+                                <div class="addon-item">Custom logo design</div>
+                                <div class="addon-item">Content writing</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="website-cta">
+                    <button class="btn btn-primary btn-large" onclick="openModal('auditModal')">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                            <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" fill="currentColor"/>
+                        </svg>
+                        Get Your Website in 24 Hours
+                    </button>
+                    <p style="margin-top: 1rem; color: #666; font-size: 0.9rem;">💡 Free consultation • Custom quote within 24 hours</p>
+                </div>
+            </div>
+
+            <!-- System Optimization Pricing -->
+            <div class="pricing-category" data-aos="fade-up" data-aos-delay="200">
+                <h3 class="category-title">System Optimization Modules</h3>
+                <p class="category-subtitle">Build your perfect automation solution with our modular approach</p>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="pricing-header">
+                            <div class="pricing-badge core">Core Foundation</div>
+                            <h3>Business Core System</h3>
+                            <div class="price">$1,500 - $4,000</div>
+                            <p class="price-note">Essential business automation</p>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <h4>Core Features:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Workflow automation setup</li>
+                                <li><i class="fas fa-check"></i> Basic integrations (3-5 tools)</li>
+                                <li><i class="fas fa-check"></i> Performance monitoring</li>
+                                <li><i class="fas fa-check"></i> User training & documentation</li>
+                                <li><i class="fas fa-check"></i> 30-day support included</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="openModal('auditModal')">
+                            Start Here
+                        </button>
+                    </div>
+
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="pricing-header">
+                            <div class="pricing-badge automation">Process Automation</div>
+                            <h3>Advanced Automation</h3>
+                            <div class="price">$500 - $4,000</div>
+                            <p class="price-note">Per automation workflow</p>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <h4>Automation Features:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Custom workflow design</li>
+                                <li><i class="fas fa-check"></i> Multi-step automation chains</li>
+                                <li><i class="fas fa-check"></i> Conditional logic & branching</li>
+                                <li><i class="fas fa-check"></i> Error handling & notifications</li>
+                                <li><i class="fas fa-check"></i> Performance analytics</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="openModal('auditModal')">
+                            Add Automation
+                        </button>
+                    </div>
+
+                    <div class="pricing-card featured" data-aos="fade-up" data-aos-delay="500">
+                        <div class="pricing-header">
+                            <div class="pricing-badge crm">CRM & Sales</div>
+                            <h3>Customer Management</h3>
+                            <div class="price">$800 - $5,000</div>
+                            <p class="price-note">Complete CRM solution</p>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <h4>CRM Features:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Lead capture & management</li>
+                                <li><i class="fas fa-check"></i> Automated follow-up sequences</li>
+                                <li><i class="fas fa-check"></i> Sales pipeline tracking</li>
+                                <li><i class="fas fa-check"></i> Customer communication history</li>
+                                <li><i class="fas fa-check"></i> Sales reporting & analytics</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="openModal('auditModal')">
+                            Boost Sales
+                        </button>
+                    </div>
+
+                    <div class="pricing-card" data-aos="fade-up" data-aos-delay="600">
+                        <div class="pricing-header">
+                            <div class="pricing-badge ai">AI & Analytics</div>
+                            <h3>Intelligence Suite</h3>
+                            <div class="price">$1,000 - $10,000</div>
+                            <p class="price-note">AI-powered insights</p>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <h4>AI Features:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Predictive analytics</li>
+                                <li><i class="fas fa-check"></i> Intelligent reporting</li>
+                                <li><i class="fas fa-check"></i> Automated insights generation</li>
+                                <li><i class="fas fa-check"></i> Performance forecasting</li>
+                                <li><i class="fas fa-check"></i> Custom AI model training</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="openModal('auditModal')">
+                            Get Smart
+                        </button>
+                    </div>
+
+                    <div class="pricing-card no-outline" data-aos="fade-up" data-aos-delay="700">
+                        <div class="pricing-header">
+                            <div class="pricing-badge ecommerce">E-commerce</div>
+                            <h3>Online Store</h3>
+                            <div class="price">$1,000 - $8,000</div>
+                            <p class="price-note">Complete e-commerce solution</p>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <h4>E-commerce Features:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> Inventory management</li>
+                                <li><i class="fas fa-check"></i> Order processing automation</li>
+                                <li><i class="fas fa-check"></i> Payment gateway integration</li>
+                                <li><i class="fas fa-check"></i> Shipping automation</li>
+                                <li><i class="fas fa-check"></i> Customer notifications</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="openModal('auditModal')">
+                            Sell Online
+                        </button>
+                    </div>
+
+                    <div class="pricing-card no-outline" data-aos="fade-up" data-aos-delay="800">
+                        <div class="pricing-header">
+                            <div class="pricing-badge integration">Integrations</div>
+                            <h3>Custom Connections</h3>
+                            <div class="price">$500 - $5,000</div>
+                            <p class="price-note">Per integration</p>
+                        </div>
+                        
+                        <div class="pricing-features">
+                            <h4>Integration Services:</h4>
+                            <ul>
+                                <li><i class="fas fa-check"></i> API development & connection</li>
+                                <li><i class="fas fa-check"></i> Data synchronization</li>
+                                <li><i class="fas fa-check"></i> Real-time updates</li>
+                                <li><i class="fas fa-check"></i> Error monitoring</li>
+                                <li><i class="fas fa-check"></i> Custom data mapping</li>
+                            </ul>
+                        </div>
+                        
+                        <button class="btn btn-primary" onclick="openModal('auditModal')">
+                            Connect Tools
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ongoing Services -->
+            <div class="ongoing-services" data-aos="fade-up" data-aos-delay="300">
+                <h3>Ongoing Support & Maintenance</h3>
+                <div class="services-row">
+                    <div class="service-item">
+                        <h4>$150 - $800/month</h4>
+                        <p>System hosting, maintenance, and basic support to keep everything running smoothly.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>$50 - $500/month</h4>
+                        <p>AI usage fees based on your specific needs and usage patterns.</p>
+                    </div>
+                    <div class="service-item">
+                        <h4>$125/hour</h4>
+                        <p>Training sessions and additional customizations as your business grows.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- CTA Section -->
+            <div class="cta-section" data-aos="fade-up" data-aos-delay="400">
+                <h3>Ready to Transform Your Business?</h3>
+                <p>Get a free consultation to discuss your specific needs and create a custom solution that fits your budget.</p>
+                <button class="btn btn-primary btn-large" onclick="openModal('auditModal')">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                        <path d="M12 2L2 7l10 5 10-5-10-5z" fill="currentColor"/>
+                        <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" stroke-width="2" fill="none"/>
+                    </svg>
+                    Schedule Free Consultation
+                </button>
+                <p class="guarantee-text">💡 100% Free Consultation • No Obligation • Custom Quote Within 24 Hours</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Human Connection Section -->
+    <section class="human-touch" id="human-touch">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">You Focus on What You Do Best</h2>
+                <p class="section-subtitle">
+                    While you're busy building, fixing, creating, and serving your customers, let us handle the technology that powers your business behind the scenes.
+                </p>
+            </div>
+
+            <div class="human-gallery">
+                <div class="human-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="human-image">
+                        <img src="/images/architect.jpg" alt="Architect at work" loading="lazy">
+                        <div class="human-overlay">
+                            <h4>Designing Dreams</h4>
+                            <p>Focus on your blueprints</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="human-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="human-image">
+                        <img src="/images/mechanic.jpg" alt="Mechanic working" loading="lazy">
+                        <div class="human-overlay">
+                            <h4>Keeping Things Running</h4>
+                            <p>Focus on the repairs</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="human-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="human-image">
+                        <img src="/images/welder.jpg" alt="Welder at work" loading="lazy">
+                        <div class="human-overlay">
+                            <h4>Building Strong</h4>
+                            <p>Focus on precision</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="human-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="human-image">
+                        <img src="/images/grinding.jpg" alt="Worker grinding" loading="lazy">
+                        <div class="human-overlay">
+                            <h4>Perfecting the Craft</h4>
+                            <p>Focus on quality</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="human-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="human-image">
+                        <img src="/images/planter.jpg" alt="Landscaper planting" loading="lazy">
+                        <div class="human-overlay">
+                            <h4>Growing Beauty</h4>
+                            <p>Focus on the landscape</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="human-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="human-image">
+                        <img src="/images/mower.jpg" alt="Landscaper mowing" loading="lazy">
+                        <div class="human-overlay">
+                            <h4>Maintaining Excellence</h4>
+                            <p>Focus on the details</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="human-message" data-aos="fade-up" data-aos-delay="700">
+                <div class="message-content">
+                    <h3>We Handle The Tech, You Handle The Craft</h3>
+                    <p>Every business owner wears multiple hats. You're already an expert at what you do – whether that's building, fixing, creating, or serving. You shouldn't have to become a tech expert too.</p>
+                    <p>That's where we come in. While you focus on delivering exceptional work to your customers, we'll quietly work behind the scenes to streamline your operations, automate your processes, and help your business run smoother than ever.</p>
+                    <div class="message-highlight">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" stroke="currentColor" stroke-width="2" fill="none"/>
+                        </svg>
+                        <span>Technology should work for you, not against you</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="section-header" data-aos="fade-up">
+                    <h2 class="section-title">Why Choose Averis?</h2>
+                    <p class="section-subtitle">
+                        We're not just another tech company. We're your strategic partners in digital transformation, focused exclusively on helping small businesses thrive in the modern marketplace.
+                    </p>
+                </div>
+
+                <div class="benefits">
+                    <div class="benefit" data-aos="fade-up" data-aos-delay="100">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                                <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Proven Results</h4>
+                            <p>Our solutions have helped businesses increase efficiency by up to 95% and save thousands in operational costs.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit" data-aos="fade-up" data-aos-delay="200">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Lightning Fast</h4>
+                            <p>Get your website in 24 hours or start seeing automation benefits within the first week of implementation.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit" data-aos="fade-up" data-aos-delay="300">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="9" cy="7" r="4" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Personal Touch</h4>
+                            <p>Work directly with our expert team who understand small business challenges and craft personalized solutions.</p>
+                        </div>
+                    </div>
+
+                    <div class="benefit" data-aos="fade-up" data-aos-delay="400">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Secure & Reliable</h4>
+                            <p>Enterprise-grade security and reliability that you can trust with your business-critical operations.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="process" data-aos="fade-up" data-aos-delay="500">
+                    <h3>Our Simple Process</h3>
+                    <div class="process-steps">
+                        <div class="step" data-aos="fade-up" data-aos-delay="600">
+                            <div class="step-number">1</div>
+                            <div>
+                                <h4>Free Consultation</h4>
+                                <p>We analyze your current setup and identify opportunities for improvement.</p>
+                            </div>
+                        </div>
+
+                        <div class="step" data-aos="fade-up" data-aos-delay="700">
+                            <div class="step-number">2</div>
+                            <div>
+                                <h4>Custom Strategy</h4>
+                                <p>Receive a tailored plan with clear timelines and transparent pricing.</p>
+                            </div>
+                        </div>
+
+                        <div class="step" data-aos="fade-up" data-aos-delay="800">
+                            <div class="step-number">3</div>
+                            <div>
+                                <h4>Rapid Implementation</h4>
+                                <p>Our experts build and deploy your solution with minimal disruption.</p>
+                            </div>
+                        </div>
+
+                        <div class="step" data-aos="fade-up" data-aos-delay="900">
+                            <div class="step-number">4</div>
+                            <div>
+                                <h4>Ongoing Success</h4>
+                                <p>Enjoy continuous support and optimization as your business grows.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Ready to Get Started?</h2>
+                <p class="section-subtitle">
+                    Take the first step towards transforming your business. Schedule your free consultation today.
+                </p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                                <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p><a href="mailto:hello@averis.com">hello@averis.com</a></p>
+                        </div>
+                    </div>
+
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" width="32" height="32" fill="none">
+                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" stroke="currentColor" stroke-width="2"/>
+                                <circle cx="12" cy="10" r="3" stroke="currentColor" stroke-width="2"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p>Serving businesses nationwide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-cta" data-aos="fade-up" data-aos-delay="300">
+                    <button class="btn btn-secondary btn-large" onclick="openModal('auditModal')">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2" stroke="currentColor" stroke-width="2"/>
+                            <line x1="16" y1="2" x2="16" y2="6" stroke="currentColor" stroke-width="2"/>
+                            <line x1="8" y1="2" x2="8" y2="6" stroke="currentColor" stroke-width="2"/>
+                            <line x1="3" y1="10" x2="21" y2="10" stroke="currentColor" stroke-width="2"/>
+                            <circle cx="8" cy="14" r="1" fill="currentColor"/>
+                            <circle cx="12" cy="14" r="1" fill="currentColor"/>
+                            <circle cx="16" cy="14" r="1" fill="currentColor"/>
+                        </svg>
+                        Schedule Your Free Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="/images/A.png" alt="Averis Logo" class="logo-img-footer" width="32" height="32">
+                        <h4>Averis</h4>
+                    </div>
+                    <p>Transforming small businesses through intelligent automation and cutting-edge technology solutions.</p>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li><a href="#services">24-Hour Websites</a></li>
+                        <li><a href="#services">System Optimization</a></li>
+                        <li><a href="#services">CRM Integration</a></li>
+                        <li><a href="#services">AI Analytics</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#pricing">Pricing</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#" onclick="openModal('auditModal')">Get Started</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:hello@averis.com">hello@averis.com</a></li>
+                        <li><a href="#" onclick="openModal('auditModal')">Free Consultation</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2024 Averis. All rights reserved. Transforming businesses through intelligent automation.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="auditModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Free Business Consultation</h3>
+                <span class="close" onclick="closeModal('auditModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <p>Get personalized recommendations for your business. Our experts will analyze your needs and provide a custom solution within 24 hours.</p>
+                
+                <form id="auditForm" class="audit-form">
+                    <div class="form-group">
+                        <label for="service_type">What are you interested in? *</label>
+                        <div class="toggle-buttons">
+                            <input type="radio" id="website" name="service_type" value="24-hour-website" checked>
+                            <label for="website" class="toggle-btn">24-Hour Website</label>
+                            
+                            <input type="radio" id="optimization" name="service_type" value="system-optimization">
+                            <label for="optimization" class="toggle-btn">System Optimization</label>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="company">Company Name *</label>
+                        <input type="text" id="company" name="company" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="name">Your Name *</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="business_type">What type of business do you run?</label>
+                        <select id="business_type" name="business_type">
+                            <option value="">Select your industry</option>
+                            <option value="retail">Retail/E-commerce</option>
+                            <option value="service">Service Business</option>
+                            <option value="consulting">Consulting</option>
+                            <option value="healthcare">Healthcare</option>
+                            <option value="real_estate">Real Estate</option>
+                            <option value="restaurant">Restaurant/Food</option>
+                            <option value="manufacturing">Manufacturing</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pain_points">What challenges is your business facing?</label>
+                        <textarea id="pain_points" name="pain_points" rows="3" placeholder="e.g., Manual processes taking too much time, difficulty tracking customers, need better reporting..."></textarea>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="staff_size">How many people work in your business?</label>
+                        <select id="staff_size" name="staff_size">
+                            <option value="">Select team size</option>
+                            <option value="1">Just me</option>
+                            <option value="2-5">2-5 people</option>
+                            <option value="6-10">6-10 people</option>
+                            <option value="11-25">11-25 people</option>
+                            <option value="26+">26+ people</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-large">
+                        Get My Free Consultation
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Main JavaScript -->
+    <script src="js/main.js"></script>
+
+    <!-- Initialize AOS -->
+    <script>
+        AOS.init({
+            duration: 800,
+            easing: 'ease-out-cubic',
+            once: true,
+            offset: 100
+        });
+    </script>
+</body>
 </html>
