@@ -1,5 +1,0 @@
-# Handle client-side routing for React SPA
-/*    /index.html   200
-
-# Handle admin subdirectory routing
-/admin-dashboard/*    /admin-dashboard/index.html   200
