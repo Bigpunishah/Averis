@@ -1,7 +1,9 @@
-// FRESH START: Simplified Client Service
+// Real Stripe Integration - No Mock Data
 import { supabase } from './supabase';
+import { stripeService } from './stripe';
 
 class ClientService {
+
   // Get all clients
   async getAllClients() {
     try {
@@ -188,132 +190,295 @@ class ClientService {
     }
   }
 
-  // Sync with Stripe (enhanced mock with realistic data based on actual Stripe transactions)
+  // Fetch real Stripe Customer data
+  async fetchStripeCustomer(customerId, environment) {
+    try {
+      const customer = await stripeService.getCustomer(customerId, environment);
+      return customer;
+    } catch (error) {
+      console.error('Error fetching Stripe customer:', error);
+      throw error;
+    }
+  }
+
+  // Fetch real Stripe Payment Intents with error tracking
+  async fetchStripePaymentIntentsWithErrors(paymentIntentIds, environment) {
+    try {
+      const paymentIntents = [];
+      const errors = [];
+      
+      for (const intentId of paymentIntentIds) {
+        try {
+          const paymentIntent = await stripeService.getPaymentIntent(intentId, environment);
+          paymentIntents.push(paymentIntent);
+        } catch (error) {
+          errors.push({
+            id: intentId,
+            error: error.message,
+            type: error.type || 'unknown',
+            code: error.code || 'unknown'
+          });
+        }
+      }
+      
+      return { paymentIntents, errors };
+    } catch (error) {
+      console.error('Error fetching Stripe payment intents:', error);
+      throw error;
+    }
+  }
+
+  // Fetch real Stripe Subscriptions with error tracking
+  async fetchStripeSubscriptionsWithErrors(subscriptionIds, environment) {
+    try {
+      const subscriptions = [];
+      const errors = [];
+      
+      for (const subId of subscriptionIds) {
+        try {
+          const subscription = await stripeService.getSubscription(subId, environment);
+          subscriptions.push(subscription);
+        } catch (error) {
+          errors.push({
+            id: subId,
+            error: error.message,
+            type: error.type || 'unknown',
+            code: error.code || 'unknown'
+          });
+        }
+      }
+      
+      return { subscriptions, errors };
+    } catch (error) {
+      console.error('Error fetching Stripe subscriptions:', error);
+      throw error;
+    }
+  }
+
+  // Sync with Real Stripe Data - No Mock Data
   async syncWithStripe(clientId, stripeIds) {
     try {
-      console.log('Syncing client with Stripe:', { clientId, stripeIds });
-      
-      // Enhanced mock data that matches real Stripe payment data
-      const mockStripeData = {
-        customer: stripeIds.customerId ? {
-          id: stripeIds.customerId,
-          email: 'customer@example.com',
-          name: 'Updated Customer Name',
-          created: Date.now() / 1000
-        } : null,
-        
-        paymentIntents: stripeIds.paymentIntentIds?.map(id => {
-          // Use realistic amounts based on actual Stripe data
-          let amount, status, description;
-          
-          // Map specific payment intent IDs to their actual amounts
-          if (id === 'pi_3SZKbXFQVVHhUcWR0CclaqhK') {
-            amount = 100000; // $1,000.00 in cents
-            status = 'succeeded';
-            description = 'Payment for Invoice';
-          } else {
-            // Default mock data for other payment intents
-            amount = Math.floor(Math.random() * 50000) + 5000; // $50-$500
-            status = ['succeeded', 'requires_payment_method', 'processing'][Math.floor(Math.random() * 3)];
-            description = `Payment for services - ${id}`;
-          }
-          
-          return {
-            id,
-            amount,
-            currency: 'usd',
-            status,
-            created: Date.now() / 1000,
-            description,
-            charges: {
-              data: [{
-                amount,
-                currency: 'usd',
-                status: status === 'succeeded' ? 'succeeded' : 'pending',
-                created: Date.now() / 1000,
-                receipt_url: `https://pay.stripe.com/receipts/${id}`
-              }]
-            }
-          };
-        }) || [],
-        
-        subscriptions: stripeIds.subscriptionIds?.map(id => ({
-          id,
-          status: ['active', 'past_due', 'canceled'][Math.floor(Math.random() * 3)],
-          current_period_start: Date.now() / 1000,
-          current_period_end: (Date.now() / 1000) + (30 * 24 * 60 * 60), // 30 days
-          items: {
-            data: [{
-              price: {
-                unit_amount: Math.floor(Math.random() * 5000) + 2000,
-                currency: 'usd',
-                recurring: { interval: 'month' }
-              }
-            }]
-          }
-        })) || []
+      const client = await this.getClientById(clientId);
+      const environment = client.stripe_environment || 'test';
+
+      // Fetch real Stripe data and track errors
+      const stripeData = {
+        customer: null,
+        paymentIntents: [],
+        subscriptions: [],
+        errors: {
+          customer: null,
+          paymentIntents: [],
+          subscriptions: []
+        }
       };
 
-      // Calculate totals from succeeded payments
-      const succeededPayments = mockStripeData.paymentIntents.filter(intent => intent.status === 'succeeded');
-      const totalPaid = succeededPayments.reduce((sum, intent) => sum + (intent.amount / 100), 0);
-      
-      console.log('Sync Results:', {
-        totalPaymentIntents: mockStripeData.paymentIntents.length,
-        succeededPayments: succeededPayments.length,
-        totalPaidCents: succeededPayments.reduce((sum, intent) => sum + intent.amount, 0),
-        totalPaidDollars: totalPaid,
-        paymentDetails: succeededPayments.map(p => ({
-          id: p.id,
-          amount: `$${(p.amount / 100).toFixed(2)}`,
-          status: p.status
-        }))
-      });
+      // Fetch customer data if customer ID exists
+      if (stripeIds.customerId) {
+        try {
+          stripeData.customer = await this.fetchStripeCustomer(stripeIds.customerId, environment);
+        } catch (error) {
+          stripeData.errors.customer = {
+            id: stripeIds.customerId,
+            error: error.message,
+            type: error.type || 'unknown',
+            code: error.code || 'unknown'
+          };
+        }
+      }
 
-      // Determine payment status based on payment success
-      // Valid values per DB constraint: 'current', 'past_due', 'overdue', 'cancelled'
+      // Fetch payment intents if they exist
+      if (stripeIds.paymentIntentIds && stripeIds.paymentIntentIds.length > 0) {
+        const { paymentIntents, errors } = await this.fetchStripePaymentIntentsWithErrors(stripeIds.paymentIntentIds, environment);
+        stripeData.paymentIntents = paymentIntents;
+        stripeData.errors.paymentIntents = errors;
+      }
+
+      // Fetch subscriptions if they exist
+      if (stripeIds.subscriptionIds && stripeIds.subscriptionIds.length > 0) {
+        const { subscriptions, errors } = await this.fetchStripeSubscriptionsWithErrors(stripeIds.subscriptionIds, environment);
+        stripeData.subscriptions = subscriptions;
+        stripeData.errors.subscriptions = errors;
+      }
+
+      // Calculate totals from real Stripe data (payments + subscriptions)
+      const succeededPayments = stripeData.paymentIntents.filter(intent => intent.status === 'succeeded');
+      const paymentTotal = succeededPayments.reduce((sum, intent) => sum + (intent.amount / 100), 0);
+      
+      // Calculate subscription totals
+      let subscriptionTotal = 0;
+      let subscriptionMonthlyValue = 0;
+      let subscriptionDetails = [];
+      
+      if (stripeData.subscriptions.length > 0) {
+        for (const subscription of stripeData.subscriptions) {
+          if (subscription.items && subscription.items.data && subscription.items.data.length > 0) {
+            const price = subscription.items.data[0].price;
+            if (price && price.unit_amount) {
+              const amount = price.unit_amount / 100; // Convert cents to dollars
+              const interval = price.recurring?.interval || 'month';
+              const intervalCount = price.recurring?.interval_count || 1;
+              
+              // Calculate monthly equivalent for consistent comparison
+              let monthlyAmount = amount;
+              if (interval === 'year') {
+                monthlyAmount = amount / (12 * intervalCount);
+              } else if (interval === 'week') {
+                monthlyAmount = amount * 4 * intervalCount;
+              } else if (interval === 'day') {
+                monthlyAmount = amount * 30 * intervalCount;
+              }
+              
+              subscriptionMonthlyValue += monthlyAmount;
+              
+              // Calculate total paid based on subscription duration
+              const startDate = new Date(subscription.created * 1000);
+              const now = new Date();
+              const monthsActive = Math.max(1, Math.floor((now - startDate) / (1000 * 60 * 60 * 24 * 30)));
+              
+              let totalForThisSubscription = 0;
+              if (interval === 'month') {
+                totalForThisSubscription = amount * Math.floor(monthsActive / intervalCount);
+              } else if (interval === 'year') {
+                totalForThisSubscription = amount * Math.floor(monthsActive / (12 * intervalCount));
+              } else {
+                totalForThisSubscription = monthlyAmount * monthsActive;
+              }
+              
+              subscriptionTotal += totalForThisSubscription;
+              
+              subscriptionDetails.push({
+                id: subscription.id,
+                amount: amount,
+                interval: interval,
+                intervalCount: intervalCount,
+                monthlyEquivalent: monthlyAmount,
+                totalPaid: totalForThisSubscription,
+                status: subscription.status,
+                startDate: startDate
+              });
+            }
+          }
+        }
+      }
+      
+      // Combined total of payments + estimated subscription total
+      const totalPaid = paymentTotal + subscriptionTotal;
+      
+      // Find the most recent successful payment
+      let lastPaymentDate = null;
+      if (succeededPayments.length > 0) {
+        const mostRecentPayment = succeededPayments.reduce((latest, payment) => 
+          payment.created > latest.created ? payment : latest
+        );
+        lastPaymentDate = new Date(mostRecentPayment.created * 1000).toISOString();
+      }
+
+      // Determine payment status based on real payment data and errors
       let paymentStatus = 'overdue'; // default
       
-      if (succeededPayments.length > 0) {
+      // Check if there are critical errors that should affect status
+      const hasCriticalErrors = stripeData.errors.paymentIntents.length > 0 || 
+                              stripeData.errors.customer;
+      
+      if (hasCriticalErrors) {
+        // If we have errors fetching payment data, mark as overdue to flag for attention
+        paymentStatus = 'overdue';
+      } else if (succeededPayments.length > 0) {
+        const thirtyDaysAgo = (Date.now() / 1000) - (30 * 24 * 60 * 60);
         const hasRecentSuccessfulPayment = succeededPayments.some(
-          payment => (Date.now() / 1000) - payment.created < (30 * 24 * 60 * 60) // Within last 30 days
+          payment => payment.created > thirtyDaysAgo
         );
         paymentStatus = hasRecentSuccessfulPayment ? 'current' : 'past_due';
       }
 
-      // Update client with synced data
+      // Determine subscription status from real subscription data and errors
+      let subscriptionStatus = 'canceled'; // Default to 'canceled'
+      
+      // Check for subscription fetch errors
+      if (stripeData.errors.subscriptions.length > 0) {
+        subscriptionStatus = 'unpaid'; // Mark as unpaid to flag for attention
+      } else if (stripeData.subscriptions.length > 0) {
+        // Use the status of the most recent subscription
+        const mostRecentSubscription = stripeData.subscriptions[stripeData.subscriptions.length - 1];
+        const stripeStatus = mostRecentSubscription.status;
+        
+        // Map Stripe subscription statuses to our database constraints
+        // Valid values: 'active', 'past_due', 'canceled', 'unpaid', 'incomplete'
+        switch (stripeStatus) {
+          case 'active':
+            subscriptionStatus = 'active';
+            break;
+          case 'past_due':
+            subscriptionStatus = 'past_due';
+            break;
+          case 'canceled':
+          case 'cancelled':
+            subscriptionStatus = 'canceled';
+            break;
+          case 'unpaid':
+            subscriptionStatus = 'unpaid';
+            break;
+          case 'incomplete':
+          case 'incomplete_expired':
+            subscriptionStatus = 'incomplete';
+            break;
+          default:
+            subscriptionStatus = 'canceled';
+        }
+        
+
+      } else {
+
+      }
+
+
+
+      // Update client with real Stripe data including subscription details
       const updates = {
         total_paid: totalPaid.toFixed(2),
-        last_payment_date: new Date().toISOString(),
         payment_status: paymentStatus,
-        stripe_customer_id: stripeIds.customerId || null
+        subscription_status: subscriptionStatus,
+        stripe_customer_id: stripeIds.customerId || null,
+        subscription_monthly_value: subscriptionMonthlyValue.toFixed(2),
+        subscription_details: JSON.stringify(subscriptionDetails)
       };
 
-      console.log('Updating client with:', updates);
+      // Only update last_payment_date if we found a successful payment
+      if (lastPaymentDate) {
+        updates.last_payment_date = lastPaymentDate;
+      }
+
+
 
       const updatedClient = await this.updateClient(clientId, updates);
       
-      console.log('✅ Sync Complete! Updated client:', {
-        id: updatedClient.id,
-        business_name: updatedClient.business_name,
-        total_paid: updatedClient.total_paid,
-        payment_status: updatedClient.payment_status,
-        stripe_payment_intent_ids: updatedClient.stripe_payment_intent_ids
-      });
+
       
       return {
         client: updatedClient,
-        stripeData: mockStripeData,
+        stripeData: stripeData,
         syncedAt: new Date().toISOString(),
         syncSummary: {
           totalPaid: `$${totalPaid.toFixed(2)}`,
           succeededPayments: succeededPayments.length,
-          paymentStatus: updates.payment_status
+          totalSubscriptions: stripeData.subscriptions.length,
+          paymentStatus: updates.payment_status,
+          subscriptionStatus: updates.subscription_status,
+          environment: environment,
+          errors: {
+            customer: stripeData.errors.customer,
+            paymentIntents: stripeData.errors.paymentIntents,
+            subscriptions: stripeData.errors.subscriptions,
+            hasErrors: stripeData.errors.customer || 
+                      stripeData.errors.paymentIntents.length > 0 || 
+                      stripeData.errors.subscriptions.length > 0
+          }
         }
       };
       
     } catch (error) {
-      console.error('Error syncing with Stripe:', error);
+      console.error('❌ Error syncing with Stripe:', error);
       throw error;
     }
   }

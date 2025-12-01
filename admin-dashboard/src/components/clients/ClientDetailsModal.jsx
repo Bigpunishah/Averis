@@ -1,6 +1,8 @@
 // FRESH START: Client Details Modal with Stripe Sync & Editing
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { clientService } from '../../services/clientService';
+import { transactionService } from '../../services/transactionService';
+import { expenseService } from '../../services/expenseService';
 
 const ClientDetailsModal = ({ client, isOpen, onClose, onClientUpdated, onClientDeleted }) => {
   const [loading, setLoading] = useState(false);
@@ -16,6 +18,47 @@ const ClientDetailsModal = ({ client, isOpen, onClose, onClientUpdated, onClient
   const [newPaymentIntentId, setNewPaymentIntentId] = useState('');
   const [newSubscriptionId, setNewSubscriptionId] = useState('');
   const [newEmail, setNewEmail] = useState('');
+  const [autoSyncCompleted, setAutoSyncCompleted] = useState(false);
+  const [clientTransactions, setClientTransactions] = useState([]);
+  const [clientExpenses, setClientExpenses] = useState([]);
+  const [activeTab, setActiveTab] = useState('details');
+
+  // Auto-sync when modal opens
+  useEffect(() => {
+    if (isOpen && client) {
+      loadClientData();
+      
+      if (!autoSyncCompleted) {
+        const hasStripeData = client.stripe_customer_id || 
+                            (client.stripe_payment_intent_ids && client.stripe_payment_intent_ids.length > 0) ||
+                            (client.stripe_subscription_ids && client.stripe_subscription_ids.length > 0);
+        
+        if (hasStripeData) {
+          console.log('🚀 Auto-syncing client with Stripe on modal open...');
+          autoSyncWithStripe();
+        }
+      }
+    }
+  }, [isOpen, client]);
+
+  // Reset auto-sync flag when modal closes or client changes
+  useEffect(() => {
+    if (!isOpen) {
+      setAutoSyncCompleted(false);
+    }
+  }, [isOpen]);
+
+  useEffect(() => {
+    if (client) {
+      setEditData(client);
+      setStripeIds({
+        customerId: client.stripe_customer_id || '',
+        paymentIntentIds: client.stripe_payment_intent_ids || [],
+        subscriptionIds: client.stripe_subscription_ids || []
+      });
+      setAutoSyncCompleted(false);
+    }
+  }, [client]);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -30,7 +73,26 @@ const ClientDetailsModal = ({ client, isOpen, onClose, onClientUpdated, onClient
     setError(null);
     
     try {
-      const updatedClient = await clientService.updateClient(client.id, updatedEditData);
+      // Filter editData to only include valid database columns
+      const validClientFields = {
+        business_name: editData.business_name,
+        contact_name: editData.contact_name,
+        email: editData.email,
+        phone: editData.phone,
+        address: editData.address,
+        admin_email: editData.admin_email,
+        owner_email: editData.owner_email,
+        additional_emails: editData.additional_emails,
+        additional_emails_count: editData.additional_emails_count,
+        status: editData.status,
+        payment_status: editData.payment_status,
+        service_type: editData.service_type,
+        stripe_customer_id: editData.stripe_customer_id,
+        stripe_environment: editData.stripe_environment,
+        notes: editData.notes ? (client.notes ? `${client.notes}\n\n[${new Date().toLocaleString()}]\n${editData.notes}` : `[${new Date().toLocaleString()}]\n${editData.notes}`) : client.notes
+      };
+      
+      const updatedClient = await clientService.updateClient(client.id, validClientFields);
       onClientUpdated(updatedClient);
       // Reset notes field for next edit
       setEditData({ ...updatedClient, notes: '' });
@@ -138,11 +200,66 @@ const ClientDetailsModal = ({ client, isOpen, onClose, onClientUpdated, onClient
     try {
       const syncResult = await clientService.syncWithStripe(client.id, stripeIds);
       onClientUpdated(syncResult.client);
-      setSuccess(`Synced successfully! Total paid: $${syncResult.client.total_paid}`);
+      
+      // Check for errors and show detailed results
+      if (syncResult.syncSummary.errors.hasErrors) {
+        let errorMessage = `Sync completed with errors:\n`;
+        
+        if (syncResult.syncSummary.errors.customer) {
+          errorMessage += `• Customer ID not found: ${syncResult.syncSummary.errors.customer.id}\n`;
+        }
+        
+        if (syncResult.syncSummary.errors.paymentIntents.length > 0) {
+          errorMessage += `• Payment Intent(s) not found: ${syncResult.syncSummary.errors.paymentIntents.map(e => e.id).join(', ')}\n`;
+        }
+        
+        if (syncResult.syncSummary.errors.subscriptions.length > 0) {
+          errorMessage += `• Subscription(s) not found: ${syncResult.syncSummary.errors.subscriptions.map(e => e.id).join(', ')}\n`;
+        }
+        
+        errorMessage += `\nTotal paid from valid data: $${syncResult.client.total_paid}`;
+        setError(errorMessage);
+      } else {
+        setSuccess(`Synced successfully! Total paid: $${syncResult.client.total_paid}`);
+      }
     } catch (err) {
       setError(err.message || 'Failed to sync with Stripe');
     } finally {
       setLoading(false);
+    }
+  };
+
+  const autoSyncWithStripe = async () => {
+    if (autoSyncCompleted) return;
+    
+    setAutoSyncCompleted(true);
+    
+    try {
+      const syncResult = await clientService.syncWithStripe(client.id, stripeIds);
+      onClientUpdated(syncResult.client);
+      console.log('✅ Auto-sync completed:', syncResult.syncSummary);
+      
+      // Check for errors and show specific message
+      if (syncResult.syncSummary.errors.hasErrors) {
+        let errorDetails = [];
+        if (syncResult.syncSummary.errors.customer) {
+          errorDetails.push(`Customer ID: ${syncResult.syncSummary.errors.customer.id}`);
+        }
+        if (syncResult.syncSummary.errors.paymentIntents.length > 0) {
+          errorDetails.push(`${syncResult.syncSummary.errors.paymentIntents.length} Payment Intent(s)`);
+        }
+        if (syncResult.syncSummary.errors.subscriptions.length > 0) {
+          errorDetails.push(`${syncResult.syncSummary.errors.subscriptions.length} Subscription(s)`);
+        }
+        setError(`Auto-sync found errors: ${errorDetails.join(', ')} - Check details above`);
+      } else {
+        setSuccess(`Auto-synced: ${syncResult.syncSummary.totalPaid} from ${syncResult.syncSummary.succeededPayments} payments`);
+        // Clear success message after 3 seconds
+        setTimeout(() => setSuccess(null), 3000);
+      }
+    } catch (err) {
+      console.error('❌ Auto-sync failed:', err.message);
+      setError(err.message || 'Auto-sync failed');
     }
   };
 
@@ -163,6 +280,23 @@ const ClientDetailsModal = ({ client, isOpen, onClose, onClientUpdated, onClient
       additional_emails: prev.additional_emails.filter(email => email !== emailToRemove),
       additional_emails_count: prev.additional_emails.length - 1
     }));
+  };
+
+  const loadClientData = async () => {
+    if (!client?.id) return;
+    
+    try {
+      // Load transactions
+      const allTransactions = await transactionService.getAllTransactions();
+      const clientTransactions = allTransactions.filter(t => t.client?.id === client.id);
+      setClientTransactions(clientTransactions);
+      
+      // Load expenses
+      const clientExpenses = await expenseService.getExpensesByClient(client.id);
+      setClientExpenses(clientExpenses);
+    } catch (error) {
+      console.error('Error loading client data:', error);
+    }
   };
 
   if (!isOpen || !client) return null;
@@ -236,6 +370,44 @@ const ClientDetailsModal = ({ client, isOpen, onClose, onClientUpdated, onClient
             </div>
           )}
 
+          {/* Tab Navigation */}
+          <div className="mb-6 border-b border-gray-200">
+            <nav className="flex space-x-8">
+              <button
+                onClick={() => setActiveTab('details')}
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'details'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                Client Details
+              </button>
+              <button
+                onClick={() => setActiveTab('transactions')}
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'transactions'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                Transactions ({clientTransactions.length})
+              </button>
+              <button
+                onClick={() => setActiveTab('expenses')}
+                className={`py-2 px-1 border-b-2 font-medium text-sm ${
+                  activeTab === 'expenses'
+                    ? 'border-blue-500 text-blue-600'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                Expenses ({clientExpenses.length})
+              </button>
+            </nav>
+          </div>
+
+          {/* Tab Content */}
+          {activeTab === 'details' && (
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {/* Left Column - Client Information */}
             <div className="space-y-6">
@@ -472,27 +644,56 @@ const ClientDetailsModal = ({ client, isOpen, onClose, onClientUpdated, onClient
                 </div>
               </div>
 
-              {isEditing && (
-                <div className="flex space-x-3">
-                  <button
-                    onClick={handleSaveChanges}
-                    disabled={loading}
-                    className="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-md transition-colors disabled:opacity-50"
-                  >
-                    {loading ? 'Saving...' : 'Save Changes'}
-                  </button>
-                  <button
-                    onClick={() => setIsEditing(false)}
-                    className="bg-gray-600 hover:bg-gray-700 text-white px-4 py-2 rounded-md transition-colors"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              )}
+
             </div>
 
             {/* Right Column - Stripe Integration */}
             <div className="space-y-6">
+              
+              {/* Stripe Sync Errors Section */}
+              {client.sync_errors && (
+                <div className="bg-red-50 border border-red-200 rounded-lg p-4">
+                  <h4 className="text-md font-medium text-red-900 mb-3 flex items-center">
+                    <svg className="w-5 h-5 text-red-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z" />
+                    </svg>
+                    Stripe Sync Errors
+                  </h4>
+                  <div className="space-y-3">
+                    {client.sync_errors.customer && (
+                      <div className="bg-white rounded border border-red-300 p-3">
+                        <div className="font-medium text-red-800 text-sm">Customer ID Error</div>
+                        <div className="text-sm text-red-700 mt-1">ID: {client.sync_errors.customer.id}</div>
+                        <div className="text-xs text-red-600 mt-1">{client.sync_errors.customer.error}</div>
+                      </div>
+                    )}
+                    
+                    {client.sync_errors.paymentIntents?.map((error, idx) => (
+                      <div key={idx} className="bg-white rounded border border-red-300 p-3">
+                        <div className="font-medium text-red-800 text-sm">Payment Intent Error</div>
+                        <div className="text-sm text-red-700 mt-1 font-mono">{error.id}</div>
+                        <div className="text-xs text-red-600 mt-1">{error.error}</div>
+                      </div>
+                    ))}
+                    
+                    {client.sync_errors.subscriptions?.map((error, idx) => (
+                      <div key={idx} className="bg-white rounded border border-red-300 p-3">
+                        <div className="font-medium text-red-800 text-sm">Subscription Error</div>
+                        <div className="text-sm text-red-700 mt-1 font-mono">{error.id}</div>
+                        <div className="text-xs text-red-600 mt-1">{error.error}</div>
+                      </div>
+                    ))}
+                  </div>
+                  
+                  <button
+                    onClick={syncWithStripe}
+                    disabled={loading}
+                    className="mt-3 bg-red-600 hover:bg-red-700 text-white px-3 py-1 rounded text-sm transition-colors disabled:opacity-50"
+                  >
+                    Retry Sync
+                  </button>
+                </div>
+              )}
               {/* Stripe Customer ID */}
               <div className="bg-blue-50 rounded-lg p-4">
                 <h4 className="text-md font-medium text-gray-900 mb-4">Stripe Customer</h4>
@@ -715,6 +916,125 @@ const ClientDetailsModal = ({ client, isOpen, onClose, onClientUpdated, onClient
               )}
             </div>
           </div>
+
+          )}
+
+          {/* Transactions Tab */}
+          {activeTab === 'transactions' && (
+            <div className="space-y-4">
+              {clientTransactions.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  No transactions found for this client
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Description</th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {clientTransactions.map((transaction) => (
+                        <tr key={transaction.id} className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-sm text-gray-900">
+                            {transaction.date.toLocaleDateString()}
+                          </td>
+                          <td className="px-4 py-3">
+                            <div className="text-sm font-medium text-gray-900 max-w-xs truncate">
+                              {transaction.description}
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-500 capitalize">
+                            {transaction.type.replace('_', ' ')}
+                          </td>
+                          <td className="px-4 py-3 text-sm font-medium">
+                            <span className={transaction.amount >= 0 ? 'text-green-600' : 'text-red-600'}>
+                              {transaction.amount >= 0 ? '+' : ''}${Math.abs(transaction.amount).toFixed(2)}
+                            </span>
+                          </td>
+                          <td className="px-4 py-3">
+                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                              transaction.status === 'succeeded' || transaction.status === 'completed' 
+                                ? 'bg-green-100 text-green-800'
+                                : transaction.status === 'pending'
+                                ? 'bg-yellow-100 text-yellow-800'
+                                : 'bg-red-100 text-red-800'
+                            }`}>
+                              {transaction.status}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Expenses Tab */}
+          {activeTab === 'expenses' && (
+            <div className="space-y-4">
+              {clientExpenses.length === 0 ? (
+                <div className="text-center py-8 text-gray-500">
+                  No expenses found for this client
+                </div>
+              ) : (
+                <div className="overflow-x-auto">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Description</th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Category</th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Amount</th>
+                        <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Status</th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {clientExpenses.map((expense) => (
+                        <tr key={expense.id} className="hover:bg-gray-50">
+                          <td className="px-4 py-3 text-sm text-gray-900">
+                            {new Date(expense.expense_date).toLocaleDateString()}
+                          </td>
+                          <td className="px-4 py-3">
+                            <div className="text-sm font-medium text-gray-900 max-w-xs truncate">
+                              {expense.description}
+                            </div>
+                          </td>
+                          <td className="px-4 py-3 text-sm text-gray-500">
+                            {expense.category}
+                          </td>
+                          <td className="px-4 py-3 text-sm font-medium text-red-600">
+                            ${parseFloat(expense.amount).toFixed(2)}
+                          </td>
+                          <td className="px-4 py-3">
+                            <span className={`inline-flex px-2 py-1 text-xs font-semibold rounded-full ${
+                              expense.is_recurring
+                                ? expense.is_paused 
+                                  ? 'bg-gray-100 text-gray-800'
+                                  : 'bg-blue-100 text-blue-800'
+                                : 'bg-green-100 text-green-800'
+                            }`}>
+                              {expense.is_recurring 
+                                ? expense.is_paused ? 'Paused' : 'Recurring'
+                                : 'One-time'
+                              }
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Footer */}
           <div className="mt-8 pt-6 border-t flex justify-end space-x-3">

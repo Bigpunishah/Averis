@@ -1,16 +1,28 @@
 import { useState } from 'react'
 import { Lock, Mail, Eye, EyeOff } from 'lucide-react'
+import { useAuth } from '../../hooks/useAuth'
 
-export const LoginForm = ({ onLogin, loading, error }) => {
+export const LoginForm = () => {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
+  const [error, setError] = useState('')
+  const [loading, setLoading] = useState(false)
+  const { signIn } = useAuth()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setError('')
+    setLoading(true)
+
     if (email && password) {
-      await onLogin(email, password)
+      const { error } = await signIn(email, password)
+      if (error) {
+        setError(error.message)
+      }
     }
+    
+    setLoading(false)
   }
 
   return (
