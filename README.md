@@ -1,229 +1,208 @@
-# Averis - Automation & System Optimization
+# Averis Admin Dashboard Setup
 
-A professional landing page for Averis, a company specializing in custom business automation and system optimization solutions for small businesses.
+## 🚀 Quick Start
 
-## 🎯 Project Overview
-
-Averis helps small businesses streamline their operations through custom software solutions, eliminating manual work and disconnected tools. The website showcases our modular pricing system and services.
-
-## 🚀 Features
-
-### Landing Page Components
-- **Hero Section** - Compelling introduction with clear value proposition
-- **Services Overview** - Business automation, custom software, system optimization, and AI integration
-- **Modular Pricing** - "Lego-style" pricing with base system and add-on modules
-- **About Section** - Company benefits and 3-step process
-- **Contact Form** - Free system audit request modal
-- **Responsive Design** - Works on desktop, tablet, and mobile devices
-
-### Technical Features
-- **Modern CSS** - Gradient backgrounds, smooth animations, and professional styling
-- **Interactive JavaScript** - Modal forms, smooth scrolling, and mobile navigation
-- **Performance Optimized** - Lazy loading, debounced events, and efficient animations
-- **Accessibility** - Proper focus states, keyboard navigation, and semantic HTML
-- **Form Validation** - Client-side validation with visual feedback
-
-## 🏗️ Project Structure
-
-```
-averis/
-├── .github/
-│   └── copilot-instructions.md    # Workspace-specific instructions
-├── public/
-│   ├── template/                  # Master template for local companies
-│   │   ├── index.html            # Homepage template
-│   │   ├── about.html            # About page template
-│   │   ├── services.html         # Services page template
-│   │   └── assets/
-│   │       ├── css/
-│   │       │   └── styles.css    # Master stylesheet
-│   │       ├── js/
-│   │       │   └── main.js       # JavaScript functionality
-│   │       └── images/           # Template images
-│   ├── samplecompany/            # Example company implementation
-│   └── [localcompanyname]/       # Individual company directories
-├── css/                          # Original files (legacy)
-├── js/                           # Original files (legacy)
-├── .vscode/
-│   └── tasks.json                # VS Code tasks for development
-├── index.html                    # Main Averis landing page
-├── LOCAL_COMPANY_SETUP.md        # Setup guide for local companies
-├── create-company-site.ps1       # PowerShell script to generate sites
-└── README.md                     # Project documentation
+### 1. Install Dependencies
+```bash
+cd admin-dashboard
+npm install
 ```
 
-## 🛠️ Tech Stack
+### 2. Set Up Supabase Database
 
-- **HTML5** - Semantic markup and accessibility
-- **CSS3** - Modern styling with Flexbox, Grid, and animations
-- **JavaScript (ES6+)** - Interactive features and form handling
-- **Google Fonts** - Inter font family for professional typography
-- **Font Awesome** - Icons for visual enhancement
+First, go to your Supabase project dashboard and run this SQL to create the clients table:
 
-## 🚀 Getting Started
+```sql
+-- Create clients table
+CREATE TABLE clients (
+  id UUID DEFAULT gen_random_uuid() PRIMARY KEY,
+  created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  updated_at TIMESTAMP WITH TIME ZONE DEFAULT NOW(),
+  
+  -- Business Information
+  business_name TEXT NOT NULL,
+  domain_name TEXT,
+  contact_name TEXT NOT NULL,
+  contact_phone TEXT,
+  contact_email TEXT NOT NULL,
+  
+  -- Service Type
+  service_type TEXT CHECK (service_type IN ('one_time', 'sale_plus_subscription', 'subscription_only')) NOT NULL,
+  project_type TEXT CHECK (project_type IN ('website', 'software', 'optimization')) NOT NULL,
+  
+  -- Pricing & Revenue
+  one_time_amount DECIMAL(10,2) DEFAULT 0,
+  subscription_amount DECIMAL(10,2) DEFAULT 100,
+  additional_emails_count INTEGER DEFAULT 0,
+  additional_email_cost DECIMAL(10,2) DEFAULT 15,
+  
+  -- Hosting & Domain
+  hosting_enabled BOOLEAN DEFAULT false,
+  domain_registered_by_us BOOLEAN DEFAULT false,
+  domain_monthly_cost DECIMAL(10,2) DEFAULT 0,
+  
+  -- Email Configuration
+  admin_email TEXT,
+  owner_email TEXT,
+  additional_emails JSONB DEFAULT '[]',
+  
+  -- Stripe Integration
+  stripe_customer_id TEXT,
+  stripe_subscription_id TEXT,
+  
+  -- Status Management
+  payment_status TEXT CHECK (payment_status IN ('current', 'past_due', 'overdue', 'cancelled')) DEFAULT 'current',
+  subscription_status TEXT CHECK (subscription_status IN ('active', 'cancelled', 'terminated')) DEFAULT 'active',
+  
+  -- Grace Period
+  grace_period_start DATE,
+  grace_period_end DATE,
+  
+  -- Notes
+  notes TEXT
+);
 
-### Prerequisites
-- Python 3.x (for local server)
-- Modern web browser
-- VS Code (recommended)
+-- Create revenue analytics view
+CREATE VIEW revenue_analytics AS
+SELECT 
+  COUNT(*) as total_clients,
+  COALESCE(SUM(one_time_amount), 0) as total_one_time_revenue,
+  COALESCE(SUM(CASE WHEN subscription_status = 'active' THEN subscription_amount + (additional_emails_count * additional_email_cost) ELSE 0 END), 0) as monthly_recurring_revenue,
+  COUNT(CASE WHEN subscription_status = 'active' THEN 1 END) as active_subscriptions,
+  COALESCE(SUM(one_time_amount + (subscription_amount * 12)), 0) * 0.35 as estimated_tax_withholding
+FROM clients;
 
-### Installation & Setup
+-- Enable Row Level Security
+ALTER TABLE clients ENABLE ROW LEVEL SECURITY;
 
-1. **Clone or download** the project to your local machine
-2. **Open in VS Code** - The workspace is already configured
-3. **Start the local server**:
-   - Use the built-in VS Code task: "Start Local Server"
-   - Or manually run: `python -m http.server 8000`
-4. **View the website** at `http://localhost:8000`
+-- Create policy for authenticated users (you need to replace YOUR_USER_ID with your actual Supabase user ID)
+CREATE POLICY "admin_access_policy" ON clients
+FOR ALL TO authenticated
+USING (auth.uid() = 'YOUR_USER_ID_HERE'::uuid);
 
-### Development Workflow
-
-The project includes a configured VS Code task for development:
-- **Task: "Start Local Server"** - Runs a Python HTTP server on port 8000
-- The task runs in the background, so you can continue editing while the server runs
-- Access the site at `http://localhost:8000` in your browser
-
-## 📱 Responsive Design
-
-The website is fully responsive with breakpoints at:
-- **Desktop**: 1200px+ (full layout)
-- **Tablet**: 768px-1199px (adapted grid)
-- **Mobile**: <768px (single column, mobile menu)
-
-## 🎨 Customization
-
-### Colors & Branding
-The main brand colors are defined in CSS custom properties:
-- **Primary Gradient**: `#667eea` to `#764ba2`
-- **Success**: `#10b981`
-- **Error**: `#ef4444`
-- **Text**: `#1a1a1a` (headings), `#666` (body)
-
-### Content Updates
-- **Services**: Edit the services section in `index.html`
-- **Pricing**: Update pricing cards with current rates
-- **Contact Info**: Replace placeholder contact details
-- **Company Info**: Update company description and benefits
-
-### Adding New Sections
-Follow the existing pattern:
-1. Add HTML structure
-2. Style with CSS classes
-3. Add JavaScript interactions if needed
-
-## 📧 Form Handling
-
-The audit form currently:
-- Validates required fields client-side
-- Shows success/error notifications
-- Logs form data to console (development mode)
-
-**For Production**: Replace the form submission with actual backend integration:
-```javascript
-// In js/main.js, update the submitAuditForm function
-fetch('/api/submit-audit', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(data)
-});
+-- Insert sample data for testing
+INSERT INTO clients (
+  business_name,
+  contact_name,
+  contact_email,
+  service_type,
+  project_type,
+  one_time_amount,
+  subscription_amount,
+  hosting_enabled,
+  admin_email,
+  owner_email,
+  domain_name
+) VALUES 
+(
+  'Sample Business LLC',
+  'John Smith',
+  'john@samplebusiness.com',
+  'sale_plus_subscription',
+  'website',
+  1000.00,
+  100.00,
+  true,
+  'admin@samplebusiness.com',
+  'owner@samplebusiness.com',
+  'samplebusiness.com'
+),
+(
+  'Tech Startup Inc',
+  'Jane Doe',
+  'jane@techstartup.io',
+  'subscription_only',
+  'software',
+  0.00,
+  150.00,
+  true,
+  'admin@techstartup.io',
+  'owner@techstartup.io',
+  'techstartup.io'
+);
 ```
 
-## 🔧 Configuration Options
+### 3. Create Your Admin User
 
-### Analytics Integration
-Uncomment and configure Google Analytics in `js/main.js`:
-```javascript
-// Replace 'GA_TRACKING_ID' with your actual tracking ID
-gtag('config', 'YOUR_GA_TRACKING_ID');
+In Supabase Dashboard:
+1. Go to Authentication → Users
+2. Click "Add User"
+3. Enter your admin email and password
+4. Copy your User ID
+5. Update the RLS policy above with your actual User ID
+
+### 4. Start Development Server
+```bash
+npm run dev
 ```
 
-### Performance Optimization
-The site includes:
-- **Lazy Loading** - Images with `data-src` attribute
-- **Debounced Events** - Scroll and resize handlers
-- **Intersection Observer** - Scroll animations
-- **Optimized Assets** - CDN fonts and icons
+### 5. Access the Dashboard
+Open http://localhost:5173 and log in with your Supabase admin credentials.
 
-## 🚀 Deployment Options
+## 🔧 Configuration
 
-### Static Hosting (Recommended)
-- **Netlify**: Drag & drop the project folder
-- **Vercel**: Connect GitHub repository
-- **GitHub Pages**: Enable in repository settings
-- **AWS S3**: Upload files to S3 bucket with static website hosting
+### Environment Variables
+The `.env` file is already configured with your Supabase credentials:
+- `VITE_SUPABASE_URL`: Your Supabase project URL
+- `VITE_SUPABASE_ANON_KEY`: Your Supabase anonymous key
 
-### Traditional Hosting
-- Upload all files to your web hosting provider
-- Ensure `index.html` is in the root directory
-- No server-side processing required
+### Building for Production
+```bash
+npm run build
+```
+This creates a `dist/` folder with static files ready for deployment.
 
-## 📋 Business Context
+## 🚀 Deployment to GitHub Pages
 
-### Service Offerings
-1. **Core System** ($1,500-$4,000) - Dashboard, user management, database
-2. **Automation Modules** ($500-$4,000) - Email/SMS, reports, billing
-3. **CRM System** ($800-$5,000) - Contacts, pipelines, tasks
-4. **AI Features** ($1,000-$10,000) - ChatGPT integration, document search
-5. **E-Commerce** ($1,000-$8,000) - Payments, subscriptions, invoicing
-6. **Integrations** ($500-$5,000) - QuickBooks, Slack, Shopify, etc.
+### Option 1: Manual Deployment
+```bash
+npm run build
+# Upload the dist/ folder to your admin.averis.us repository
+```
 
-### Monthly Services
-- **Hosting**: $150-$800/month
-- **Support Plans**: Basic ($100), Standard ($300), Premium ($800)
-- **AI Usage**: $50-$500/month (usage-based)
+### Option 2: Automated Deployment (Recommended)
+```bash
+npm run deploy
+```
 
-## 🏢 Local Company Websites
+## 🔐 Security Notes
 
-The Averis system now supports creating customized websites for local companies using a template-based approach.
+1. **Row Level Security**: Only your authenticated admin user can access client data
+2. **Environment Variables**: Never commit the `.env` file to version control
+3. **Static Build**: The built application contains no server secrets
 
-### Features
-- **URL Structure**: `averis.us/localcompanyname/`
-- **Multi-page Sites**: Homepage, About, Services pages
-- **Template Variables**: Easy content customization
-- **Branded Design**: Company logos, colors, and content
-- **SEO Optimized**: Local business optimization
+## 📱 Features Included
 
-### Quick Setup
-1. **Use PowerShell Script**:
-   ```powershell
-   .\create-company-site.ps1 -CompanySlug "smithplumbing" -CompanyName "Smith Plumbing" -CompanyEmail "info@smithplumbing.com"
-   ```
+✅ **Authentication**: Secure login with Supabase Auth  
+✅ **Client Management**: View, search, and paginate client list  
+✅ **Revenue Analytics**: Real-time stats dashboard  
+✅ **Client Details**: Detailed modal for each client  
+✅ **Responsive Design**: Works on desktop and mobile  
+✅ **Status Management**: Track payment and subscription status  
 
-2. **Manual Setup**:
-   - Copy `/public/template/` to `/public/companyname/`
-   - Replace template variables in all HTML files
-   - Add company logo and images
-   - Test the website
+## 🔄 Next Steps
 
-### Template Variables
-- `{{COMPANY_NAME}}` - Business name
-- `{{COMPANY_TAGLINE}}` - Company slogan
-- `{{COMPANY_EMAIL}}` - Contact email
-- `{{SERVICE_1_TITLE}}` - Service names
-- And many more (see `LOCAL_COMPANY_SETUP.md`)
+1. **Set up subdomain**: Configure DNS for admin.averis.us
+2. **Add client management**: Forms to add/edit clients
+3. **Stripe integration**: Connect billing and webhooks
+4. **Email management**: Track email accounts
+5. **Automated notifications**: Grace period alerts
 
-For detailed setup instructions, see [LOCAL_COMPANY_SETUP.md](./LOCAL_COMPANY_SETUP.md)
+## 🆘 Troubleshooting
 
-## 🤝 Contributing
+### Login Issues
+- Verify your Supabase user exists
+- Check the RLS policy has your correct User ID
+- Ensure environment variables are correct
 
-To modify or enhance the website:
-1. Make changes to HTML, CSS, or JavaScript files
-2. Test locally using the development server
-3. Validate responsive design across devices
-4. Test form functionality and animations
-5. Check browser compatibility
+### Data Not Loading
+- Check Supabase connection in browser dev tools
+- Verify the clients table was created successfully
+- Test the revenue_analytics view
 
-## 📞 Support
-
-For questions about the website or Averis services:
-- **Email**: hello@averis.com (placeholder)
-- **Phone**: +1 (555) 123-4567 (placeholder)
-- **Website**: The site you're viewing!
-
-## 📄 License
-
-This project is created for Averis business purposes. All rights reserved.
-
----
-
-**Built with ❤️ for small business automation**
+### Build Issues
+```bash
+rm -rf node_modules
+npm install
+npm run build
+```
