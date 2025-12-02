@@ -230,6 +230,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             });
             
+            // Validate consent checkbox
+            const consentCheckbox = document.getElementById('consent');
+            if (!consentCheckbox.checked) {
+                showNotification('Please agree to the Terms of Service and Privacy Policy to continue.', 'error');
+                isValid = false;
+            }
+            
             if (!isValid) {
                 showNotification('Please fill in all required fields.', 'error');
                 return;
