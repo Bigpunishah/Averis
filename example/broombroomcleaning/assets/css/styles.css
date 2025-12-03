@@ -349,12 +349,10 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-/* Mobile-specific hero adjustments */
+/* Mobile-specific positioning adjustments - Keep parallax effect */
 @media (max-width: 768px) {
     .hero {
-        background-attachment: scroll !important;
-        background-size: cover;
-        background-position: center 30%;
+        background-position: center 30%; /* Prevent zoom-in effect */
     }
     
     .hero-overlay {
@@ -366,13 +364,6 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 480px) {
     .hero {
         background-position: center 25%;
-    }
-}
-
-/* iOS Safari specific fixes */
-@supports (-webkit-touch-callout: none) {
-    .hero {
-        background-attachment: scroll !important;
     }
 }
 
@@ -1608,8 +1599,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .hero {
-        background-attachment: scroll;
-        background-position: center center;
+        background-position: center 25%;
         background-size: cover;
         min-height: 100vh;
         height: auto;
