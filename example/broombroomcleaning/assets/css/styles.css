@@ -349,10 +349,11 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-/* Mobile-specific positioning adjustments - Keep parallax effect */
+/* Mobile-specific adjustments - Disable parallax to fix zoom issues */
 @media (max-width: 768px) {
     .hero {
-        background-position: center 30%; /* Prevent zoom-in effect */
+        background-attachment: scroll !important; /* Disable parallax on mobile */
+        background-position: center 30% !important; /* Prevent zoom-in effect */
     }
     
     .hero-overlay {
@@ -363,7 +364,8 @@ h1, h2, h3, h4, h5, h6 {
 /* Very small screens - prevent excessive zoom */
 @media (max-width: 480px) {
     .hero {
-        background-position: center 25%;
+        background-attachment: scroll !important; /* Ensure no parallax on small screens */
+        background-position: center 25% !important;
     }
 }
 
@@ -1599,7 +1601,8 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .hero {
-        background-position: center 25%;
+        background-attachment: scroll !important; /* Override parallax */
+        background-position: center 25% !important; /* Prevent zoom */
         background-size: cover;
         min-height: 100vh;
         height: auto;
