@@ -1255,12 +1255,33 @@ section {
     .about-content {
         grid-template-columns: 1fr;
         gap: 2rem;
+        padding: 10px;
+    }
+    
+    .about-img {
+        height: 250px;
+        object-fit: cover;
+        object-position: center top;
+        transform: scale(1.1);
+        transform-origin: center;
+    }
+    
+    .about-image {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
     }
     
     .experience-badge {
-        position: static;
-        margin-top: 2rem;
-        display: inline-block;
+        position: absolute;
+        bottom: -40px;
+        right: -10px;
+        padding: 1rem;
+        font-size: 0.9rem;
+        z-index: 10;
+        border-radius: 12px;
+    }
+    
+    .experience-badge .years {
+        font-size: 1.5rem;
     }
     
     /* Contact */
