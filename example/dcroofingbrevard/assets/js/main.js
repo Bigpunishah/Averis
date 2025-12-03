@@ -578,7 +578,7 @@ function preloadImages() {
     const imagesToPreload = [
         'assets/images/hero-roofing.jpg',
         'assets/images/about-team.jpg',
-        'assets/images/dc-roofing-logo.png'
+        'assets/images/DC-Roofing-logo.png'
     ];
     
     imagesToPreload.forEach(src => {
