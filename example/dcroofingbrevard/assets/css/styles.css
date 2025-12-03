@@ -1590,17 +1590,17 @@ section {
     padding: 1rem;
 }
 
-/* Mobile zoom out - Keep parallax but show more of image */
+/* Mobile - Disable parallax for better compatibility */
 @media (max-width: 768px) {
     .hero {
-        background-size: 80% auto !important; /* Zoom OUT significantly */
-        background-position: center center !important; /* Center the smaller image */
+        background-attachment: scroll !important; /* Disable parallax on mobile */
+        background-size: cover !important;
+        background-position: center center !important;
     }
 }
 
 @media (max-width: 480px) {
     .hero {
-        background-size: 70% auto !important; /* Even more zoom out */
         background-position: center center !important;
     }
 }
