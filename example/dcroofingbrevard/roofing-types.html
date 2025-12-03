@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roofing Types - DC Roofing Brevard | Metal, Shingle, Tile & TPO Roofing</title>
+    <meta name="description" content="Explore our comprehensive roofing options: Metal roofing, Shingle roofing, Tile roofing, and TPO commercial roofing. Filter by type and color to find your perfect roof solution.">
+    <meta name="keywords" content="metal roofing, shingle roofing, tile roofing, TPO roofing, roofing colors, roofing types, Melbourne Florida">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- DC Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='70' font-family='Arial,sans-serif' font-size='75' font-weight='bold' fill='white' text-anchor='middle'>DC</text></svg>" type="image/svg+xml">
+    <style>
+        /* Roofing Types Specific Styles */
+        .roofing-types-hero {
+            background: linear-gradient(135deg, #1e293b 0%, #475569 100%);
+            color: white;
+            padding: 140px 0 80px;
+            text-align: center;
+        }
+
+        .roofing-types-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .roofing-types-hero p {
+            font-size: 1.3rem;
+            color: rgba(255, 255, 255, 0.9);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .filter-section {
+            background: white;
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 80px;
+            z-index: 500;
+        }
+
+        .filter-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .filter-btn {
+            padding: 12px 24px;
+            border: 2px solid #e5e7eb;
+            background: white;
+            color: #374151;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover {
+            border-color: #3b82f6;
+            color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .filter-btn.active {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            border-color: #1e3a8a;
+            box-shadow: 0 4px 15px rgba(30, 58, 138, 0.3);
+        }
+
+        .gallery-section {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+
+        .roofing-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .roofing-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            opacity: 1;
+            transform: scale(1);
+            animation: fadeInUp 0.6s ease;
+        }
+
+        .roofing-card.hidden {
+            display: none !important;
+        }
+
+        .roofing-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        }
+
+        .roofing-image {
+            position: relative;
+            overflow: hidden;
+            height: 250px;
+        }
+
+        .roofing-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .roofing-image img {
+            cursor: pointer;
+        }
+
+        .roofing-card:hover .roofing-image img {
+            transform: scale(1.05);
+        }
+
+        .roofing-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(30, 58, 138, 0.1), rgba(59, 130, 246, 0.1));
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .roofing-card:hover .roofing-overlay {
+            opacity: 1;
+        }
+
+        .roofing-info {
+            padding: 2rem;
+        }
+
+        .roofing-type {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .roofing-title {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .roofing-description {
+            color: #64748b;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .roofing-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .feature-tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .roofing-stats {
+            background: white;
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .stat-item {
+            padding: 2rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #1e3a8a;
+            display: block;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-weight: 500;
+            margin-top: 0.5rem;
+        }
+
+        .cta-section {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .cta-content h2 {
+            color: white;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .cta-content p {
+            color: rgba(255, 255, 255, 0.9);
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .roofing-types-hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .roofing-types-hero p {
+                font-size: 1.1rem;
+                padding: 0 1rem;
+            }
+
+            .filter-controls {
+                padding: 0 1rem;
+                gap: 0.3rem;
+                justify-content: center;
+            }
+
+            .filter-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+                white-space: nowrap;
+                min-width: auto;
+                flex: 0 0 auto;
+            }
+
+            /* Stack buttons in two rows for better mobile experience */
+            .filter-controls {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 0.5rem;
+                max-width: 400px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .filter-btn {
+                padding: 6px 8px;
+                font-size: 0.75rem;
+            }
+
+            .filter-controls {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.4rem;
+            }
+
+            .roofing-gallery {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+
+            .offer-features {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .cta-content h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Lightbox Modal Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(5px);
+        }
+
+        .lightbox.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 90%;
+            max-height: 90%;
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease;
+        }
+
+        .lightbox-image {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .lightbox-info {
+            padding: 2rem;
+            background: white;
+        }
+
+        .lightbox-category {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 1rem;
+        }
+
+        .lightbox-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 0.5rem;
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #dc2626;
+            font-size: 3rem;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10000;
+            background: rgba(0, 0, 0, 0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-close:hover {
+            color: #b91c1c;
+            transform: scale(1.1);
+        }
+
+        /* Remove button focus borders and active states */
+        button:focus,
+        button:active,
+        .btn:focus,
+        .btn:active,
+        .filter-btn:focus,
+        .filter-btn:active,
+        input:focus,
+        select:focus,
+        textarea:focus,
+        a:focus,
+        *:focus {
+            outline: none !important;
+            box-shadow: none !important;
+            background-color: inherit !important;
+        }
+
+        /* Remove blue highlight on tap/click for mobile */
+        * {
+            -webkit-tap-highlight-color: transparent;
+            -webkit-focus-ring-color: transparent;
+            -moz-outline-style: none;
+        }
+
+        /* Ensure filter buttons don't show blue background when clicked */
+        .filter-btn:active:not(.active) {
+            background: white !important;
+            color: #374151 !important;
+            border-color: #e5e7eb !important;
+        }
+
+        /* Footer phone link styling */
+        .footer-phone {
+            color: inherit;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-phone:hover {
+            color: #3b82f6;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes zoomIn {
+            from { 
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to { 
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-content {
+                max-width: 95%;
+                max-height: 95%;
+            }
+
+            .lightbox-info {
+                padding: 1.5rem;
+            }
+
+            .lightbox-title {
+                font-size: 1.5rem;
+            }
+
+            .lightbox-close {
+                top: 10px;
+                right: 15px;
+                width: 40px;
+                height: 40px;
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .roofing-types-hero {
+                padding: 120px 0 60px;
+            }
+
+            .roofing-types-hero h1 {
+                font-size: 2rem;
+            }
+
+            .stats-container {
+                grid-template-columns: 1fr;
+            }
+
+            .filter-section {
+                padding: 1.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo-container">
+                <a href="index.html" class="logo-link">
+                    <img src="assets/images/DC-Roofing-logo.png" alt="DC Roofing Logo" class="logo">
+                </a>
+            </div>
+            
+            <!-- Desktop Navigation -->
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#services" class="nav-link">Services</a></li>
+                <li><a href="roofing-types.html" class="nav-link active">Roofing Types</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="index.html#testimonials" class="nav-link">Testimonials</a></li>
+                <li><a href="index.html#faq" class="nav-link">FAQ</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+                <li><a href="index.html#careers" class="nav-link">Careers</a></li>
+            </ul>
+
+            <!-- Mobile Hamburger Menu -->
+            <div class="hamburger" id="hamburger">
+                <input class="checkbox" type="checkbox" id="hamburger-checkbox" />
+                <svg fill="none" viewBox="0 0 50 50" height="50" width="50">
+                    <path class="lineTop line" stroke-linecap="round" stroke-width="4" stroke="white" d="M6 11L44 11"></path>
+                    <path stroke-linecap="round" stroke-width="4" stroke="white" d="M6 24H43" class="lineMid line"></path>
+                    <path stroke-linecap="round" stroke-width="4" stroke="white" d="M6 37H43" class="lineBottom line"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="index.html#services" class="mobile-nav-link">Services</a>
+            <a href="roofing-types.html" class="mobile-nav-link">Roofing Types</a>
+            <a href="index.html#about" class="mobile-nav-link">About</a>
+            <a href="index.html#testimonials" class="mobile-nav-link">Testimonials</a>
+            <a href="index.html#faq" class="mobile-nav-link">FAQ</a>
+            <a href="index.html#contact" class="mobile-nav-link">Contact</a>
+            <a href="index.html#careers" class="mobile-nav-link">Careers</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="roofing-types-hero">
+        <div class="container">
+            <h1>Premium Roofing Solutions</h1>
+            <p>Explore our extensive collection of roofing materials and styles. From metal and shingle to tile and commercial TPO roofing, we have the perfect solution for every home and business in Melbourne, Florida.</p>
+        </div>
+    </section>
+
+    <!-- Filter Section -->
+    <section class="filter-section">
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All Roofing Types</button>
+            <button class="filter-btn" data-filter="metal">Metal Roofing</button>
+            <button class="filter-btn" data-filter="shingle">Shingle Roofing</button>
+            <button class="filter-btn" data-filter="metal-tile">Metal Tile</button>
+            <button class="filter-btn" data-filter="tile">Tile Roofing</button>
+            <button class="filter-btn" data-filter="tpo">TPO Commercial</button>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="gallery-section">
+        <div class="roofing-gallery" id="roofingGallery">
+            <!-- Metal Roofing Cards -->
+            <div class="roofing-card" data-type="metal" data-color="silver">
+                <div class="roofing-image" onclick="openLightbox('assets/images/Silver-Roofing-wholehouse.webp', 'Silver Metal', 'Metal Roofing')">
+                    <img src="assets/images/Silver-Roofing-wholehouse.webp" alt="Silver Metal Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Metal Roofing</span>
+                    <h3 class="roofing-title">Silver Metal</h3>
+                    <p class="roofing-description">Classic silver metal roofing provides exceptional durability and energy efficiency. Perfect for modern and traditional home styles.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Energy Efficient</span>
+                        <span class="feature-tag">50+ Year Lifespan</span>
+                        <span class="feature-tag">Weather Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="roofing-card" data-type="metal" data-color="blue">
+                <div class="roofing-image" onclick="openLightbox('assets/images/Color-metal-roofing-blue.webp', 'Blue Metal', 'Metal Roofing')">
+                    <img src="assets/images/Color-metal-roofing-blue.webp" alt="Blue Metal Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Metal Roofing</span>
+                    <h3 class="roofing-title">Blue Metal</h3>
+                    <p class="roofing-description">Vibrant blue metal roofing adds a bold, distinctive look while maintaining all the benefits of premium metal construction.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Color Coated</span>
+                        <span class="feature-tag">Fade Resistant</span>
+                        <span class="feature-tag">Impact Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="roofing-card" data-type="metal" data-color="copper">
+                <div class="roofing-image" onclick="openLightbox('assets/images/Color-metal-roofing-top-view-copper.webp', 'Copper Metal', 'Metal Roofing')">
+                    <img src="assets/images/Color-metal-roofing-top-view-copper.webp" alt="Copper Metal Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Metal Roofing</span>
+                    <h3 class="roofing-title">Copper Metal</h3>
+                    <p class="roofing-description">Rich copper-toned metal roofing provides an elegant, upscale appearance with superior weather protection.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Premium Finish</span>
+                        <span class="feature-tag">Luxury Appeal</span>
+                        <span class="feature-tag">Long Lasting</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roofing-card" data-type="metal" data-color="black">
+                <div class="roofing-image" onclick="openLightbox('assets/images/Color-metal-roofing-top-view-black.webp', 'Black Metal', 'Metal Roofing')">
+                    <img src="assets/images/Color-metal-roofing-top-view-black.webp" alt="Black Metal Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Metal Roofing</span>
+                    <h3 class="roofing-title">Black Metal</h3>
+                    <p class="roofing-description">Sophisticated black metal roofing delivers a modern, sleek aesthetic while providing maximum durability and energy efficiency.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Modern Style</span>
+                        <span class="feature-tag">Heat Reflective</span>
+                        <span class="feature-tag">Low Maintenance</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Metal Tile Cards -->
+            <div class="roofing-card" data-type="metal-tile" data-color="blue">
+                <div class="roofing-image" onclick="openLightbox('assets/images/Metal-tile-blue.webp', 'Blue Metal Tile', 'Metal Tile')">
+                    <img src="assets/images/Metal-tile-blue.webp" alt="Blue Metal Tile Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Metal Tile</span>
+                    <h3 class="roofing-title">Blue Metal Tile</h3>
+                    <p class="roofing-description">Beautiful blue metal tiles combine the durability of metal with the classic appearance of traditional tile roofing.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Tile Look</span>
+                        <span class="feature-tag">Metal Strength</span>
+                        <span class="feature-tag">Lightweight</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roofing-card" data-type="metal-tile" data-color="green">
+                <div class="roofing-image" onclick="openLightbox('assets/images/Metal-tile-green.webp', 'Green Metal Tile', 'Metal Tile')">
+                    <img src="assets/images/Metal-tile-green.webp" alt="Green Metal Tile Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Metal Tile</span>
+                    <h3 class="roofing-title">Green Metal Tile</h3>
+                    <p class="roofing-description">Rich green metal tiles offer the perfect blend of natural beauty and modern performance for distinctive home designs.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Natural Look</span>
+                        <span class="feature-tag">Eco-Friendly</span>
+                        <span class="feature-tag">Hurricane Rated</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roofing-card" data-type="metal-tile" data-color="red">
+                <div class="roofing-image" onclick="openLightbox('assets/images/Metal-tile-red.webp', 'Red Metal Tile', 'Metal Tile')">
+                    <img src="assets/images/Metal-tile-red.webp" alt="Red Metal Tile Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Metal Tile</span>
+                    <h3 class="roofing-title">Red Metal Tile</h3>
+                    <p class="roofing-description">Traditional red metal tiles deliver timeless elegance with the superior protection and longevity of premium metal construction.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Classic Red</span>
+                        <span class="feature-tag">Fire Resistant</span>
+                        <span class="feature-tag">Energy Star Rated</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Shingle Roofing Cards -->
+            <div class="roofing-card" data-type="shingle">
+                <div class="roofing-image" onclick="openLightbox('assets/images/Shingle-roofing.webp', 'Premium Asphalt Shingles', 'Shingle Roofing')">
+                    <img src="assets/images/Shingle-roofing.webp" alt="Asphalt Shingle Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Shingle Roofing</span>
+                    <h3 class="roofing-title">Premium Asphalt Shingles</h3>
+                    <p class="roofing-description">High-quality asphalt shingles provide reliable protection and classic appeal for residential properties at an affordable price point.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Cost Effective</span>
+                        <span class="feature-tag">25+ Year Warranty</span>
+                        <span class="feature-tag">Easy Repair</span>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <!-- Tile Roofing Cards -->
+            <div class="roofing-card" data-type="tile">
+                <div class="roofing-image" onclick="openLightbox('assets/images/TIle-roof.webp', 'Red Tile', 'Tile Roofing')">
+                    <img src="assets/images/TIle-roof.webp" alt="Red Clay Tile Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Tile Roofing</span>
+                    <h3 class="roofing-title">Red Tile</h3>
+                    <p class="roofing-description">Authentic clay tiles provide timeless Mediterranean style with exceptional longevity and natural weather resistance.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">50+ Years</span>
+                        <span class="feature-tag">Fire Proof</span>
+                        <span class="feature-tag">Insulating</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roofing-card" data-type="tile" data-color="slate">
+                <div class="roofing-image" onclick="openLightbox('assets/images/TIle-roof3.webp', 'Slate Tile', 'Tile Roofing')">
+                    <img src="assets/images/TIle-roof3.webp" alt="Slate Tile Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Tile Roofing</span>
+                    <h3 class="roofing-title">Slate Tile</h3>
+                    <p class="roofing-description">Elegant slate-colored tiles offer sophisticated aesthetics with outstanding durability and weather protection for premium home applications.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Premium Grade</span>
+                        <span class="feature-tag">Weather Proof</span>
+                        <span class="feature-tag">Elegant Finish</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="roofing-card" data-type="tile" data-color="terra">
+                <div class="roofing-image" onclick="openLightbox('assets/images/TIle-roof4.webp', 'Terra Cotta Tile', 'Tile Roofing')">
+                    <img src="assets/images/TIle-roof4.webp" alt="Terra Cotta Tile Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">Tile Roofing</span>
+                    <h3 class="roofing-title">Terra Cotta Tile</h3>
+                    <p class="roofing-description">Rich terra cotta tiles deliver authentic Mediterranean charm with superior insulation properties and long-lasting beauty for distinctive homes.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Authentic Style</span>
+                        <span class="feature-tag">Insulating</span>
+                        <span class="feature-tag">Natural Beauty</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TPO Roofing Cards -->
+            <div class="roofing-card" data-type="tpo">
+                <div class="roofing-image" onclick="openLightbox('assets/images/TPO-Roofing.webp', 'TPO Membrane System', 'TPO Commercial')">
+                    <img src="assets/images/TPO-Roofing.webp" alt="TPO Commercial Roofing">
+                    <div class="roofing-overlay"></div>
+                </div>
+                <div class="roofing-info">
+                    <span class="roofing-type">TPO Commercial</span>
+                    <h3 class="roofing-title">TPO Membrane System</h3>
+                    <p class="roofing-description">Single-ply TPO roofing delivers superior performance for commercial flat and low-slope applications with energy efficiency.</p>
+                    <div class="roofing-features">
+                        <span class="feature-tag">Commercial Grade</span>
+                        <span class="feature-tag">Energy Efficient</span>
+                        <span class="feature-tag">Puncture Resistant</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="roofing-stats">
+        <div class="container">
+            <div class="stats-container">
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Roofing Projects Completed</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">27+</span>
+                    <span class="stat-label">Years of Experience</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">12+</span>
+                    <span class="stat-label">Roofing Material Options</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">100%</span>
+                    <span class="stat-label">Customer Satisfaction</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Choose Your Perfect Roof?</h2>
+                <p>Our roofing experts are here to help you select the ideal roofing material and color for your home or business. Get your free estimate today!</p>
+                <div class="hero-buttons">
+                    <a href="index.html#contact" class="btn btn-primary btn-lg">
+                        <i class="fas fa-calculator"></i>
+                        Get Free Estimate
+                    </a>
+                    <a href="tel:3215577387" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-phone"></i>
+                        Call (321) 557-7387
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <img src="assets/images/DC-Roofing-logo.png" alt="DC Roofing Logo" class="footer-logo-img">
+                    </div>
+                    <p>"Let us do your roofing right the first time!"</p>
+                    <div class="footer-social">
+                        <a href="https://www.facebook.com/DCMetalRoof/" target="_blank" class="social-icon">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                        <a href="https://www.instagram.com/dcroofinginc/" target="_blank" class="social-icon">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.google.com/maps/place/DC+Roofing,+Inc./@28.1023932,-80.6916071,17z/" target="_blank" class="social-icon">
+                            <i class="fab fa-google"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Roofing Types</h4>
+                    <ul>
+                        <li><a href="roofing-types.html">Metal Roofing</a></li>
+                        <li><a href="roofing-types.html">Shingle Roofing</a></li>
+                        <li><a href="roofing-types.html">Metal Tile</a></li>
+                        <li><a href="roofing-types.html">Tile Roofing</a></li>
+                        <li><a href="roofing-types.html">TPO Commercial</a></li>
+                        <li><a href="index.html#services">All Services</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info-footer">
+                        <p><i class="fas fa-phone"></i> Melbourne: <a href="tel:3215577387" class="footer-phone">(321) 557-7387</a></p>
+                        <p><i class="fas fa-phone"></i> Office: <a href="tel:3214191260" class="footer-phone">(321) 419-1260</a></p>
+                        <p><i class="fas fa-phone"></i> Melbourne Beach: <a href="tel:7723622904" class="footer-phone">(772) 362-2904</a></p>
+                        <p><i class="fas fa-fax"></i> Fax: (321) 312-4919</p>
+                        <p><i class="fas fa-map-marker-alt"></i> 284 West Dr. Unit B, Melbourne, FL 32904</p>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h4>Service Areas</h4>
+                    <ul>
+                        <li>Melbourne, FL</li>
+                        <li>Brevard County</li>
+                        <li>Indian River County</li>
+                        <li>Seminole County</li>
+                        <li>Tampa Bay</li>
+                        <li>Sarasota County</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2025 DC Roofing, Inc. All rights reserved.</p>
+                    <div class="footer-links">
+                        <a href="privacy-policy.html">Privacy Policy</a>
+                        <a href="terms-of-use.html">Terms of Use</a>
+                    </div>
+                    <p class="licenses">Licensed: CCC133-1491, CCC133-0894</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <img id="lightbox-img" class="lightbox-image" src="" alt="">
+            <div class="lightbox-info">
+                <span id="lightbox-category" class="lightbox-category"></span>
+                <h2 id="lightbox-title" class="lightbox-title"></h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Mobile menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const checkbox = document.getElementById('hamburger-checkbox');
+
+        hamburger.addEventListener('click', function() {
+            mobileMenu.classList.toggle('active');
+        });
+
+        // Lightbox functionality
+        function openLightbox(imageSrc, title, category) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImg = document.getElementById('lightbox-img');
+            const lightboxTitle = document.getElementById('lightbox-title');
+            const lightboxCategory = document.getElementById('lightbox-category');
+            
+            lightboxImg.src = imageSrc;
+            lightboxImg.alt = title;
+            lightboxTitle.textContent = title;
+            lightboxCategory.textContent = category;
+            
+            lightbox.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeLightbox(event) {
+            // Only close if clicking the overlay or close button, not the content
+            if (event && event.target.closest('.lightbox-content') && !event.target.closest('.lightbox-close')) {
+                return;
+            }
+            
+            const lightbox = document.getElementById('lightbox');
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close lightbox with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeLightbox();
+            }
+        });
+
+        // Filter functionality
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const roofingCards = document.querySelectorAll('.roofing-card');
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+                
+                // Update active button
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Filter cards
+                roofingCards.forEach(card => {
+                    const cardType = card.getAttribute('data-type');
+                    
+                    if (filter === 'all' || cardType === filter) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                });
+            });
+        });
+
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add loading animation
+        window.addEventListener('load', function() {
+            document.body.classList.add('loading');
+        });
+    </script>
+</body>
+</html>
