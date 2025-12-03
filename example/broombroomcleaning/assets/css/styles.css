@@ -320,14 +320,7 @@ h1, h2, h3, h4, h5, h6 {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    background-attachment: scroll;
-}
-
-/* Fixed background for desktop only */
-@media (min-width: 769px) and (hover: hover) and (pointer: fine) {
-    .hero {
-        background-attachment: fixed;
-    }
+    background-attachment: fixed;
 }
 
 .hero-background {
@@ -356,14 +349,23 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-/* Mobile-specific fixes for background images */
+/* Mobile-specific hero adjustments */
 @media (max-width: 768px) {
     .hero {
         background-attachment: scroll !important;
+        background-size: cover;
+        background-position: center 30%;
     }
     
     .hero-overlay {
         background: linear-gradient(135deg, rgba(139, 90, 60, 0.85) 0%, rgba(101, 67, 33, 0.9) 100%);
+    }
+}
+
+/* Very small screens - prevent excessive zoom */
+@media (max-width: 480px) {
+    .hero {
+        background-position: center 25%;
     }
 }
 
@@ -1607,6 +1609,8 @@ h1, h2, h3, h4, h5, h6 {
     
     .hero {
         background-attachment: scroll;
+        background-position: center center;
+        background-size: cover;
         min-height: 100vh;
         height: auto;
     }
