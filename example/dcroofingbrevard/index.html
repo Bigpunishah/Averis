@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- DC Favicon -->
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='70' font-family='Arial,sans-serif' font-size='75' font-weight='bold' fill='white' text-anchor='middle'>DC</text></svg>" type="image/svg+xml">
 </head>
 <body>
     <!-- Navigation -->
@@ -24,6 +26,7 @@
             <ul class="nav-menu">
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#services" class="nav-link">Services</a></li>
+                <li><a href="roofing-types.html" class="nav-link">Roofing Types</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#testimonials" class="nav-link">Testimonials</a></li>
                 <li><a href="#faq" class="nav-link">FAQ</a></li>
@@ -46,6 +49,7 @@
         <div class="mobile-menu" id="mobile-menu">
             <a href="#home" class="mobile-nav-link">Home</a>
             <a href="#services" class="mobile-nav-link">Services</a>
+            <a href="roofing-types.html" class="mobile-nav-link">Roofing Types</a>
             <a href="#about" class="mobile-nav-link">About</a>
             <a href="#testimonials" class="mobile-nav-link">Testimonials</a>
             <a href="#faq" class="mobile-nav-link">FAQ</a>
@@ -55,21 +59,22 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <div class="hero-text">
-                <h1>Let Us Do Your Roofing Right the First Time!</h1>
-                <p class="hero-subtitle">27+ Years of Trusted Roofing Excellence in Melbourne, Florida</p>
-                <div class="hero-features">
-                    <div class="feature">
+    <section id="home" class="hero" style="background-image: url('assets/images/Metal-Roof-2-scaled-hero.jpg'); background-size: cover; background-position: center; background-attachment: fixed; background-repeat: no-repeat; position: relative; min-height: 100vh;">
+        <div class="hero-overlay" style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.3));"></div>
+        <div class="hero-content" style="position: relative; z-index: 2; justify-content: flex-start; text-align: left; min-height: 100vh; display: flex; align-items: center;">
+            <div class="hero-text" style="color: white; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.6); max-width: 600px;">
+                <h1 style="color: white;">Let Us Do Your Roofing Right the First Time!</h1>
+                <p class="hero-subtitle" style="color: rgba(255, 255, 255, 0.95);">27+ Years of Trusted Roofing Excellence in Melbourne, Florida</p>
+                <div class="hero-features" style="color: rgba(255, 255, 255, 0.9);">
+                    <div class="feature" style="color: rgba(255, 255, 255, 0.9);">
                         <i class="fas fa-shield-alt"></i>
                         <span>Licensed & Insured</span>
                     </div>
-                    <div class="feature">
+                    <div class="feature" style="color: rgba(255, 255, 255, 0.9);">
                         <i class="fas fa-award"></i>
                         <span>BBB Accredited</span>
                     </div>
-                    <div class="feature">
+                    <div class="feature" style="color: rgba(255, 255, 255, 0.9);">
                         <i class="fas fa-phone"></i>
                         <span>Free Estimates</span>
                     </div>
@@ -81,9 +86,6 @@
                         (321) 557-7387
                     </a>
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="assets/images/hero-roofing.jpg" alt="Professional Roofing Services in Melbourne, FL" class="hero-img">
             </div>
         </div>
     </section>
@@ -163,6 +165,21 @@
                         <li>Insurance Claims Support</li>
                     </ul>
                 </div>
+
+                <div class="service-card" style="position: relative;">
+                    <div class="coming-soon-badge" style="position: absolute; top: 10px; right: 10px; background: #ff6b35; color: white; padding: 0.3rem 0.8rem; border-radius: 15px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; z-index: 10;">Coming Soon</div>
+                    <div class="service-icon">
+                        <i class="fas fa-solar-panel"></i>
+                    </div>
+                    <h3>Solar Power</h3>
+                    <p>Roof-integrated solar solutions to maximize your property's energy efficiency.</p>
+                    <ul>
+                        <li>Solar Installation</li>
+                        <li>Energy Audits</li>
+                        <li>Green Technology</li>
+                        <li>Professional Assessment</li>
+                    </ul>
+                </div>
             </div>
         </div>
     </section>
@@ -217,12 +234,25 @@
                 </div>
                 
                 <div class="about-image">
-                    <img src="assets/images/about-team.jpg" alt="DC Roofing Team" class="about-img">
+                    <img src="assets/images/about-team.webp" alt="DC Roofing Team" class="about-img">
                     <div class="experience-badge">
                         <span class="years">27+</span>
                         <span class="text">Years Experience</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Video Section -->
+    <section class="video-showcase">
+        <div class="container">
+            <div class="section-header">
+                <h2>What Best of the Best has to Say!</h2>
+                <p>Watch what Rich Noonan has to say about our roofing services</p>
+            </div>
+            <div class="video-container">
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/28KB8l2YIc0?si=71WCSMGVjDrkT828" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -233,16 +263,53 @@
             <h2>Awards & Recognition</h2>
             <div class="awards-grid">
                 <div class="award-item">
-                    <img src="assets/images/award1.jpg" alt="Roofing Award" class="award-img">
+                    <img src="assets/images/Angi-List-award.webp" alt="Angi's list award" class="award-img">
                 </div>
                 <div class="award-item">
-                    <img src="assets/images/award2.jpg" alt="Excellence Award" class="award-img">
+                    <img src="assets/images/next-door-award.webp" alt="Next Door Award" class="award-img">
                 </div>
                 <div class="award-item">
-                    <img src="assets/images/award3.jpg" alt="BBB Award" class="award-img">
+                    <img src="assets/images/BOFL-Ribbon-award.webp" alt="BOFL Award" class="award-img">
                 </div>
                 <div class="award-item">
-                    <img src="assets/images/award4.jpg" alt="Customer Choice Award" class="award-img">
+                    <img src="assets/images/Home-Advisor-Elite-Service-award.webp" alt="Home Advisor Elite Service Award" class="award-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Special Offer Section -->
+    <section class="special-offer">
+        <div class="container">
+            <div class="offer-content">
+                <div class="offer-text">
+                    <h2>Limited Time Special Offer!</h2>
+                    <p>Take advantage of our exclusive roofing promotion. Professional installation, premium materials, and unbeatable value.</p>
+                    <div class="offer-features">
+                        <div class="offer-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Free Inspection & Estimate</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Premium Materials Included</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Professional Installation</span>
+                        </div>
+                        <div class="offer-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Extended Warranty</span>
+                        </div>
+                    </div>
+                    <a href="#contact" class="btn btn-primary btn-lg">
+                        <i class="fas fa-phone"></i>
+                        Call Now to Claim Offer
+                    </a>
+                </div>
+                <div class="offer-coupon">
+                    <img src="assets/images/coupon-1.webp" alt="Special Roofing Offer - Limited Time" class="coupon-img">
                 </div>
             </div>
         </div>
@@ -260,11 +327,13 @@
                         <div class="financing-option">
                             <h4>Enhancify Financing</h4>
                             <p>Quick approval process with competitive rates for qualified applicants.</p>
+                            <a href="https://www.enhancify.com/dc-roofing-inc?utm_source=House_Green_930x180&from=" target="_blank" class="btn" style="background: #16a34a; color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: inline-block; margin-top: 1rem;" onmouseover="this.style.background='#15803d'" onmouseout="this.style.background='#16a34a'" rel="noopener">Apply for Enhancify</a>
                         </div>
                         
                         <div class="financing-option">
                             <h4>Launch Credit Union</h4>
                             <p>Local financing from $2,000 - $30,000 with fast online applications and competitive fixed rates.</p>
+                            <a href="https://www.launchcu.com/" target="_blank" class="btn" style="background: #16a34a; color: white; text-decoration: none; padding: 0.75rem 1.5rem; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; display: inline-block; margin-top: 1rem;" onmouseover="this.style.background='#15803d'" onmouseout="this.style.background='#16a34a'" rel="noopener">Apply at Launch CU</a>
                         </div>
                     </div>
                 </div>
@@ -540,64 +609,73 @@
                                 <option value="other">Other</option>
                             </select>
                         </div>
-                        
-                        <div class="form-group">
-                            <label for="roofType">Current Roof Type</label>
-                            <select id="roofType" name="roofType">
-                                <option value="">Select roof type</option>
-                                <option value="asphalt-shingles">Asphalt Shingles</option>
-                                <option value="metal">Metal</option>
-                                <option value="tile">Tile</option>
-                                <option value="flat">Flat Roof</option>
-                                <option value="other">Other</option>
-                                <option value="unknown">Not Sure</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="roofAge">Approximate Roof Age</label>
-                            <select id="roofAge" name="roofAge">
-                                <option value="">Select age range</option>
-                                <option value="0-5">0-5 years</option>
-                                <option value="6-10">6-10 years</option>
-                                <option value="11-15">11-15 years</option>
-                                <option value="16-20">16-20 years</option>
-                                <option value="20+">20+ years</option>
-                                <option value="unknown">Not Sure</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="urgency">Project Urgency</label>
-                            <select id="urgency" name="urgency">
-                                <option value="">Select urgency</option>
-                                <option value="emergency">Emergency (ASAP)</option>
-                                <option value="urgent">Urgent (Within 1 week)</option>
-                                <option value="soon">Soon (Within 1 month)</option>
-                                <option value="planning">Planning (2-3 months)</option>
-                                <option value="future">Future consideration</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="propertyType">Property Type</label>
-                            <select id="propertyType" name="propertyType">
-                                <option value="">Select property type</option>
-                                <option value="single-family">Single Family Home</option>
-                                <option value="townhouse">Townhouse</option>
-                                <option value="condo">Condominium</option>
-                                <option value="commercial">Commercial Building</option>
-                                <option value="multi-family">Multi-Family</option>
-                                <option value="other">Other</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group checkbox-group">
-                            <label class="checkbox-label">
-                                <input type="checkbox" id="insuranceClaim" name="insuranceClaim">
-                                <span class="checkmark"></span>
-                                This may be an insurance claim
-                            </label>
+
+                        <!-- Accordion for Optional Details -->
+                        <div class="accordion">
+                            <button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+                                <span>Optional Details</span>
+                                <i class="fas fa-chevron-down accordion-icon"></i>
+                            </button>
+                            <div class="accordion-content">
+                                <div class="form-group">
+                                    <label for="roofType">Current Roof Type</label>
+                                    <select id="roofType" name="roofType">
+                                        <option value="">Select roof type</option>
+                                        <option value="asphalt-shingles">Asphalt Shingles</option>
+                                        <option value="metal">Metal</option>
+                                        <option value="tile">Tile</option>
+                                        <option value="flat">Flat Roof</option>
+                                        <option value="other">Other</option>
+                                        <option value="unknown">Not Sure</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="roofAge">Approximate Roof Age</label>
+                                    <select id="roofAge" name="roofAge">
+                                        <option value="">Select age range</option>
+                                        <option value="0-5">0-5 years</option>
+                                        <option value="6-10">6-10 years</option>
+                                        <option value="11-15">11-15 years</option>
+                                        <option value="16-20">16-20 years</option>
+                                        <option value="20+">20+ years</option>
+                                        <option value="unknown">Not Sure</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="urgency">Project Urgency</label>
+                                    <select id="urgency" name="urgency">
+                                        <option value="">Select urgency</option>
+                                        <option value="emergency">Emergency (ASAP)</option>
+                                        <option value="urgent">Urgent (Within 1 week)</option>
+                                        <option value="soon">Soon (Within 1 month)</option>
+                                        <option value="planning">Planning (2-3 months)</option>
+                                        <option value="future">Future consideration</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="propertyType">Property Type</label>
+                                    <select id="propertyType" name="propertyType">
+                                        <option value="">Select property type</option>
+                                        <option value="single-family">Single Family Home</option>
+                                        <option value="townhouse">Townhouse</option>
+                                        <option value="condo">Condominium</option>
+                                        <option value="commercial">Commercial Building</option>
+                                        <option value="multi-family">Multi-Family</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group checkbox-group">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="insuranceClaim" name="insuranceClaim">
+                                        <span class="checkmark"></span>
+                                        This may be an insurance claim
+                                    </label>
+                                </div>
+                            </div>
                         </div>
                         
                         <div class="form-group">
@@ -764,9 +842,9 @@
                 <div class="footer-section">
                     <h4>Contact Info</h4>
                     <div class="contact-info-footer">
-                        <p><i class="fas fa-phone"></i> Melbourne: (321) 557-7387</p>
-                        <p><i class="fas fa-phone"></i> Office: (321) 419-1260</p>
-                        <p><i class="fas fa-phone"></i> Melbourne Beach: (772) 362-2904</p>
+                        <p><i class="fas fa-phone"></i> Melbourne: <a href="tel:3215577387" class="footer-phone">(321) 557-7387</a></p>
+                        <p><i class="fas fa-phone"></i> Office: <a href="tel:3214191260" class="footer-phone">(321) 419-1260</a></p>
+                        <p><i class="fas fa-phone"></i> Melbourne Beach: <a href="tel:7723622904" class="footer-phone">(772) 362-2904</a></p>
                         <p><i class="fas fa-fax"></i> Fax: (321) 312-4919</p>
                         <p><i class="fas fa-map-marker-alt"></i> 284 West Dr. Unit B, Melbourne, FL 32904</p>
                     </div>
@@ -800,5 +878,17 @@
 
     <!-- Scripts -->
     <script src="assets/js/main.js"></script>
+    
+    <script>
+        // Accordion functionality
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.accordion-icon');
+            
+            button.classList.toggle('active');
+            content.classList.toggle('active');
+        }
+    </script>
+
 </body>
 </html>
