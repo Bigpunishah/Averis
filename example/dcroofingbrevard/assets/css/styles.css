@@ -1224,7 +1224,19 @@ section {
     .hero-img {
         height: 300px;
     }
-    
+
+    /* Mobile hero positioning - Prevent zoom-in effect */
+    .hero {
+        background-position: center 30% !important;
+    }
+}
+
+/* Very small screens - prevent excessive zoom */
+@media (max-width: 480px) {
+    .hero {
+        background-position: center 25% !important;
+    }
+
     /* Sections */
     section {
         padding: 60px 0;
