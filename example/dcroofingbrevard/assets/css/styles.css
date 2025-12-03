@@ -285,7 +285,8 @@ p {
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-    padding: 120px 0 80px;
+    padding: 0;
+    height: 100vh;
     min-height: 100vh;
     display: flex;
     align-items: center;
@@ -300,7 +301,8 @@ p {
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 80px 2rem 20px; /* Account for navbar height */
+    height: 100vh;
 }
 
 .hero-text h1 {
@@ -1187,15 +1189,19 @@ section {
     
     /* Hero */
     .hero {
-        padding: 100px 0 60px;
-        min-height: auto;
+        padding: 0;
+        height: 100vh;
+        min-height: 100vh;
     }
     
     .hero-content {
         grid-template-columns: 1fr;
         gap: 2rem;
         text-align: center;
-        padding: 0 1rem;
+        padding: 80px 1rem 20px; /* Account for navbar height */
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
     }
     
     .hero-text h1 {
