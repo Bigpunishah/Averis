@@ -1,5 +1,19 @@
 // DC Roofing Website JavaScript
 
+// =========================================
+// Page Loading Animation
+// =========================================
+window.addEventListener('load', function() {
+    const loader = document.getElementById('pageLoader');
+    const content = document.getElementById('pageContent');
+    
+    // Minimum loading time for smooth effect
+    setTimeout(() => {
+        loader.classList.add('loaded');
+        content.style.opacity = '1';
+    }, 800);
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     
     // Navigation functionality

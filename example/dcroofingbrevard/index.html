@@ -13,8 +13,15 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text x='50' y='70' font-family='Arial,sans-serif' font-size='75' font-weight='bold' fill='white' text-anchor='middle'>DC</text></svg>" type="image/svg+xml">
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar" id="navbar">
+    <!-- Page Loader -->
+    <div class="page-loader" id="pageLoader">
+        <div class="loader-spinner"></div>
+    </div>
+
+    <!-- Page Content -->
+    <div class="page-content" id="pageContent">
+        <!-- Navigation -->
+        <nav class="navbar" id="navbar">
         <div class="nav-container">
             <div class="logo-container">
                 <a href="#home" class="logo-link">
@@ -889,6 +896,8 @@
             content.classList.toggle('active');
         }
     </script>
+
+    </div> <!-- End Page Content -->
 
 </body>
 </html>

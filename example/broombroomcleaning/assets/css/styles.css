@@ -1,4 +1,80 @@
 /* =========================================
+   Page Loading Animation
+   ========================================= */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh; /* Dynamic viewport height for mobile */
+    background: linear-gradient(135deg, #8B5A3C 0%, #A0714F 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
+    /* Additional mobile centering */
+    -webkit-box-align: center;
+    -webkit-box-pack: center;
+}
+
+.page-loader.loaded {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid white;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.page-content {
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Mobile loader centering fix */
+@media (max-width: 768px) {
+    .page-loader {
+        height: 100vh;
+        height: -webkit-fill-available; /* Safari mobile fix */
+        min-height: 100vh;
+        min-height: 100dvh;
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        justify-content: center;
+    }
+    
+    .loader-spinner {
+        position: relative;
+        margin: auto;
+    }
+}
+
+/* =========================================
    CSS Reset & Base Styles
    ========================================= */
 * {
