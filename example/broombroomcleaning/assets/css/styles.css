@@ -316,7 +316,7 @@ h1, h2, h3, h4, h5, h6 {
     align-items: center;
     justify-content: center;
     overflow: hidden;
-    background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+    background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=85');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -349,11 +349,15 @@ h1, h2, h3, h4, h5, h6 {
     z-index: 1;
 }
 
-/* Mobile-specific adjustments - Disable parallax to fix zoom issues */
+/* Mobile parallax optimization - Keep parallax effect */
 @media (max-width: 768px) {
     .hero {
-        background-attachment: scroll !important; /* Disable parallax on mobile */
-        background-position: center 30% !important; /* Prevent zoom-in effect */
+        /* Keep parallax but optimize for mobile */
+        background-attachment: fixed;
+        background-size: 110% auto; /* Slight zoom out to prevent cropping */
+        background-position: center 30%;
+        /* Better image for mobile */
+        background-image: url('https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1400&q=85');
     }
     
     .hero-overlay {
@@ -361,11 +365,11 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 
-/* Very small screens - prevent excessive zoom */
+/* Very small screens - more conservative adjustments */
 @media (max-width: 480px) {
     .hero {
-        background-attachment: scroll !important; /* Ensure no parallax on small screens */
-        background-position: center 25% !important;
+        background-size: 115% auto;
+        background-position: center 25%;
     }
 }
 
@@ -1601,8 +1605,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     .hero {
-        background-attachment: scroll !important; /* Override parallax */
-        background-position: center 25% !important; /* Prevent zoom */
+        background-position: center 25%;
         background-size: cover;
         min-height: 100vh;
         height: auto;

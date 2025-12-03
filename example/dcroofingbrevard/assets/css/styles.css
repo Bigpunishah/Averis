@@ -1589,3 +1589,20 @@ section {
     max-height: 1000px;
     padding: 1rem;
 }
+
+/* Mobile parallax optimization - Keep parallax effect */
+@media (max-width: 768px) {
+    .hero {
+        /* Keep parallax but optimize sizing and positioning */
+        background-attachment: fixed !important;
+        background-size: 110% auto !important;
+        background-position: center 30% !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        background-size: 115% auto !important;
+        background-position: center 25% !important;
+    }
+}
