@@ -544,6 +544,9 @@ section {
 
 .about-image {
     position: relative;
+    overflow: hidden;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
 }
 
 .about-img {
@@ -551,19 +554,29 @@ section {
     height: 400px;
     object-fit: cover;
     border-radius: 16px;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-image:hover .about-img {
+    transform: scale(1.05);
 }
 
 .experience-badge {
     position: absolute;
-    bottom: -20px;
-    right: -20px;
+    bottom: 20px;
+    right: 20px;
     background: linear-gradient(135deg, #1e3a8a, #3b82f6);
     color: white;
     padding: 1.5rem;
     border-radius: 16px;
     text-align: center;
     box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+    z-index: 10;
+    transition: transform 0.3s ease;
+}
+
+.about-image:hover .experience-badge {
+    transform: scale(1.05);
 }
 
 .experience-badge .years {
@@ -1605,11 +1618,54 @@ section {
         background-size: cover !important;
         background-position: center center !important;
     }
+    
+    /* About section mobile adjustments */
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+    
+    .about-img {
+        height: 300px;
+    }
+    
+    .experience-badge {
+        bottom: 15px;
+        right: 15px;
+        padding: 1rem;
+    }
+    
+    .experience-badge .years {
+        font-size: 1.5rem;
+    }
+    
+    .experience-badge .text {
+        font-size: 0.8rem;
+    }
 }
 
 @media (max-width: 480px) {
     .hero {
         background-position: center center !important;
+    }
+    
+    /* About section mobile adjustments for small screens */
+    .about-img {
+        height: 250px;
+    }
+    
+    .experience-badge {
+        bottom: 10px;
+        right: 10px;
+        padding: 0.75rem;
+    }
+    
+    .experience-badge .years {
+        font-size: 1.25rem;
+    }
+    
+    .experience-badge .text {
+        font-size: 0.7rem;
     }
 }
 
