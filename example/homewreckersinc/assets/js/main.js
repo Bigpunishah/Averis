@@ -37,25 +37,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Navbar scroll effect with progress bar
+    // Navbar scroll effect with sensitive hide/show behavior
     const navbar = document.getElementById('navbar');
     let lastScrollTop = 0;
+    let scrollThreshold = 5; // Minimum scroll distance to trigger hide/show
+    let hideTimeout;
 
     window.addEventListener('scroll', function() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const docHeight = document.documentElement.scrollHeight - window.innerHeight;
         const scrollProgress = (scrollTop / docHeight) * 100;
+        const scrollDelta = Math.abs(scrollTop - lastScrollTop);
         
         // Update CSS custom property for scroll progress
         document.documentElement.style.setProperty('--scroll-progress', scrollProgress + '%');
         
-        // Add background when scrolled
-        if (scrollTop > 100) {
-            navbar.style.backgroundColor = 'rgba(0, 0, 0, 0.95)';
-            navbar.style.backdropFilter = 'blur(15px)';
+        // Add scrolled class for background effects
+        if (scrollTop > 50) {
+            navbar.classList.add('navbar-scrolled');
         } else {
-            navbar.style.backgroundColor = '#000000';
-            navbar.style.backdropFilter = 'none';
+            navbar.classList.remove('navbar-scrolled');
+        }
+        
+        // Hide/show navbar based on scroll direction with sensitivity
+        if (scrollDelta > scrollThreshold) {
+            clearTimeout(hideTimeout);
+            
+            if (scrollTop > lastScrollTop && scrollTop > 100) {
+                // Scrolling down - hide navbar
+                navbar.classList.add('navbar-hidden');
+            } else if (scrollTop < lastScrollTop) {
+                // Scrolling up - show navbar
+                navbar.classList.remove('navbar-hidden');
+            }
+            
+            // Always show navbar when near top
+            if (scrollTop < 50) {
+                navbar.classList.remove('navbar-hidden');
+            }
         }
 
         lastScrollTop = scrollTop;
@@ -414,7 +433,7 @@ if ('IntersectionObserver' in window) {
 
 // Preload critical resources
 window.addEventListener('load', function() {
-    // Preload hero images for smooth transitions
+    // Preload hero images for smoother transitions
     const heroImagePaths = [
         'assets/images/Premium-Kitchen-Hero.jpg',
         'assets/images/Premium-Kitchen-Hero2.jpg',
@@ -425,7 +444,30 @@ window.addEventListener('load', function() {
         const img = new Image();
         img.src = src;
     });
+    
+    // Initialize scroll animations
+    initScrollAnimations();
 });
+
+// Intersection Observer for fade-in animations
+function initScrollAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            }
+        });
+    }, observerOptions);
+
+    // Observe all elements with fade-in classes
+    const animatedElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale');
+    animatedElements.forEach(el => observer.observe(el));
+}
 
 // Error handling
 window.addEventListener('error', function(e) {

@@ -49,6 +49,15 @@ body {
     line-height: 1.6;
     color: var(--primary-black);
     background-color: var(--primary-white);
+    /* Prevent layout shifts during scroll */
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+html {
+    /* Prevent layout shifts */
+    height: 100%;
+    overflow-x: hidden;
 }
 
 .container {
@@ -183,8 +192,18 @@ p {
     background: var(--primary-black);
     z-index: 1000;
     padding: 1rem 0;
-    transition: var(--transition);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.3s ease, backdrop-filter 0.3s ease;
     box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+    will-change: transform;
+}
+
+.navbar.navbar-hidden {
+    transform: translateY(-100%);
+}
+
+.navbar.navbar-scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
 }
 
 .navbar::after {
@@ -518,6 +537,19 @@ p {
     50% { border-color: transparent; }
 }
 
+/* Mobile-optimized typewriter animations */
+@keyframes typewriter-mobile-line1 {
+    0% { width: 0; }
+    95% { border-right: 3px solid var(--primary-yellow); }
+    100% { width: 11ch; border-right: transparent; }
+}
+
+@keyframes typewriter-mobile-line2 {
+    0% { width: 0; }
+    95% { border-right: 2px solid var(--primary-yellow); }
+    100% { width: 100%; border-right: none; }
+}
+
 .hero-subtitle {
     font-size: 1.3rem;
     color: var(--primary-yellow);
@@ -674,13 +706,26 @@ p {
         text-align: center;
     }
     
-    .hero-text h1 .line1,
+    .hero-text h1 .line1 {
+        animation: typewriter-mobile-line1 2s steps(16) 1s forwards, blink-line1 1s step-end infinite 1s;
+        border-right: 3px solid var(--primary-yellow);
+        white-space: nowrap;
+        width: 0;
+        overflow: hidden;
+        display: inline-block;
+    }
+    
     .hero-text h1 .line2 {
-        animation: none;
-        border-right: none;
-        white-space: normal;
-        width: auto;
-        overflow: visible;
+        animation: 
+            show-line2 0.1s 3s forwards,
+            typewriter-mobile-line2 3s steps(28) 3s forwards, 
+            blink-line2 1s step-end infinite 4s;
+        border-right: 3px solid var(--primary-yellow);
+        white-space: nowrap;
+        width: 0;
+        overflow: hidden;
+        opacity: 0;
+        display: inline-block;
     }
     
     .service-card-modern:hover {
@@ -997,7 +1042,7 @@ section {
     justify-content: center;
     font-size: 1.8rem;
     font-weight: bold;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
     transform: translateY(20px);
     transition: all 0.4s ease;
     animation: iconFloat 4s ease-in-out infinite;
@@ -1009,8 +1054,7 @@ section {
 }
 
 .service-card-modern:hover .service-icon-floating {
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 15px 30px rgba(255, 215, 0, 1);
 }
 
 .service-content-modern {
@@ -1080,7 +1124,7 @@ section {
     background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--accent-yellow) 100%);
     color: var(--primary-black);
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 8px 25px rgba(255, 215, 0, 0.3);
 }
 
 .service-btn::after {
@@ -3054,9 +3098,11 @@ img.loaded, img[src] {
     display: flex;
     align-items: center;
     justify-content: center;
-    z-index: 1000;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 1001;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
     animation: pulse 2s infinite;
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
 .floating-contact:hover {
@@ -3219,11 +3265,8 @@ body {
     contain: layout;
 }
 
-/* Font display optimization */
-@font-face {
-    font-family: 'Inter';
-    font-display: swap;
-}
+/* Font display optimization removed - using Google Fonts directly */
+/* The Inter font is loaded via Google Fonts in the HTML head */
 
 /* Reduce layout thrashing */
 .service-icon i {
@@ -3247,3 +3290,82 @@ body {
         contain: style paint;
     }
 }
+
+/* Fade In Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.fade-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-left.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-right.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.fade-in-scale {
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-scale.animate {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Staggered animation delays for comprehensive scroll animations */
+.stagger-delay:nth-child(1) { transition-delay: 0.1s; }
+.stagger-delay:nth-child(2) { transition-delay: 0.2s; }
+.stagger-delay:nth-child(3) { transition-delay: 0.3s; }
+.stagger-delay:nth-child(4) { transition-delay: 0.4s; }
+.stagger-delay:nth-child(5) { transition-delay: 0.5s; }
+.stagger-delay:nth-child(6) { transition-delay: 0.6s; }
+.stagger-delay:nth-child(7) { transition-delay: 0.7s; }
+.stagger-delay:nth-child(8) { transition-delay: 0.8s; }
+.stagger-delay:nth-child(9) { transition-delay: 0.9s; }
+.stagger-delay:nth-child(10) { transition-delay: 1.0s; }
+
+/* Enhanced stagger delays for sequential elements in same section */
+.fade-in.stagger-delay:nth-of-type(1) { transition-delay: 0.1s; }
+.fade-in.stagger-delay:nth-of-type(2) { transition-delay: 0.2s; }
+.fade-in.stagger-delay:nth-of-type(3) { transition-delay: 0.3s; }
+.fade-in.stagger-delay:nth-of-type(4) { transition-delay: 0.4s; }
+.fade-in.stagger-delay:nth-of-type(5) { transition-delay: 0.5s; }
+
+.fade-in-left.stagger-delay:nth-of-type(1) { transition-delay: 0.1s; }
+.fade-in-left.stagger-delay:nth-of-type(2) { transition-delay: 0.2s; }
+.fade-in-left.stagger-delay:nth-of-type(3) { transition-delay: 0.3s; }
+
+.fade-in-right.stagger-delay:nth-of-type(1) { transition-delay: 0.1s; }
+.fade-in-right.stagger-delay:nth-of-type(2) { transition-delay: 0.2s; }
+.fade-in-right.stagger-delay:nth-of-type(3) { transition-delay: 0.3s; }
+
+.fade-in-scale.stagger-delay:nth-of-type(1) { transition-delay: 0.1s; }
+.fade-in-scale.stagger-delay:nth-of-type(2) { transition-delay: 0.2s; }
+.fade-in-scale.stagger-delay:nth-of-type(3) { transition-delay: 0.3s; }
+.fade-in-scale.stagger-delay:nth-of-type(4) { transition-delay: 0.4s; }
+.fade-in-scale.stagger-delay:nth-of-type(5) { transition-delay: 0.5s; }
+.fade-in-scale.stagger-delay:nth-of-type(6) { transition-delay: 0.6s; }
