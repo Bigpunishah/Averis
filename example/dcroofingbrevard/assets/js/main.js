@@ -23,7 +23,35 @@ document.addEventListener('DOMContentLoaded', function() {
     // Loading animations
     initAnimations();
     
+    // Fade in animations
+    initFadeAnimations();
+    
 });
+
+// Fade Animation Functions
+function initFadeAnimations() {
+    // Create intersection observer for fade animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+                // Unobserve after animation to prevent repeated triggers
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all elements with fade classes
+    const fadeElements = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .fade-in-scale');
+    fadeElements.forEach(element => {
+        observer.observe(element);
+    });
+}
 
 // Navigation Functions
 function initNavigation() {
