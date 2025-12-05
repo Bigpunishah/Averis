@@ -1,0 +1,62 @@
+Image Assets for Nexus Realty Florida Website
+==========================================
+
+Please add the following images to the appropriate directories:
+
+Hero Section Images (assets/images/):
+- luxury-hero-section-home-3.jpg
+- luxury-hero-section-home-2.jpg
+- luxury-hero-section-home.jpg
+
+Broker Profile (assets/images/):
+- chelsea-shirdel.jpg
+
+Zillow Location Images (assets/images/zillow/):
+- fort-lauderdale-zillow-image.jpg
+- plantation-bay-homes-zillow-image.jpg
+- sunrise-zillow-image.jpg
+- miramar-zillow-image.jpg
+- pembroke-pines-zillow-image.jpg
+- davie-zillow-image.jpg
+- weston-zillow-image.jpg
+- coral-springs-zillow-image.jpg
+- cooper-city-florida-zillow-image.jpg
+- tarmac-zillow-image.jpg
+- coconut-creek-zillow-image.jpg
+- margate-zillow-image.jpg
+- parkland-zillow-image.jpg
+- southwest-ranches-zillow-image.jpg
+- victoria-park-zillow-image.jpg
+- lauderdale-by-the-sea-florida-zillow-image.jpg
+- las-olas-florida-zillow-image.jpg
+- rio-vista-florida-zillow-image.jpg
+- hillsboro-beach-florida-zillow-image.jpg
+- coral-ridge-florida-zillow-image.jpg
+- oakland-park-florida-zillow-image.jpg
+- hollywood-florida-zillow-image.jpg
+- lighthouse-point-florida-zillow-image.jpg
+- pompano-beach-florida-zillow-image.jpg
+- boca-raton-florida-zillow-image.jpg
+- west-palm-beach-florida-zillow-image.jpg
+- boynton-beach-florida-zillow-image.jpg
+- delray-beach-florida-zillow-image.jpg
+- greenacres-florida-zillow-image.jpg
+- lake-worth-florida-zillow-image.jpg
+- wellington-florida-zillow-image.jpg
+- palm-beach-florida-zillow-image.jpg
+- jupiter-florida-zillow-image.jpg
+
+Mortgage Affordability Images (NEW):
+- affordable-starter-home.jpg (300x200px)
+  Small, well-maintained properties, condos, or townhomes ($200K-$300K)
+- mid-range-family-home.jpg (300x200px) 
+  3-4 bedroom houses with yards, suburban settings ($300K-$500K)
+- luxury-waterfront-home.jpg (300x200px)
+  Waterfront homes, large estates, premium amenities ($500K+)
+
+All images should be optimized for web use (compressed and appropriately sized).
+Recommended dimensions:
+- Hero images: 1920x1080px
+- Location images: 400x300px
+- Broker photo: 400x500px
+- Affordability images: 300x200px

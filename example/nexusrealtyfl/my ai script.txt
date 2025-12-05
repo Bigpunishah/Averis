@@ -1,0 +1,250 @@
+Its time to work on another project - this on e is real estate related - they ahve LOTS of content so we are going to build from the ground up. I am going to post all about the company. They are a premium company.
+
+Office
+Nexus Realty Florida
+
+Fort Lauderdale, FL
+
+
+Phone
+954.552.0544
+
+
+Email
+info@nexusrealtyfl.com
+
+https://api.whatsapp.com/send?phone=19545520544
+https://www.instagram.com/chelseashirdel/
+https://www.youtube.com/channel/UCPr2cb3odyhmGwWu7ZebK8A?app=desktop
+https://www.google.com/maps/place/Nexus+Realty+Florida/@26.492254,-80.2950175,9z/data=!3m1!4b1!4m6!3m5!1s0x68f8ba619483c849:0x8e0b4cfe4c5973ac!8m2!3d26.492254!4d-80.2950174!16s%2Fg%2F11s33vr78z?entry=ttu&g_ep=EgoyMDI1MTIwMi4wIKXMDSoASAFQAw%3D%3D
+https://www.linkedin.com/company/nexus-realty-florida/
+https://www.facebook.com/NexusRealtyFL/
+
+
+We Are constantly thriving at a client-centric approach. We understand that selling a home can be a significant decision, often accompanied by various emotions and financial implications. Our real estate agents are dedicated to listening attentively to our clients' needs, goals, and concerns.
+
+
+Our Mission
+We aim to provide exceptional service and support to home sellers, guiding them through the entire selling process with expertise, integrity, and care
+
+
+Our Vission
+Our ultimate goal is to exceed our clients' expectations, earn their trust, and build long-lasting relationships based on professionalism, transparency, and results.
+
+Meet our brokerr:
+
+“Integrity is not just a word; it’s the foundation of my business. I believe in building lasting relationships based on trust and putting my clients’ needs first. Together, let’s make your real estate journey an extraordinary one.” – Chelsea Shirdel
+
+Before venturing into the real estate industry, Chelsea honed her skills in a fast-paced environment, working side by side with her father in their family’s successful restaurant business for over 15 years. This invaluable experience instilled in her the importance of customer satisfaction and taught her to thrive in a service-oriented industry. Chelsea’s ability to create lasting connections and provide exceptional experiences became the cornerstone of her professional philosophy.
+In 2017, Chelsea embraced a new chapter in her career and ventured into the world of real estate. She embarked on this journey by joining a reputable brokerage, where she quickly emerged as a top performer, consistently ranking in the top 8% of Broward County agents since 2021.
+
+Her dedication, expertise, and unwavering focus on prioritizing her clients’ needs set her apart from the crowd.
+Chelsea’s professional journey has been guided by the principle of “customer first.” Her commitment to integrity, coupled with her impeccable reputation, make her professional approach both heartwarming and engaging. She firmly believes that by putting clients’ interests at the forefront, she can create a truly exceptional real estate experience.
+
+In Chelsea Shirdel, you will find a real estate broker who brings a unique blend of experience, expertise, and genuine care to every transaction. With her by your side, you can trust that your dreams and aspirations will be diligently pursued and expertly realized.
+
+
+Join our team:
+Why choose us?
+Are you a passionate real estate professional looking to take your career to new heights? Look no further! We are seeking talented realtors to join our incredible team!
+
+
+
+
+Endless Support
+We believe in setting our realtors up for success. You'll receive comprehensive training, mentorship, and ongoing support from our experienced team. We're here to help you achieve your goals and grow your business.
+
+
+Competitive Split
+We value your hard work and dedication. That's why we offer a highly competitive commission split, ensuring you earn what you deserve for your efforts. Your success is our success!
+
+
+No Monthly Fees
+Unlike many other brokerages, we don't burden our realtors with monthly fees. You can focus on doing what you do best—closing deals and serving your clients—without worrying about additional costs eating into your earnings.
+
+
+
+
+No Up-Front Costs
+We believe in investing in our team. That's why we cover all the up-front costs, including marketing materials, technology tools, and other essential resources. Your success shouldn't be hindered by financial barriers.
+
+
+Limitless Growth Opportunities
+At our brokerage, your potential for growth knows no bounds. With a solid reputation in the industry and a vast network of clients, you'll have the platform and resources to take your career to extraordinary heights. We'll support you every step of the way.
+
+
+
+Home Property Evaluation
+Before making a move, it's important to find out what your home is worth. Please fill out the form below and I will compare your home or condo to others in your area and give you a comprehensive report. It's always best to be aware.
+
+To get the most accurate value for your property, please complete all fields.
+
+Homeowner Information
+Your Name *
+Email Address *
+Telephone
+Property Information
+Type of Home
+Single Family Home
+Property Address
+City
+State
+Zip Code
+Style
+No. of Bedrooms
+No. of Bathrooms
+Half Baths (If any)
+Basement
+Parking / Garage
+Construction
+Year Built
+Square Feet
+Lot Size
+Fireplace
+Property View
+Bay
+Waterfront
+Yes
+Pool
+Yes
+Let me know if there are any additions or remodeling that have added value to your home
+
+What Is My Home Worth?
+
+Before making a move it’s always important to find out what your home is worth. Please send me your address for a free, no obligation, evaluation.
+
+I want to leverage the hamburger css I have put into the css file. I am also going to put the html for it right here:
+<div class="hamburger">
+  <input class="checkbox" type="checkbox" />
+  <svg fill="none" viewBox="0 0 50 50" height="50" width="50">
+    <path
+      class="lineTop line"
+      stroke-linecap="round"
+      stroke-width="4"
+      stroke="black"
+      d="M6 11L44 11"
+    ></path>
+    <path
+      stroke-linecap="round"
+      stroke-width="4"
+      stroke="black"
+      d="M6 24H43"
+      class="lineMid line"
+    ></path>
+    <path
+      stroke-linecap="round"
+      stroke-width="4"
+      stroke="black"
+      d="M6 37H43"
+      class="lineBottom line"
+    ></path>
+  </svg>
+</div>
+
+
+I do not want to implement services that already exists for this website - so we can offer people to go to different sites to check for properties:
+https://www.bankrate.com/mortgages/mortgage-calculator/
+
+As for location I want to use Zillow for the locations they have provided:
+Sunrise: https://www.zillow.com/homes/34191_rid/
+Image: sunrise-zillow-image
+
+Plantation: https://www.zillow.com/plantation-fl/?searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.21757974289431%2C%22south%22%3A26.03571647520987%2C%22east%22%3A-80.18080739355469%2C%22west%22%3A-80.34697560644531%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22curatedCollection%22%3Anull%7D
+Image: plantation-bay-homes-zillow-image
+
+Miramar: https://www.zillow.com/homes/?category=SEMANTIC&searchQueryState=%7B%22filterState%22%3A%7B%22isTownhouse%22%3A%7B%22value%22%3Atrue%7D%2C%22isLotLand%22%3A%7B%22value%22%3Atrue%7D%2C%22isManufactured%22%3A%7B%22value%22%3Atrue%7D%2C%22isMultiFamily%22%3A%7B%22value%22%3Atrue%7D%2C%22isApartment%22%3A%7B%22value%22%3Atrue%7D%2C%22isCondo%22%3A%7B%22value%22%3Atrue%7D%2C%22isSingleFamily%22%3A%7B%22value%22%3Atrue%7D%2C%22isApartmentOrCondo%22%3A%7B%22value%22%3Atrue%7D%2C%22isRecentlySold%22%3A%7B%22value%22%3Afalse%7D%2C%22isPreMarketPreForeclosure%22%3A%7B%22value%22%3Afalse%7D%2C%22isPreMarketForeclosure%22%3A%7B%22value%22%3Afalse%7D%2C%22isForRent%22%3A%7B%22value%22%3Afalse%7D%2C%22isForSaleByAgent%22%3A%7B%22value%22%3Atrue%7D%2C%22isForSaleByOwner%22%3A%7B%22value%22%3Atrue%7D%2C%22isAuction%22%3A%7B%22value%22%3Atrue%7D%2C%22isComingSoon%22%3A%7B%22value%22%3Atrue%7D%2C%22isForSaleForeclosure%22%3A%7B%22value%22%3Atrue%7D%2C%22isNewConstruction%22%3A%7B%22value%22%3Atrue%7D%2C%22sortSelection%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A39815%2C%22regionType%22%3A6%7D%5D%2C%22usersSearchTerm%22%3A%22Miramar%20FL%20homes%22%7D
+Image: miramar-zillow-image
+
+Pembroke Pines https://www.zillow.com/pembroke-pines-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.208477497188436%2C%22south%22%3A25.844440244273233%2C%22east%22%3A-80.16162078710937%2C%22west%22%3A-80.49395721289062%7D%2C%22usersSearchTerm%22%3A%22Pembroke%20Pines%20FL%20homes%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A12%2C%22category%22%3A%22cat1%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A19892%2C%22regionType%22%3A6%7D%5D%7D
+Image: pembroke-pines-zillow-image
+
+Davie https://www.zillow.com/davie-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.257925236237007%2C%22south%22%3A25.89404177069658%2C%22east%22%3A-80.11020028710936%2C%22west%22%3A-80.44253671289061%7D%2C%22usersSearchTerm%22%3A%22Davie%2C%20FL%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A12%2C%22category%22%3A%22cat1%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A11049%2C%22regionType%22%3A6%7D%5D%7D
+Image: davie-zillow-image
+
+Weston https://www.zillow.com/weston-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.19466675529688%2C%22south%22%3A26.012767803138768%2C%22east%22%3A-80.32322189355467%2C%22west%22%3A-80.4893901064453%7D%2C%22usersSearchTerm%22%3A%22Weston%2C%20FL%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22category%22%3A%22cat1%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A7886%2C%22regionType%22%3A6%7D%5D%7D
+Image: weston-zillow-image
+
+Coral Springs https://www.zillow.com/coral-springs-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.360799438552405%2C%22south%22%3A26.17915988026981%2C%22east%22%3A-80.16661889355468%2C%22west%22%3A-80.33278710644531%7D%2C%22usersSearchTerm%22%3A%22Coral%20Springs%20FL%20homes%22%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22category%22%3A%22cat1%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A17571%2C%22regionType%22%3A6%7D%5D%7D
+Image: coral-springs-zillow-image
+
+Cooper City  https://www.zillow.com/cooper-city-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.092505805058146%2C%22south%22%3A26.001512225049648%2C%22east%22%3A-80.24763394677737%2C%22west%22%3A-80.33071805322268%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A14%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Cooper%20City%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A4204%2C%22regionType%22%3A6%7D%5D%7D
+Image: cooper-city-florida-zillow-image
+
+Tamarac https://www.zillow.com/tamarac-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.295349326604388%2C%22south%22%3A26.113607393906676%2C%22east%22%3A-80.15240389355469%2C%22west%22%3A-80.31857210644532%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Tamarac%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A7367%2C%22regionType%22%3A6%7D%5D%7D
+Image: tarmac-zillow-image
+
+Coconut Creek https://www.zillow.com/coconut-creek-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.361866806203782%2C%22south%22%3A26.18022891942364%2C%22east%22%3A-80.10166789355468%2C%22west%22%3A-80.2678361064453%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Coconut%20Creek%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A4151%2C%22regionType%22%3A6%7D%5D%7D
+Image: coconut-creek-zillow-image
+
+Margate: https://www.zillow.com/margate-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.287752202223466%2C%22south%22%3A26.19691076000053%2C%22east%22%3A-80.17036144677733%2C%22west%22%3A-80.25344555322265%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A14%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Margate%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A12560%2C%22regionType%22%3A6%7D%5D%7D
+Image: margate-zillow-image
+
+Parkland: https://www.zillow.com/parkland-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.411955764708427%2C%22south%22%3A26.23039638850245%2C%22east%22%3A-80.16694689355468%2C%22west%22%3A-80.3331151064453%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Parkland%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A40258%2C%22regionType%22%3A6%7D%5D%7D
+Image: parkland-zillow-image
+
+Southwest Ranches https://www.zillow.com/southwest-ranches-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.13725609898252%2C%22south%22%3A25.955267864072333%2C%22east%22%3A-80.29467639355468%2C%22west%22%3A-80.4608446064453%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Southwest%20Ranches%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A20590%2C%22regionType%22%3A6%7D%5D%7D
+Image: southwest-ranches-zillow-image
+
+Fort Lauderdale https://www.zillow.com/fort-lauderdale-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.223978863096058%2C%22south%22%3A26.04212556654988%2C%22east%22%3A-80.06681189355469%2C%22west%22%3A-80.23298010644531%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Fort%20Lauderdale%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A31606%2C%22regionType%22%3A6%7D%5D%7D
+Image: fort-lauderdale-zillow-image
+
+Victoria Park https://www.zillow.com/victoria-park-fort-lauderdale-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.14148782402396%2C%22south%22%3A26.118755577658465%2C%22east%22%3A-80.11742098669434%2C%22west%22%3A-80.13819201330567%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A16%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Victoria%20Park%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A269219%2C%22regionType%22%3A8%7D%5D%7D
+Image: victoria-park-zillow-image
+
+Lauderdale By The Sea https://www.zillow.com/lauderdale-by-the-sea-fort-lauderdale-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.223378333703362%2C%22south%22%3A26.17794133382308%2C%22east%22%3A-80.07299497338869%2C%22west%22%3A-80.11453702661134%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A15%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Lauderdale%20by%20the%20Sea%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A125064%2C%22regionType%22%3A31%7D%5D%7D
+Image: lauderdale-by-the-sea-florida-zillow-image
+
+Las Olas https://www.zillow.com/las-olas-isles-fort-lauderdale-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.127070556685506%2C%22south%22%3A26.104335504795014%2C%22east%22%3A-80.11058398669434%2C%22west%22%3A-80.13135501330567%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A16%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Las%20Olas%20Isles%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A269059%2C%22regionType%22%3A8%7D%5D%7D
+Image: las-olas-florida-zillow-image
+
+Rio Vista https://www.zillow.com/rio-vista-fort-lauderdale-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.13535206491453%2C%22south%22%3A26.08988076167032%2C%22east%22%3A-80.10878697338867%2C%22west%22%3A-80.15032902661133%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A15%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Rio%20Vista%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A275178%2C%22regionType%22%3A8%7D%5D%7D
+Image: rio-vista-florida-zillow-image
+
+Hillsboro Beach https://www.zillow.com/hillsboro-beach-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.305257%2C%22south%22%3A26.253559%2C%22east%22%3A-80.073064%2C%22west%22%3A-80.083765%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A15%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Hillsboro%20Beach%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A11915%2C%22regionType%22%3A6%7D%5D%7D
+Image: hillsboro-beach-florida-zillow-image
+
+Coral Ridge https://www.zillow.com/coral-ridge-fort-lauderdale-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.17541458558445%2C%22south%22%3A26.12995888117831%2C%22east%22%3A-80.09057547338868%2C%22west%22%3A-80.13211752661134%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A15%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Coral%20Ridge%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A124024%2C%22regionType%22%3A8%7D%5D%7D
+Image: coral-ridge-florida-zillow-image
+
+
+Oakland Park https://www.zillow.com/oakland-park-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.224297199058846%2C%22south%22%3A26.13340619618601%2C%22east%22%3A-80.11514808484749%2C%22west%22%3A-80.1982321912928%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A14%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Oakland%20Park%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A19725%2C%22regionType%22%3A6%7D%5D%7D
+Image: oakland-park-florida-zillow-image
+
+Hollywood https://www.zillow.com/hollywood-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.130592165951192%2C%22south%22%3A25.948593579420777%2C%22east%22%3A-80.09229389355468%2C%22west%22%3A-80.25846210644531%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A13%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Hollywood%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A32060%2C%22regionType%22%3A6%7D%5D%7D
+Image: hollywood-florida-zillow-image
+
+Lighthouse Point https://www.zillow.com/lighthouse-point-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.302256338302406%2C%22south%22%3A26.256850167920625%2C%22east%22%3A-80.06921697338866%2C%22west%22%3A-80.11075902661132%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A15%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Lighthouse%20Point%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A39424%2C%22regionType%22%3A6%7D%5D%7D
+Image: lighthouse-point-florida-zillow-image
+
+Pompano Beach https://www.zillow.com/pompano-beach-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.297626%2C%22south%22%3A26.205976%2C%22east%22%3A-80.078665%2C%22west%22%3A-80.19557%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A15%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Pompano%20Beach%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A26575%2C%22regionType%22%3A6%7D%5D%7D
+Image: pompano-beach-florida-zillow-image
+
+Boca Raton https://www.zillow.com/boca-raton-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.557470792145892%2C%22south%22%3A26.194524759871815%2C%22east%22%3A-80.01545028710937%2C%22west%22%3A-80.34778671289062%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A12%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Boca%20Raton%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A10477%2C%22regionType%22%3A6%7D%5D%7D
+Image: boca-raton-florida-zillow-image
+
+West Palm Beach https://www.zillow.com/west-palm-beach-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.91365319581891%2C%22south%22%3A26.551834812866904%2C%22east%22%3A-79.98868228710937%2C%22west%22%3A-80.32101871289062%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A12%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22West%20Palm%20Beach%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A7858%2C%22regionType%22%3A6%7D%5D%7D
+Image: west-palm-beach-florida-zillow-image
+
+Boynton Beach https://www.zillow.com/boynton-beach-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.708883795866182%2C%22south%22%3A26.346415407334007%2C%22east%22%3A-79.97083028710938%2C%22west%22%3A-80.30316671289063%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A12%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Boynton%20Beach%2C%20FL%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A30559%2C%22regionType%22%3A6%7D%5D%7D
+Image: boynton-beach-florida-zillow-image
+ 
+Delray Beach https://www.zillow.com/delray-beach-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.637218034858076%2C%22south%22%3A26.274523254059087%2C%22east%22%3A-79.97671378710938%2C%22west%22%3A-80.30905021289063%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A12%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Delray%20Beach%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A31209%2C%22regionType%22%3A6%7D%5D%7D
+Image: delray-beach-florida-zillow-image
+
+Greenarces https://www.zillow.com/greenacres-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.674611877893582%2C%22south%22%3A26.58407499798524%2C%22east%22%3A-80.09399544677737%2C%22west%22%3A-80.17707955322268%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A14%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Greenacres%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A52321%2C%22regionType%22%3A6%7D%5D%7D
+Image: greenacres-florida-zillow-image
+
+Lake WOrth https://www.zillow.com/lake-worth-beach-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.772366191097504%2C%22south%22%3A26.410098819478176%2C%22east%22%3A-79.98492178710939%2C%22west%22%3A-80.31725821289064%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A12%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Lake%20Worth%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A25482%2C%22regionType%22%3A6%7D%5D%7D
+Image: lake-worth-florida-zillow-image.jpg
+
+Wellington https://www.zillow.com/wellington-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.819958155381364%2C%22south%22%3A26.45784177672735%2C%22east%22%3A-80.10554328710938%2C%22west%22%3A-80.43787971289063%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%7D%2C%22isListVisible%22%3Atrue%2C%22mapZoom%22%3A12%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Wellington%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A21195%2C%22regionType%22%3A6%7D%5D%7D
+Image: wellington-florida-zillow-image
+
+Palm Beach https://www.zillow.com/palm-beach-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A26.773383097915264%2C%22south%22%3A26.59239435008645%2C%22east%22%3A-79.9566283935547%2C%22west%22%3A-80.12279660644532%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sch%22%3A%7B%22value%22%3Atrue%7D%7D%2C%22isListVisible%22%3Atrue%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Palm%20Beach%2C%20FL%22%2C%22mapZoom%22%3A13%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A13166%2C%22regionType%22%3A6%7D%5D%7D
+Image: palm-beach-florida-zillow-image
+
+Jupiter https://www.zillow.com/jupiter-fl/?category=SEMANTIC&searchQueryState=%7B%22isMapVisible%22%3Atrue%2C%22mapBounds%22%3A%7B%22north%22%3A27.316180791882893%2C%22south%22%3A26.593969206974695%2C%22east%22%3A-79.90207007421876%2C%22west%22%3A-80.56674292578126%7D%2C%22filterState%22%3A%7B%22sort%22%3A%7B%22value%22%3A%22globalrelevanceex%22%7D%2C%22sch%22%3A%7B%22value%22%3Atrue%7D%7D%2C%22isListVisible%22%3Atrue%2C%22category%22%3A%22cat1%22%2C%22curatedCollection%22%3Anull%2C%22usersSearchTerm%22%3A%22Jupiter%20FL%20homes%22%2C%22regionSelection%22%3A%5B%7B%22regionId%22%3A25345%2C%22regionType%22%3A6%7D%5D%2C%22mapZoom%22%3A11%7D
+Image: jupiter-florida-zillow-image
+
+
+
