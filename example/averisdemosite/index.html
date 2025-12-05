@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <title>Averis Coffee - Artisanal Coffee from the Himalayan Highlands | Demo Site</title>
+    <meta name="description" content="Averis Coffee - Premium artisanal coffee sourced from remote Himalayan highlands. Experience our handcrafted brews, in-house pastries, and warm atmosphere. *This is a demo website for portfolio purposes.*">
+    <meta name="keywords" content="coffee shop, artisanal coffee, himalayan coffee, specialty coffee, demo website, portfolio site">
+    
+    <!-- SEO Optimization -->
+    <meta name="author" content="Averis Coffee Demo">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="googlebot" content="noindex, nofollow">
+    <link rel="canonical" href="https://averis-demo.com/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://averis-demo.com/">
+    <meta property="og:title" content="Averis Coffee - Artisanal Coffee Experience | Demo Site">
+    <meta property="og:description" content="Premium coffee experience from the Himalayan highlands. This is a demonstration website showcasing modern coffee shop design.">
+    <meta property="og:image" content="https://averis-demo.com/assets/images/averis-coffee-logo.png">
+    <meta property="og:site_name" content="Averis Coffee Demo">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://averis-demo.com/">
+    <meta property="twitter:title" content="Averis Coffee - Demo Coffee Shop Website">
+    <meta property="twitter:description" content="Artisanal coffee experience demonstration site with modern design and warm atmosphere.">
+    <meta property="twitter:image" content="https://averis-demo.com/assets/images/averis-coffee-logo.png">
+    
+    <!-- Local Business Schema (Demo) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Averis Coffee (Demo Site)",
+        "image": "https://averis-demo.com/assets/images/averis-coffee-logo.png",
+        "@id": "https://averis-demo.com/",
+        "url": "https://averis-demo.com/",
+        "telephone": "+1-555-DEMO-123",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "123 Demo Street",
+            "addressLocality": "Portfolio City",
+            "addressRegion": "WEB",
+            "postalCode": "12345",
+            "addressCountry": "US"
+        },
+        "openingHoursSpecification": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": [
+                "Monday",
+                "Tuesday",
+                "Wednesday",
+                "Thursday",
+                "Friday",
+                "Saturday",
+                "Sunday"
+            ],
+            "opens": "06:00",
+            "closes": "22:00"
+        },
+        "priceRange": "$$",
+        "description": "This is a demonstration coffee shop website for portfolio purposes."
+    }
+    </script>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 32 32%22><rect width=%2232%22 height=%2232%22 fill=%22%238B4513%22/></svg>">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 180 180%22><rect width=%22180%22 height=%22180%22 fill=%22%238B4513%22/></svg>">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <div class="logo-text">
+                    <span class="logo-main">Averis</span>
+                    <span class="logo-sub">Coffee</span>
+                </div>
+            </a>
+            <div class="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#story" class="nav-link">Our Story</a>
+                <a href="#menu" class="nav-link">Menu</a>
+                <a href="#experience" class="nav-link">Experience</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#contact" class="nav-link">Visit Us</a>
+                <a href="tel:555-DEMO-123" class="nav-cta">
+                    <i class="fas fa-phone"></i> (555) DEMO-123
+                </a>
+            </div>
+            <!-- Custom Hamburger Menu -->
+            <div class="hamburger">
+                <input class="checkbox" type="checkbox" />
+                <svg fill="none" viewBox="0 0 50 50" height="50" width="50">
+                    <path
+                        class="lineTop line"
+                        stroke-linecap="round"
+                        stroke-width="4"
+                        stroke="black"
+                        d="M6 11L44 11"
+                    ></path>
+                    <path
+                        stroke-linecap="round"
+                        stroke-width="4"
+                        stroke="black"
+                        d="M6 24H43"
+                        class="lineMid line"
+                    ></path>
+                    <path
+                        stroke-linecap="round"
+                        stroke-width="4"
+                        stroke="black"
+                        d="M6 37H43"
+                        class="lineBottom line"
+                    ></path>
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg">
+            <img src="assets/images/coffeeshop-front.jpg" alt="Modern coffee shop exterior" class="hero-image">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="demo-badge">
+                <i class="fas fa-info-circle"></i>
+                <span>Demo Website - Experience Modern Coffee Culture</span>
+            </div>
+            <h1 class="hero-title">
+                <span class="title-accent">Averis</span> Coffee<br>
+                <span class="subtitle">Where Every Cup Tells a Story</span>
+            </h1>
+            <p class="hero-subtitle">
+                Step into our warm, modern space where artisanal coffee meets contemporary comfort. 
+                From hand-selected beans to expertly crafted beverages, discover your perfect cup in our welcoming atmosphere.
+            </p>
+            <div class="hero-features">
+                <div class="feature-item">
+                    <i class="fas fa-coffee"></i>
+                    <span>Artisan Crafted</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-heart"></i>
+                    <span>Locally Loved</span>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-home"></i>
+                    <span>Cozy Atmosphere</span>
+                </div>
+            </div>
+            <div class="hero-buttons">
+                <a href="#menu" class="btn btn-primary">
+                    <i class="fas fa-coffee"></i> Explore Our Menu
+                </a>
+                <a href="#story" class="btn btn-secondary">
+                    <i class="fas fa-book-open"></i> Our Story
+                </a>
+            </div>
+            <div class="hero-trust">
+                <div class="trust-item">
+                    <span class="trust-number">15,847</span>
+                    <span class="trust-label">Ft Elevation</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">100%</span>
+                    <span class="trust-label">Organic</span>
+                </div>
+                <div class="trust-item">
+                    <span class="trust-number">24h</span>
+                    <span class="trust-label">Fresh Roasted</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Story Section -->
+    <section id="story" class="story-section">
+        <div class="container">
+            <div class="story-content">
+                <div class="story-text">
+                    <h2 class="section-title">Our Coffee Story</h2>
+                    <div class="story-highlight">
+                        <p><em>*Averis Coffee represents the perfect blend of modern coffee culture and timeless hospitality. This demo showcases our commitment to creating exceptional coffee experiences.*</em></p>
+                    </div>
+                    <p>Born from a passion for exceptional coffee and genuine community, Averis Coffee is where modern craftsmanship meets warm hospitality. Our story began with a simple belief: that great coffee should bring people together in spaces that feel like home.</p>
+                    
+                    <p>Every morning, our skilled baristas transform carefully selected beans into liquid art. From the gentle hiss of our espresso machines to the delicate pour of perfectly steamed milk, each cup is crafted with precision and served with a smile that brightens your day.</p>
+                    
+                    <h3>Our Commitment</h3>
+                    <p>We source directly from sustainable farms, ensuring every bean meets our exacting standards for flavor and ethical production. Our in-house roasting program brings out the unique characteristics of each origin, creating signature blends that define the Averis experience.</p>
+                    
+                    <p>Whether you're starting your morning with our rich, full-bodied signature blend or savoring an afternoon latte with intricate foam art, every moment at Averis is designed to create lasting memories over exceptional coffee.</p>
+                    
+                    <div class="story-stats">
+                        <div class="stat-item">
+                            <span class="stat-number">50+</span>
+                            <span class="stat-label">Coffee Varieties</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">1000+</span>
+                            <span class="stat-label">Daily Cups Served</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">2020</span>
+                            <span class="stat-label">Founded</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="story-image">
+                    <img src="assets/images/inside-shop.jpg" alt="Modern coffee shop interior" class="story-img">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu-section">
+        <div class="container">
+            <h2 class="section-title">Our Artisanal Menu</h2>
+            <p class="section-subtitle">Every item crafted in-house with passion and precision</p>
+            
+            <div class="menu-categories">
+                <div class="menu-category active" data-category="coffee">Coffee</div>
+                <div class="menu-category" data-category="espresso">Espresso</div>
+                <div class="menu-category" data-category="pastries">Pastries</div>
+                <div class="menu-category" data-category="seasonal">Seasonal</div>
+            </div>
+
+            <div class="menu-grid">
+                <!-- Coffee Section -->
+                <div class="menu-items coffee active">
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Averis Signature Blend</h3>
+                            <p>Our house blend with rich chocolate notes and a smooth caramel finish - perfectly balanced for any time of day</p>
+                        </div>
+                        <div class="item-price">$4.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Morning Ritual</h3>
+                            <p>Medium roast with bright acidity and citrus notes - the perfect way to start your day</p>
+                        </div>
+                        <div class="item-price">$5.00</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Dark Roast Premium</h3>
+                            <p>Bold, full-bodied coffee with smoky undertones and intense flavor that coffee lovers crave</p>
+                        </div>
+                        <div class="item-price">$4.75</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Light & Bright</h3>
+                            <p>Ethiopian single origin with floral notes and a clean, refreshing finish</p>
+                        </div>
+                        <div class="item-price">$5.25</div>
+                    </div>
+                </div>
+
+                <!-- Espresso Section -->
+                <div class="menu-items espresso">
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Averis Espresso</h3>
+                            <p>Pure highland intensity in a perfect shot</p>
+                        </div>
+                        <div class="item-price">$3.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Highland Americano</h3>
+                            <p>Our signature espresso with hot water, pure and strong</p>
+                        </div>
+                        <div class="item-price">$4.25</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Artisan Cappuccino</h3>
+                            <p>Velvety steamed milk meets our rich espresso, topped with beautiful latte art</p>
+                        </div>
+                        <div class="item-price">$4.75</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Signature Latte</h3>
+                            <p>Smooth and creamy with your choice of oat, almond, or traditional dairy milk</p>
+                        </div>
+                        <div class="item-price">$5.25</div>
+                    </div>
+                </div>
+
+                <!-- Pastries Section -->
+                <div class="menu-items pastries">
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Fresh Baked Croissants</h3>
+                            <p>Buttery, flaky pastries baked fresh daily - perfect with your morning coffee</p>
+                        </div>
+                        <div class="item-price">$3.75</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Artisan Blueberry Muffins</h3>
+                            <p>Moist, fluffy muffins bursting with fresh blueberries and a hint of lemon zest</p>
+                        </div>
+                        <div class="item-price">$4.25</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Avocado Toast Deluxe</h3>
+                            <p>Fresh avocado on artisan sourdough with heirloom tomatoes and everything seasoning</p>
+                        </div>
+                        <div class="item-price">$8.50</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Double Chocolate Brownies</h3>
+                            <p>Rich, fudgy brownies with dark chocolate chunks - a chocolate lover's dream</p>
+                        </div>
+                        <div class="item-price">$4.50</div>
+                    </div>
+                </div>
+
+                <!-- Seasonal Section -->
+                <div class="menu-items seasonal">
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Spiced Pumpkin Latte</h3>
+                            <p>Seasonal favorite with real pumpkin, cinnamon, nutmeg, and a touch of vanilla</p>
+                        </div>
+                        <div class="item-price">$5.75</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Chai Tea Latte</h3>
+                            <p>Aromatic blend of black tea and warming spices, perfectly balanced with steamed milk</p>
+                        </div>
+                        <div class="item-price">$5.25</div>
+                    </div>
+                    <div class="menu-item">
+                        <div class="item-info">
+                            <h3>Cold Brew Tonic</h3>
+                            <p>Refreshing cold brew coffee with tonic water and a twist of orange - perfect for summer</p>
+                        </div>
+                        <div class="item-price">$5.50</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container">
+            <h2 class="section-title">The Averis Experience</h2>
+            <div class="experience-grid">
+                <div class="experience-card">
+                    <div class="card-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Bean to Cup Journey</h3>
+                    <p>Witness our coffee's journey from the Himalayan highlands to your cup through our interactive display.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="card-icon">
+                        <i class="fas fa-fire"></i>
+                    </div>
+                    <h3>Live Roasting</h3>
+                    <p>Watch our master roasters craft small batches throughout the day, filling the air with rich aromas.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="card-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Latte Art Classes</h3>
+                    <p>Learn the ancient art of coffee presentation from our skilled baristas every Saturday morning.</p>
+                </div>
+                <div class="experience-card">
+                    <div class="card-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Highland Stories</h3>
+                    <p>Monthly storytelling sessions featuring tales from our partner villages in the Averis Valley.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery-section">
+        <div class="container">
+            <h2 class="section-title">Gallery</h2>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="assets/images/latte-art-with-wood-board-background.jpg" alt="Beautiful latte art" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span>Latte Art Mastery</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/coffee-beans-closeup.jpg" alt="Premium coffee beans" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span>Premium Beans</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/morning-breakfast.jpg" alt="Fresh breakfast offerings" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span>Fresh Breakfast</span>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="assets/images/outside-view-mountains.jpg" alt="Cozy atmosphere with mountain views" class="gallery-img">
+                    <div class="gallery-overlay">
+                        <span>Scenic Views</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Visit Our Demo Location</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="demo-notice">
+                        <h3>Important Notice</h3>
+                        <p>This is a demonstration website created for portfolio purposes. Averis Coffee is a fictional establishment and does not exist at any physical location. This design showcases modern coffee shop website capabilities.</p>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4>Demo Address</h4>
+                            <p>123 Portfolio Street<br>Design City, WEB 12345</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4>Demo Phone</h4>
+                            <p>(555) DEMO-123</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4>Demo Hours</h4>
+                            <p>Mon-Sun: 6:00 AM - 10:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-map">
+                    <div class="map-container">
+                        <img src="../../../images/laptop.jpg" alt="Digital coffee experience" class="contact-img">
+                        <div class="map-overlay">
+                            <i class="fas fa-map"></i>
+                            <span>Interactive Map (Demo)</span>
+                            <p>In a real implementation, this would show the coffee shop's location</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo-text">
+                        <span class="logo-main">Averis</span>
+                        <span class="logo-sub">Coffee</span>
+                    </div>
+                    <p>From highland to your cup</p>
+                    <div class="demo-footer-notice">
+                        <p><strong>Demo Website:</strong> This is a fictional coffee shop created for web design demonstration purposes.</p>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#story">Our Story</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#contact">Visit Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Averis Coffee Demo. This is a fictional business created for web design demonstration.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
