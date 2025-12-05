@@ -629,9 +629,10 @@ function initScrollAnimations() {
     
     if (animatedElements.length === 0) return;
     
+    const isMobile = window.innerWidth <= 768;
     const observerOptions = {
-        threshold: 0.15,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: isMobile ? 0.1 : 0.15, // Lower threshold for mobile for earlier trigger
+        rootMargin: isMobile ? '0px 0px -30px 0px' : '0px 0px -50px 0px' // Smaller margin for mobile
     };
     
     const observer = new IntersectionObserver((entries) => {
@@ -680,11 +681,40 @@ function addAnimationClasses() {
         card.style.animationDelay = `${index * 0.1}s`;
     });
     
-    // Add animations to location buttons
+    // Add animations to location buttons with mobile optimization
     const locationButtons = document.querySelectorAll('.location-btn');
-    locationButtons.forEach((btn, index) => {
+    const isMobile = window.innerWidth <= 768;
+    
+    // Separate buttons by county for consistent timing
+    const browardButtons = document.querySelectorAll('.location-category:first-child .location-btn');
+    const palmBeachButtons = document.querySelectorAll('.location-category:last-child .location-btn');
+    
+    // Apply mobile optimization to Broward County buttons
+    browardButtons.forEach((btn, index) => {
         btn.classList.add('animate-zoom-in');
-        btn.style.animationDelay = `${index * 0.05}s`;
+        if (isMobile) {
+            const batchSize = 4; // Smaller batches for faster loading
+            const batchIndex = Math.floor(index / batchSize);
+            const indexInBatch = index % batchSize;
+            const delay = (batchIndex * 0.15) + (indexInBatch * 0.02);
+            btn.style.animationDelay = `${Math.min(delay, 0.4)}s`;
+        } else {
+            btn.style.animationDelay = `${index * 0.03}s`;
+        }
+    });
+    
+    // Apply mobile optimization to Palm Beach County buttons  
+    palmBeachButtons.forEach((btn, index) => {
+        btn.classList.add('animate-zoom-in');
+        if (isMobile) {
+            const batchSize = 3; // Even smaller batches for Palm Beach (fewer buttons)
+            const batchIndex = Math.floor(index / batchSize);
+            const indexInBatch = index % batchSize;
+            const delay = (batchIndex * 0.12) + (indexInBatch * 0.02);
+            btn.style.animationDelay = `${Math.min(delay, 0.3)}s`;
+        } else {
+            btn.style.animationDelay = `${index * 0.03}s`;
+        }
     });
     
     // Add animations to service cards that don't have them yet

@@ -1410,6 +1410,16 @@ blockquote {
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     }
     
+    /* Mobile animation performance optimizations */
+    .animate-zoom-in.in-view {
+        animation-duration: 0.3s; /* Faster animation on mobile */
+    }
+    
+    .location-btn {
+        will-change: transform, opacity; /* Optimize for animations */
+        transform: translateZ(0); /* Force hardware acceleration */
+    }
+    
     .footer-bottom {
         flex-direction: column;
         text-align: center;
